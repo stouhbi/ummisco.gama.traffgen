@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<doc>
+<constantsCategories/>
+<conceptList>
+<concept id="action"/>
+<concept id="agent_location"/>
+<concept id="agent_movement"/>
+<concept id="algorithm"/>
+<concept id="architecture"/>
+<concept id="arithmetic"/>
+<concept id="asc"/>
+<concept id="attribute"/>
+<concept id="autosave"/>
+<concept id="background"/>
+<concept id="batch"/>
+<concept id="bdi"/>
+<concept id="behavior"/>
+<concept id="camera"/>
+<concept id="cast"/>
+<concept id="chart"/>
+<concept id="clustering"/>
+<concept id="color"/>
+<concept id="comodel"/>
+<concept id="comparison"/>
+<concept id="communication"/>
+<concept id="condition"/>
+<concept id="constant"/>
+<concept id="container"/>
+<concept id="csv"/>
+<concept id="cycle"/>
+<concept id="date"/>
+<concept id="database"/>
+<concept id="dem"/>
+<concept id="dgs"/>
+<concept id="diffusion"/>
+<concept id="dimension"/>
+<concept id="display"/>
+<concept id="distribution"/>
+<concept id="dxf"/>
+<concept id="edge"/>
+<concept id="elevation"/>
+<concept id="enumeration"/>
+<concept id="equation"/>
+<concept id="experiment"/>
+<concept id="facet"/>
+<concept id="file"/>
+<concept id="filter"/>
+<concept id="fipa"/>
+<concept id="fsm"/>
+<concept id="geometry"/>
+<concept id="gis"/>
+<concept id="global"/>
+<concept id="graph"/>
+<concept id="graph_weight"/>
+<concept id="grid"/>
+<concept id="graphic"/>
+<concept id="graphic_unit"/>
+<concept id="gui"/>
+<concept id="halt"/>
+<concept id="headless"/>
+<concept id="hydrology"/>
+<concept id="image"/>
+<concept id="import"/>
+<concept id="inheritance"/>
+<concept id="init"/>
+<concept id="inspector"/>
+<concept id="layer"/>
+<concept id="length_unit"/>
+<concept id="light"/>
+<concept id="list"/>
+<concept id="load_file"/>
+<concept id="logical"/>
+<concept id="loop"/>
+<concept id="matrix"/>
+<concept id="math"/>
+<concept id="map"/>
+<concept id="mirror"/>
+<concept id="model"/>
+<concept id="monitor"/>
+<concept id="multi_level"/>
+<concept id="multi_criteria"/>
+<concept id="multi_simulation"/>
+<concept id="neighbors"/>
+<concept id="network"/>
+<concept id="nil"/>
+<concept id="node"/>
+<concept id="obj"/>
+<concept id="obstacle"/>
+<concept id="opengl"/>
+<concept id="operator"/>
+<concept id="optimization"/>
+<concept id="osm"/>
+<concept id="output"/>
+<concept id="overlay"/>
+<concept id="parameter"/>
+<concept id="pause"/>
+<concept id="permanent"/>
+<concept id="physics_engine"/>
+<concept id="point"/>
+<concept id="probability"/>
+<concept id="pseudo_variable"/>
+<concept id="r"/>
+<concept id="random"/>
+<concept id="random_operator"/>
+<concept id="raster"/>
+<concept id="regression"/>
+<concept id="reflex"/>
+<concept id="refresh"/>
+<concept id="save_file"/>
+<concept id="scheduler"/>
+<concept id="serialize"/>
+<concept id="shape"/>
+<concept id="shapefile"/>
+<concept id="shortest_path"/>
+<concept id="skill"/>
+<concept id="sound"/>
+<concept id="spatial_computation"/>
+<concept id="spatial_relation"/>
+<concept id="spatial_transformation"/>
+<concept id="species"/>
+<concept id="sport"/>
+<concept id="statistic"/>
+<concept id="string"/>
+<concept id="surface_unit"/>
+<concept id="svg"/>
+<concept id="system"/>
+<concept id="task_based"/>
+<concept id="ternary"/>
+<concept id="text"/>
+<concept id="texture"/>
+<concept id="test"/>
+<concept id="3d"/>
+<concept id="tif"/>
+<concept id="time"/>
+<concept id="time_unit"/>
+<concept id="topology"/>
+<concept id="torus"/>
+<concept id="transport"/>
+<concept id="txt"/>
+<concept id="type"/>
+<concept id="update"/>
+<concept id="volume_unit"/>
+<concept id="weight_unit"/>
+<concept id="write"/>
+<concept id="xml"/>
+<concept id="world"/>
+</conceptList>
+<constants/>
+<operatorsCategories>
+<category id="Iterator operators"/>
+<category id="TraffGen"/>
+</operatorsCategories>
+<operators>
+<operator alphabetOrder="nz" id="vehicleGenerator" name="vehicleGenerator">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.VehicleGenerator" type="-13">
+<operand name="timeInterval" position="0" type="msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;"/>
+<operand name="transitionType" position="1" type="string"/>
+<operand name="transitionMatrix" position="2" type="matrix&lt;float&gt;"/>
+<operand name="vehicleTypes" position="3" type="list&lt;string&gt;"/>
+<operand name="timeHeadway" position="4" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.PeriodHeadwayGenerator&gt;"/>
+<operand name="speed" position="5" type="ummisco.gama.traffgen.types.SpeedGenerator"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>create instance of a vehicle Generator</result>
+</documentation>
+</operator>
+<operator alphabetOrder="nz" id="speed" name="speed">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.SpeedGenerator" type="-13">
+<operand name="meanSpeed" position="0" type="java.util.Map&lt;java.lang.String,java.lang.Double&gt;"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>Create a TimeHeadway model instance</result>
+</documentation>
+</operator>
+<operator alphabetOrder="dm" id="dummy" name="dummy">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.Dummy" type="-13">
+<operand name="word" position="0" type="string"/>
+<operand name="number" position="1" type="float"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>create a dummy</result>
+</documentation>
+</operator>
+<operator alphabetOrder="nz" id="period" name="period">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.PeriodHeadwayGenerator" type="-13">
+<operand name="periodSequence" position="0" type="int"/>
+<operand name="THgenerators" position="1" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.VehicleTHGenerator&gt;"/>
+<operand name="duration" position="2" type="int"/>
+<operand name="countGenerationModel" position="3" type="map&lt;string,unknown&gt;"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result> create a Period Type instance</result>
+</documentation>
+</operator>
+<operator alphabetOrder="dm" id="generation_model" name="generation_model">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.VehicleTHGenerator" type="-13">
+<operand name="vehicleTypes" position="0" type="list&lt;string&gt;"/>
+<operand name="generationModel" position="1" type="map&lt;string,unknown&gt;"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>create a TH generator with model and parameters</result>
+</documentation>
+</operator>
+<operator alphabetOrder="dm" id="dummy" name="dummy">
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco.gama.traffgen.types.DummyType" contentType="" returnType="dummy" type="">
+<operand name="val" position="0" type="any"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>Casts the operand into the type dummy</result>
+</documentation>
+</operator>
+<operator alphabetOrder="nz" id="timeHeadway" name="timeHeadway">
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco.gama.traffgen.types.VehicleTHGeneratorType" contentType="" returnType="timeHeadway" type="">
+<operand name="val" position="0" type="any"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>Casts the operand into the type timeHeadway</result>
+</documentation>
+</operator>
+<operator alphabetOrder="nz" id="period" name="period">
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco.gama.traffgen.types.PeriodHeadwayGeneratorType" contentType="" returnType="period" type="">
+<operand name="val" position="0" type="any"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>Casts the operand into the type period</result>
+</documentation>
+</operator>
+<operator alphabetOrder="nz" id="speed" name="speed">
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco.gama.traffgen.types.SpeedGeneratorType" contentType="" returnType="speed" type="">
+<operand name="val" position="0" type="any"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>Casts the operand into the type speed</result>
+</documentation>
+</operator>
+<operator alphabetOrder="nz" id="vehicleGenerator" name="vehicleGenerator">
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco.gama.traffgen.types.VehicleGeneratorType" contentType="" returnType="vehicleGenerator" type="">
+<operand name="val" position="0" type="any"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>Casts the operand into the type vehicleGenerator</result>
+</documentation>
+</operator>
+</operators>
+<skills>
+<skill class="ummisco.gama.traffgen.skills.VehicleGeneratorSkill" extends="" id="vehicleGen" name="vehicleGen">
+<vars>
+<var constant="false" depends_on="" name="generators" type="map">
+<documentation>
+<result>list of generators</result>
+</documentation>
+</var>
+</vars>
+<actions>
+<action name="transform" returnType="msi.gama.util.matrix.IMatrix&lt;java.lang.Float&gt;">
+<args>
+<arg name="list" optional="false" type="list"/>
+<arg name="method" optional="true" type="string"/>
+</args>
+</action>
+<action name="generateVehicles" returnType="void">
+<args>
+<arg name="type" optional="true" type="string">
+<documentation>
+<result>type of generation, by count or by headway</result>
+</documentation>
+</arg>
+</args>
+</action>
+<action name="launchVehicles" returnType="void">
+<args/>
+<documentation>
+<result>action for generating vehicles based on schedule</result>
+</documentation>
+</action>
+<action name="initVehicle" returnType="void">
+<args/>
+<documentation>
+<result>initiate vehicle from the list in order to</result>
+</documentation>
+</action>
+</actions>
+<concepts/>
+</skill>
+</skills>
+<architectures/>
+<speciess/>
+<insideStatementKinds/>
+<insideStatementSymbols/>
+<statementsKinds/>
+<statements/>
+<types>
+<type id="89" kind="104" name="dummy">
+<concepts/>
+</type>
+<type id="97" kind="104" name="timeHeadway">
+<documentation>
+<result> The timeHeadway metadata </result>
+</documentation>
+<concepts/>
+</type>
+<type id="98" kind="104" name="period">
+<documentation>
+<result>Period of generation of vehicles</result>
+</documentation>
+<concepts/>
+</type>
+<type id="96" kind="104" name="speed">
+<documentation>
+<result> The speed metadata </result>
+</documentation>
+<concepts/>
+</type>
+<type id="99" kind="104" name="vehicleGenerator">
+<documentation>
+<result>the vehicle generator for each timeInterval, this also has the vehicleType generation metadata and has the TH metdata type and speedmetaData Type</result>
+</documentation>
+<concepts/>
+</type>
+</types>
+</doc>
+
