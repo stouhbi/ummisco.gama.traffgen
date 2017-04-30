@@ -23,6 +23,7 @@ import msi.gama.util.matrix.IMatrix;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.helpers.Transformer;
+import ummisco.gama.traffgen.species.Vehicle;
 
 
 @vars({
@@ -43,10 +44,6 @@ import ummisco.gama.helpers.Transformer;
 		@var(name = IVehicleGenerator.TIME_HEADWAY, type = IType.LIST, doc = @doc("the list of timeHeadway metadata")) ,
 
 		@var(name = IVehicleGenerator.VEHICLE_LIST, type = IType.LIST, doc = @doc("list of vehicle type to generate")),
-		@var(name = IVehicleGenerator.SPEED_LIST, type = IType.LIST, doc = @doc("list of speed of each vehicle in vehicle List")),
-		@var(name = IVehicleGenerator.TH_LIST, type = IType.LIST, doc = @doc("List of time Headway of each vehicle in list")),
-		@var(name = IVehicleGenerator.PERIOD_LIST, type = IType.LIST, doc = @doc("list of preriod number based on the sequence of generation")),
-		@var(name = IVehicleGenerator.VEHICLE_NUMBER, type = IType.LIST, doc = @doc("list of number of vehicles for each period in the generation"))
 })
 public class VehicleGenerator {
 
@@ -60,11 +57,7 @@ public class VehicleGenerator {
 	private SpeedGenerator speed;
 	private IList<PeriodHeadwayGenerator> timeHeadway = GamaListFactory.create(Types.get(PeriodHeadwayGenerator.Id));
 	
-	private IList<String> vehicleList =GamaListFactory.create(Types.get(IType.STRING));
-	private IList<Double> speedList = GamaListFactory.create(Types.get(IType.FLOAT));
-	private IList<GamaDate> timeHeadwayList = GamaListFactory.create(Types.get(IType.DATE));
-	private IList<Integer> periodList = GamaListFactory.create(Types.get(IType.INT));
-	private IList<Integer> vehicleNumber =  GamaListFactory.create(Types.get(IType.INT));
+	private IList<Vehicle> vehicleList =GamaListFactory.create(Types.get(IType.AGENT));
 	
     public VehicleGenerator(IList<GamaDate> timeInterval, String transitionType,
 			IMatrix<Double> transition, IList<PeriodHeadwayGenerator> timeHeadway, SpeedGenerator speed, IList<String> vehicleTypes) {
@@ -230,6 +223,9 @@ public class VehicleGenerator {
 		double periodExpire = 0;
 		int vehicleQueue = 0;
 		GamaDate nextDate = timeStart;
+		double vehicleTimeHeadway = 0;
+		// residu should be the duration for a period to finish if we have timeHeadway that does not complete the duration of a period
+		double residu = 0;
 		// choose a random first vehicle
 		int previousVehicleType =  rnd.nextInt(vehicleTypes.size() - 1);
 		while (actualTime < diffTime) {
@@ -240,7 +236,7 @@ public class VehicleGenerator {
 				int currentVehicleType = this.generateVehicleType(scope, previousVehicleType,
 						(GamaMatrix<Double>) transition);
 				// generate timeHeadway
-				double vehicleTimeHeadway = timeHeadway.get(periodSeq).generateTimeHeadway(scope, vehicleList, timeHeadwayList,
+				vehicleTimeHeadway = timeHeadway.get(periodSeq).generateTimeHeadway(scope, vehicleList,
 						vehicleTypes.get(currentVehicleType));
 				// add the time headway to consider time before period expires
 				periodExpire += vehicleTimeHeadway;
@@ -248,17 +244,18 @@ public class VehicleGenerator {
 						vehicleTypes.get(previousVehicleType));
 				if (periodExpire <= timeHeadway.get(periodSeq).getDuration()) {
 					// add the vehicle to the queue
-					vehicleList.add(vehicleTypes.get(currentVehicleType));
-					speedList.add(vehicleSpeed);
-					speedList.add(vehicleSpeed);
-					nextDate.plusMillis(vehicleTimeHeadway*1000);
-					timeHeadwayList.add(nextDate);
+					// add the vehicle to the queue
+					nextDate = nextDate.plusMillis(residu*1000 + vehicleTimeHeadway*1000);
+					residu = 0;
+					Vehicle veh = new Vehicle(scope.getExperiment().getPopulation(), vehicleTypes.get(currentVehicleType), 0.0, 0.0, vehicleSpeed, nextDate,false);
+					vehicleList.add(veh);
 					previousVehicleType = currentVehicleType;
 					vehicleQueue++;
 				}
 			}
-			vehicleNumber.add(vehicleQueue);
-			periodList.add(timeHeadway.get(periodSeq).getPeriodSequence());
+			//residu =  periodExpire - nextDate.floatValue(scope);
+			//vehicleNumber.add(vehicleQueue);
+			//periodList.add(timeHeadway.get(periodSeq).getPeriodSequence());
 			actualTime +=  timeHeadway.get(periodSeq).getDuration();
 			periodExpire = 0;
 			periodSeq = (periodSeq == timeHeadway.size() - 1) ? 0 : periodSeq++;
@@ -318,6 +315,9 @@ public class VehicleGenerator {
 		double periodExpire = 0;
 		int vehicleQueue = 0;
 		GamaDate nextDate = timeStart;
+		// residu should be the duration for a period to finish if we have timeHeadway that does not complete the duration of a period
+		double residu = 0;
+		double vehicleTimeHeadway = 0;
 		// choose a random first vehicle
 		int previousVehicleType =  rnd.nextInt(vehicleTypes.size() - 1);
 		while (actualTime < diffTime) {
@@ -327,23 +327,25 @@ public class VehicleGenerator {
 				int currentVehicleType = this.generateVehicleType(scope, previousVehicleType,
 						(GamaMatrix<Double>) transition);
 				// generate timeHeadway
-				double vehicleTimeHeadway = timeHeadway.get(periodSeq).generateTimeHeadway(scope, vehicleList, timeHeadwayList,
+				vehicleTimeHeadway = timeHeadway.get(periodSeq).generateTimeHeadway(scope, vehicleList,
 						vehicleTypes.get(currentVehicleType));
 				// add the time headway to consider time before period expires
 				periodExpire += vehicleTimeHeadway;
 				double vehicleSpeed = speed.generateSpeed(vehicleTypes.get(currentVehicleType), vehicleTypes.get(previousVehicleType));
 				if (periodExpire <= timeHeadway.get(periodSeq).getDuration()) {
 					// add the vehicle to the queue
-					vehicleList.add(vehicleTypes.get(currentVehicleType));
-					speedList.add(vehicleSpeed);
-					nextDate = nextDate.plus(Duration.ofMillis((long) vehicleTimeHeadway*1000));
-					timeHeadwayList.add(nextDate);
+					nextDate = nextDate.plusMillis(residu*1000 + vehicleTimeHeadway*1000);
+					residu = 0;
+					Vehicle veh = new Vehicle(scope.getExperiment().getPopulation(), vehicleTypes.get(currentVehicleType), 0.0, 0.0, vehicleSpeed, nextDate,false);
+					vehicleList.add(veh);
 					previousVehicleType = currentVehicleType;
 					vehicleQueue++;
 				}
 			}
-			vehicleNumber.add(vehicleQueue);
-			periodList.add(timeHeadway.get(periodSeq).getPeriodSequence());
+			
+			//residu =  periodExpire - nextDate.floatValue(scope);
+			//vehicleNumber.add(vehicleQueue);
+			//periodList.add(timeHeadway.get(periodSeq).getPeriodSequence());
 			actualTime +=  timeHeadway.get(periodSeq).getDuration();
 			periodExpire = 0;
 			periodSeq = (periodSeq == timeHeadway.size() - 1) ? 0 : periodSeq++;
@@ -436,53 +438,16 @@ public class VehicleGenerator {
 	}
 
 	@getter(IVehicleGenerator.VEHICLE_LIST)
-	public IList<String> getVehicleList() {
+	public IList<Vehicle> getVehicleList() {
 		return vehicleList;
 	}
 	
 	@setter(IVehicleGenerator.VEHICLE_LIST)
-	public void setVehicleList(IList<String> vehicleList) {
+	public void setVehicleList(IList<Vehicle> vehicleList) {
 		this.vehicleList = vehicleList;
 	}
 
-	@getter(IVehicleGenerator.SPEED_LIST)
-	public IList<Double> getSpeedList() {
-		return speedList;
-	}
 
-	@setter(IVehicleGenerator.SPEED_LIST)
-	public void setSpeedList(IList<Double> speedList) {
-		this.speedList = speedList;
-	}
-
-	@getter(IVehicleGenerator.TH_LIST)
-	public IList<GamaDate> getTimeHeadwayList() {
-		return timeHeadwayList;
-	}
-	@setter(IVehicleGenerator.TH_LIST)
-	public void setTimeHeadwayList(IList<GamaDate> timeHeadwayList) {
-		this.timeHeadwayList = timeHeadwayList;
-	}
-
-	@getter(IVehicleGenerator.PERIOD_LIST)
-	public IList<Integer> getPeriodList() {
-		return periodList;
-	}
-
-	@setter(IVehicleGenerator.PERIOD_LIST)
-	public void setPeriodList(IList<Integer> periodList) {
-		this.periodList = periodList;
-	}
-
-	@getter(IVehicleGenerator.VEHICLE_NUMBER)
-	public IList<Integer> getVehicleNumber() {
-		return vehicleNumber;
-	}
-
-	@setter(IVehicleGenerator.VEHICLE_NUMBER)
-	public void setVehicleNumber(IList<Integer> vehicleNumber) {
-		this.vehicleNumber = vehicleNumber;
-	}
 	
 	
 	

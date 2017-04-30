@@ -148,151 +148,19 @@
 <constants/>
 <operatorsCategories>
 <category id="Iterator operators"/>
-<category id="TraffGen"/>
 </operatorsCategories>
-<operators>
-<operator alphabetOrder="nz" id="vehicleGenerator" name="vehicleGenerator">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.VehicleGenerator" type="-13">
-<operand name="timeInterval" position="0" type="msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;"/>
-<operand name="transitionType" position="1" type="string"/>
-<operand name="transitionMatrix" position="2" type="matrix&lt;float&gt;"/>
-<operand name="vehicleTypes" position="3" type="list&lt;string&gt;"/>
-<operand name="timeHeadway" position="4" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.PeriodHeadwayGenerator&gt;"/>
-<operand name="speed" position="5" type="ummisco.gama.traffgen.types.SpeedGenerator"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create instance of a vehicle Generator</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="speed" name="speed">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.SpeedGenerator" type="-13">
-<operand name="meanSpeed" position="0" type="java.util.Map&lt;java.lang.String,java.lang.Double&gt;"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Create a TimeHeadway model instance</result>
-</documentation>
-</operator>
-<operator alphabetOrder="dm" id="dummy" name="dummy">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.Dummy" type="-13">
-<operand name="word" position="0" type="string"/>
-<operand name="number" position="1" type="float"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a dummy</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="period" name="period">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.PeriodHeadwayGenerator" type="-13">
-<operand name="periodSequence" position="0" type="int"/>
-<operand name="THgenerators" position="1" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.VehicleTHGenerator&gt;"/>
-<operand name="duration" position="2" type="int"/>
-<operand name="countGenerationModel" position="3" type="map&lt;string,unknown&gt;"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result> create a Period Type instance</result>
-</documentation>
-</operator>
-<operator alphabetOrder="dm" id="generation_model" name="generation_model">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.VehicleTHGenerator" type="-13">
-<operand name="vehicleTypes" position="0" type="list&lt;string&gt;"/>
-<operand name="generationModel" position="1" type="map&lt;string,unknown&gt;"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a TH generator with model and parameters</result>
-</documentation>
-</operator>
-<operator alphabetOrder="dm" id="dummy" name="dummy">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.DummyType" contentType="" returnType="dummy" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type dummy</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="timeHeadway" name="timeHeadway">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.VehicleTHGeneratorType" contentType="" returnType="timeHeadway" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type timeHeadway</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="period" name="period">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.PeriodHeadwayGeneratorType" contentType="" returnType="period" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type period</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="speed" name="speed">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.SpeedGeneratorType" contentType="" returnType="speed" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type speed</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="vehicleGenerator" name="vehicleGenerator">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.VehicleGeneratorType" contentType="" returnType="vehicleGenerator" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type vehicleGenerator</result>
-</documentation>
-</operator>
-</operators>
+<operators/>
 <skills>
 <skill class="ummisco.gama.traffgen.skills.VehicleGeneratorSkill" extends="" id="vehicleGen" name="vehicleGen">
 <vars>
 <var constant="false" depends_on="" name="generators" type="map">
 <documentation>
 <result>list of generators</result>
+</documentation>
+</var>
+<var constant="false" depends_on="" name="vehicles" type="list">
+<documentation>
+<result>the list of vehicles to generate</result>
 </documentation>
 </var>
 </vars>
@@ -334,34 +202,6 @@
 <insideStatementSymbols/>
 <statementsKinds/>
 <statements/>
-<types>
-<type id="89" kind="104" name="dummy">
-<concepts/>
-</type>
-<type id="97" kind="104" name="timeHeadway">
-<documentation>
-<result> The timeHeadway metadata </result>
-</documentation>
-<concepts/>
-</type>
-<type id="98" kind="104" name="period">
-<documentation>
-<result>Period of generation of vehicles</result>
-</documentation>
-<concepts/>
-</type>
-<type id="96" kind="104" name="speed">
-<documentation>
-<result> The speed metadata </result>
-</documentation>
-<concepts/>
-</type>
-<type id="99" kind="104" name="vehicleGenerator">
-<documentation>
-<result>the vehicle generator for each timeInterval, this also has the vehicleType generation metadata and has the TH metdata type and speedmetaData Type</result>
-</documentation>
-<concepts/>
-</type>
-</types>
+<types/>
 </doc>
 

@@ -12,4 +12,6 @@ public interface IVehicleGeneratorSkill {
 	public final static String LAUNCH_VEHICLES = "launchVehicles";
 	
 	public final static String INIT_VEHICLE = "initVehicle";
+	
+	public final static String VEHICLES = "vehicles";
 }

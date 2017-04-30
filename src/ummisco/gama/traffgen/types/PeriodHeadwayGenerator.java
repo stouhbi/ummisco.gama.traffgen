@@ -6,9 +6,11 @@ import msi.gama.runtime.IScope;
 import msi.gama.util.GamaDate;
 import msi.gama.util.GamaListFactory;
 import msi.gama.util.IList;
+import msi.gaml.operators.Dates;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.helpers.Transformer;
+import ummisco.gama.traffgen.species.Vehicle;
 import umontreal.ssj.probdist.DiscreteDistributionInt;
 import umontreal.ssj.probdist.Distribution;
 import umontreal.ssj.probdist.DistributionFactory;
@@ -93,7 +95,7 @@ public class PeriodHeadwayGenerator {
 		this.countGenerationModel = model;
 	}
 
-	public double generateTimeHeadway(IScope scope, IList<String> vehicleList, IList<GamaDate> timeHeadway, String currentVehicle) {
+	public double generateTimeHeadway(IScope scope,IList<Vehicle> vehicleList, String currentVehicle) {
 		@SuppressWarnings("unchecked")
 		ArrayList<VehicleTHGenerator> thgenerators = (ArrayList<VehicleTHGenerator>) getTHGenerators();
 		int genPreviousVehiceIndex = 0;
@@ -117,14 +119,15 @@ public class PeriodHeadwayGenerator {
 			// means that time headway model for the current vehicle type is
 			// we need to find the last vehicle Type with the same generator and try to generate a coherent timeHeadway
 			IList<String> vehicles = thgenerators.get(genPreviousVehiceIndex).getVehicleTypes();
-			int index = Transformer.getlastIndexof((ArrayList<String>) vehicleList,  (ArrayList<String>) vehicles);
+			int index = Transformer.getlastIndexof((ArrayList<Vehicle>) vehicleList,  (ArrayList<String>) vehicles);
 			double arrival = 0;
 			if(index !=-1){
 				boolean found = false;
 				while(!found){
 					arrival = thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway();
-					GamaDate arrivalTime = timeHeadway.get(index).plusMillis(arrival*1000);
-					if(Math.abs(arrivalTime.floatValue(scope) - timeHeadway.lastValue(scope).floatValue(scope)) > IVehicleGenerator.MIN_HEADWAY)
+					GamaDate arrivalTime = vehicleList.get(index).getArrivalTime().plusMillis(arrival*1000);
+					double diff =  Math.abs(Dates.milliseconds_between(scope, arrivalTime, vehicleList.lastValue(scope).getArrivalTime()));
+					if(diff > IVehicleGenerator.MIN_HEADWAY*1000)
 						// the min time headway between the new vehicle and the last vehicle is over 0.05
 						found = true;
 				}

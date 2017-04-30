@@ -19,25 +19,30 @@ import msi.gama.util.GamaDate;
 import msi.gama.util.GamaMapFactory;
 import msi.gama.util.IList;
 import msi.gama.util.matrix.IMatrix;
+import msi.gaml.operators.Dates;
 import msi.gaml.skills.Skill;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.helpers.Transformer;
+import ummisco.gama.traffgen.species.Vehicle;
 import ummisco.gama.traffgen.types.IVehicleGenerator;
 
 import ummisco.gama.traffgen.types.VehicleGenerator;
 import umontreal.ssj.probdist.FisherFDist;
+import msi.gama.metamodel.agent.IAgent;
 import msi.gama.precompiler.GamlAnnotations.action;
 import msi.gama.precompiler.GamlAnnotations.arg;
 
 @skill(name = "vehicleGen", doc = @doc("The skill vehicle Generator that will provide the necessary vehicles"))
-@vars({ @var(name = IVehicleGeneratorSkill.GENERATORS, type = IType.MAP, doc = @doc("list of generators")) })
+@vars({ 
+	@var(name = IVehicleGeneratorSkill.GENERATORS, type = IType.MAP, doc = @doc("list of generators")),
+	@var(name=IVehicleGeneratorSkill.VEHICLES, type= IType.LIST, doc=@doc("the list of vehicles to generate"))	
+})
+
 public class VehicleGeneratorSkill extends Skill {
 
 	private Map<GamaDate, IList<VehicleGenerator>> generators = new HashMap<GamaDate, IList<VehicleGenerator>>();
-	private ArrayList<String> vehicleType = new ArrayList<String>();
-	private ArrayList<GamaDate> arrivalTime = new ArrayList<GamaDate>();
-	private ArrayList<Double> speed = new ArrayList<Double>();
+	private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 	public GamaDate firstDate = null;
 	public GamaDate nextUpdate = null;
 
@@ -66,7 +71,8 @@ public class VehicleGeneratorSkill extends Skill {
 		if (scope.hasArg("type")) {
 			type = (String) scope.getArg("type", IType.STRING);
 		}
-		for (Map.Entry<GamaDate, IList<VehicleGenerator>> entry : generators.entrySet()) {
+		
+		for (Map.Entry<GamaDate, IList<VehicleGenerator>> entry : ((Map<GamaDate, IList<VehicleGenerator>> )scope.getAgent().getAttribute(IVehicleGeneratorSkill.GENERATORS)).entrySet()) {
 			ArrayList<VehicleGenerator> gen = (ArrayList<VehicleGenerator>) entry.getValue();
 			for (int i = 0; i < gen.size(); i++) {
 				try {
@@ -75,9 +81,11 @@ public class VehicleGeneratorSkill extends Skill {
 						gen.get(i).generateVehiclesHeadway(scope);
 					else if (type.equals(IVehicleGenerator.COUNT_METHOD))
 						gen.get(i).generateVehiclesCount(scope);
-					vehicleType.addAll(gen.get(i).getVehicleList());
-					arrivalTime.addAll(gen.get(i).getTimeHeadwayList());
-					speed.addAll(gen.get(i).getSpeedList());
+					
+					ArrayList<Vehicle> vehs = (ArrayList<Vehicle>)scope.getAgent().getAttribute(IVehicleGeneratorSkill.VEHICLES);
+					vehs.addAll(gen.get(i).getVehicleList());
+					scope.getAgent().setAttribute(IVehicleGeneratorSkill.VEHICLES, vehs);
+					
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -88,21 +96,20 @@ public class VehicleGeneratorSkill extends Skill {
 				}
 			}
 		}
-		
-		for(int i=0; i< arrivalTime.size(); i++){
-			System.out.println("arrival time "+arrivalTime.get(i).toString()+" Arrival time in milliseconds "+arrivalTime.get(i).floatValue(scope));
+		for(int i=0; i< vehicles.size(); i++){
+			System.out.println("arrival time "+vehicles.get(i).getArrivalTime().toString()+" Arrival time in milliseconds "+Dates.milliseconds_between(scope, firstDate, vehicles.get(i).getArrivalTime()));
 		}
 	}
 
-	@getter(IVehicleGeneratorSkill.GENERATORS)
-	public Map<GamaDate, IList<VehicleGenerator>> getGenerators() {
-		return generators;
+	/*@getter(IVehicleGeneratorSkill.GENERATORS)
+	public Map<GamaDate, IList<VehicleGenerator>> getGenerators(final IAgent agent) {
+		return (Map<GamaDate, IList<VehicleGenerator>>) agent.getAttribute(IVehicleGeneratorSkill.GENERATORS);
 	}
 
 	@setter(IVehicleGeneratorSkill.GENERATORS)
-	public void setGenerators(Map<GamaDate, IList<VehicleGenerator>> generators) {
-		this.generators = generators;
-	}
+	public void setGenerators(final IAgent agent, final Map<GamaDate, IList<VehicleGenerator>> generator) {
+		agent.setAttribute(IVehicleGeneratorSkill.GENERATORS, generators);
+	}*/
 
 	@action(name = IVehicleGeneratorSkill.LAUNCH_VEHICLES, args = {}, doc = @doc("action for generating vehicles based on schedule"))
 	/**
@@ -170,16 +177,19 @@ public class VehicleGeneratorSkill extends Skill {
 	@action(name = IVehicleGeneratorSkill.INIT_VEHICLE, args = {}, doc = @doc("initiate vehicle from the list in order to"))
 	public void initVehicle(final IScope scope) {
 		GamaDate now = scope.getExperiment().getSimulation().getCurrentDate();
-		
-		if(arrivalTime.contains(now)){
+		GamaDate startingDate = scope.getExperiment().getSimulation().getStartingDate();
+		ArrayList<Vehicle> vehs = (ArrayList<Vehicle>) scope.getAgent().getAttribute(IVehicleGeneratorSkill.VEHICLES);
+		System.out.println("now "+now);
+		//if(arrivalTime.contains(now)){
 			// there is vehicles that sould be generated on this time
-			ArrayList<Integer> indexes = Transformer.indexOfAll(now, arrivalTime, scope);
+			ArrayList<Integer> indexes = Transformer.indexOfAll(now, vehs, scope);
 			for(int index: indexes){
-				System.out.println("vehicle to generate : type : " + vehicleType.get(index)
-						+ " Speed : " + speed.get(index) + " time "
-						+ arrivalTime.get(index).toISOString());
+				// I would like to change the type of each vehicle to the respective specie in the gaml code 
+				System.out.println("vehicle to generate : type : " + vehs.get(index).getVehicleType()
+						+ " Speed : " + vehs.get(index).getVehicleType() + " time "
+						+ vehs.get(index).getArrivalTime().toISOString());
 			}
-		}
+		//}
 	}
 	
 	

@@ -10,6 +10,8 @@ import ch.netzwerg.paleo.DataFrame;
 import msi.gama.runtime.IScope;
 import msi.gama.util.GamaDate;
 import msi.gama.util.IList;
+import msi.gaml.operators.Dates;
+import ummisco.gama.traffgen.species.Vehicle;
 import umontreal.ssj.probdist.Distribution;
 import umontreal.ssj.probdist.PoissonDist;
 
@@ -97,16 +99,17 @@ public class Transformer {
 		return diff;
 	}
 	
-	public static ArrayList<Integer> indexOfAll(GamaDate obj, ArrayList<GamaDate> list, IScope scope){
+	public static ArrayList<Integer> indexOfAll(GamaDate obj, ArrayList<Vehicle> list, IScope scope){
 	    ArrayList<Integer> indexList = new ArrayList<Integer>();
-	    System.out.println("now "+obj.floatValue(scope));
+	    GamaDate startingDate = scope.getExperiment().getSimulation().getStartingDate();
+	    double now_millis = Dates.milliseconds_between(scope, startingDate, obj);
+	    System.out.println("now "+now_millis);
 	    for (int i = 0; i < list.size(); i++){
-	    	
-	    	if(obj.floatValue(scope)==list.get(i).floatValue(scope)){
-	    		System.out.println("this matches "+list.get(i).floatValue(scope));
+	    	double i_millis = Dates.milliseconds_between(scope, startingDate, list.get(i).getArrivalTime());
+	    	if(Math.abs(now_millis - i_millis) <= 50){
+	    		System.out.println("this matches "+i_millis);
 	    		indexList.add(i);
-	    	}
-	            
+	    	}     
 	    }
 	        
 	    return indexList;
