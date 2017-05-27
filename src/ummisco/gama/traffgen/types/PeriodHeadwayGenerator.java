@@ -10,7 +10,6 @@ import msi.gaml.operators.Dates;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.helpers.Transformer;
-import ummisco.gama.traffgen.species.Vehicle;
 import umontreal.ssj.probdist.DiscreteDistributionInt;
 import umontreal.ssj.probdist.Distribution;
 import umontreal.ssj.probdist.DistributionFactory;
@@ -22,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import msi.gama.metamodel.shape.GamaPoint;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.setter;
@@ -95,7 +95,7 @@ public class PeriodHeadwayGenerator {
 		this.countGenerationModel = model;
 	}
 
-	public double generateTimeHeadway(IScope scope,IList<Vehicle> vehicleList, String currentVehicle) {
+	public double generateTimeHeadway(IScope scope,IList<Vehicle> vehicleList, String currentVehicle, GamaPoint initalPosition) {
 		@SuppressWarnings("unchecked")
 		ArrayList<VehicleTHGenerator> thgenerators = (ArrayList<VehicleTHGenerator>) getTHGenerators();
 		int genPreviousVehiceIndex = 0;
@@ -127,9 +127,14 @@ public class PeriodHeadwayGenerator {
 					arrival = thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway();
 					GamaDate arrivalTime = vehicleList.get(index).getArrivalTime().plusMillis(arrival*1000);
 					double diff =  Math.abs(Dates.milliseconds_between(scope, arrivalTime, vehicleList.lastValue(scope).getArrivalTime()));
-					if(diff > IVehicleGenerator.MIN_HEADWAY*1000)
-						// the min time headway between the new vehicle and the last vehicle is over 0.05
+					if(initalPosition == vehicleList.lastValue(scope).getPosition()){
+						if(diff > IVehicleGenerator.MIN_HEADWAY*1000)
+							// the min time headway between the new vehicle and the last vehicle is over 0.05
+							found = true;
+					}else{
 						found = true;
+					}
+						
 				}
 			}else{
 				// it's the first time that any of vehicle type of this group is generated
@@ -144,6 +149,28 @@ public class PeriodHeadwayGenerator {
 
 	public int generateNumberVehicles() {
 		return this.countModel.nextInt();
+	}
+
+	public IList<Vehicle> generateTimeHeadways(IScope scope, IList<Vehicle> vehicles, GamaDate startDate) {
+		ArrayList<Double> arrivals = new ArrayList<Double>();
+		double sum = 0;
+		boolean sequenceSuccess = false;
+		while(!sequenceSuccess){
+			for(int i = 0; i < vehicles.size(); i++){
+				arrivals.add(this.generateTimeHeadway(scope, (IList<Vehicle>) vehicles.subList(0, i-1), vehicles.get(i).getVehicleType(), vehicles.get(i).getPosition()) );
+				sum += arrivals.get(i);
+			}
+			if(sum <= this.getDuration()){
+				// it worked no need to redo
+				sequenceSuccess = true;
+			}
+		}
+		// now add arrival time to each vehicle
+		for(int i = 0; i < vehicles.size(); i++){
+			startDate = startDate.plusMillis(arrivals.get(i)*1000);
+			vehicles.get(i).setArrivalTime(startDate);
+		}
+		return vehicles;
 	}
 
 }

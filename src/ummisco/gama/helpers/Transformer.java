@@ -9,9 +9,10 @@ import ch.netzwerg.paleo.Column;
 import ch.netzwerg.paleo.DataFrame;
 import msi.gama.runtime.IScope;
 import msi.gama.util.GamaDate;
+import msi.gama.util.GamaListFactory;
 import msi.gama.util.IList;
 import msi.gaml.operators.Dates;
-import ummisco.gama.traffgen.species.Vehicle;
+import ummisco.gama.traffgen.types.Vehicle;
 import umontreal.ssj.probdist.Distribution;
 import umontreal.ssj.probdist.PoissonDist;
 
@@ -99,8 +100,8 @@ public class Transformer {
 		return diff;
 	}
 	
-	public static ArrayList<Integer> indexOfAll(GamaDate obj, ArrayList<Vehicle> list, IScope scope){
-	    ArrayList<Integer> indexList = new ArrayList<Integer>();
+	public static IList<Integer> indexOfAll(GamaDate obj, ArrayList<Vehicle> list, IScope scope){
+	    IList<Integer> indexList = GamaListFactory.create();
 	    GamaDate startingDate = scope.getExperiment().getSimulation().getStartingDate();
 	    double now_millis = Dates.milliseconds_between(scope, startingDate, obj);
 	    System.out.println("now "+now_millis);

@@ -3,7 +3,11 @@ package ummisco.gama.traffgen.skills;
 import java.text.ParseException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,27 +20,33 @@ import msi.gama.precompiler.GamlAnnotations.vars;
 import msi.gama.runtime.IScope;
 import msi.gama.runtime.exceptions.GamaRuntimeException;
 import msi.gama.util.GamaDate;
+import msi.gama.util.GamaListFactory;
+import msi.gama.util.GamaMap;
 import msi.gama.util.GamaMapFactory;
+import msi.gama.util.IContainer;
 import msi.gama.util.IList;
 import msi.gama.util.matrix.IMatrix;
 import msi.gaml.operators.Dates;
 import msi.gaml.skills.Skill;
+import msi.gaml.types.IContainerType;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.helpers.Transformer;
-import ummisco.gama.traffgen.species.Vehicle;
 import ummisco.gama.traffgen.types.IVehicleGenerator;
-
+import ummisco.gama.traffgen.types.Vehicle;
 import ummisco.gama.traffgen.types.VehicleGenerator;
 import umontreal.ssj.probdist.FisherFDist;
+import msi.gama.common.interfaces.IValue;
 import msi.gama.metamodel.agent.IAgent;
+import msi.gama.metamodel.shape.ILocation;
 import msi.gama.precompiler.GamlAnnotations.action;
 import msi.gama.precompiler.GamlAnnotations.arg;
 
 @skill(name = "vehicleGen", doc = @doc("The skill vehicle Generator that will provide the necessary vehicles"))
 @vars({ 
 	@var(name = IVehicleGeneratorSkill.GENERATORS, type = IType.MAP, doc = @doc("list of generators")),
-	@var(name=IVehicleGeneratorSkill.VEHICLES, type= IType.LIST, doc=@doc("the list of vehicles to generate"))	
+	@var(name=IVehicleGeneratorSkill.VEHICLES, type= IType.LIST, doc=@doc("the list of vehicles to generate"))
+	//@var(name=IVehicleGeneratorSkill.VEHICLE_SPECIES, type = IType.LIST)
 })
 
 public class VehicleGeneratorSkill extends Skill {
@@ -175,20 +185,27 @@ public class VehicleGeneratorSkill extends Skill {
 */	
 	
 	@action(name = IVehicleGeneratorSkill.INIT_VEHICLE, args = {}, doc = @doc("initiate vehicle from the list in order to"))
-	public void initVehicle(final IScope scope) {
+	public IList<Integer> initVehicle(final IScope scope) {
 		GamaDate now = scope.getExperiment().getSimulation().getCurrentDate();
 		GamaDate startingDate = scope.getExperiment().getSimulation().getStartingDate();
 		ArrayList<Vehicle> vehs = (ArrayList<Vehicle>) scope.getAgent().getAttribute(IVehicleGeneratorSkill.VEHICLES);
 		System.out.println("now "+now);
 		//if(arrivalTime.contains(now)){
 			// there is vehicles that sould be generated on this time
-			ArrayList<Integer> indexes = Transformer.indexOfAll(now, vehs, scope);
+			IList<Integer> indexes = Transformer.indexOfAll(now, vehs, scope);
+			//IList<Vehicle> v = GamaListFactory.create();
 			for(int index: indexes){
 				// I would like to change the type of each vehicle to the respective specie in the gaml code 
+				
+				
 				System.out.println("vehicle to generate : type : " + vehs.get(index).getVehicleType()
 						+ " Speed : " + vehs.get(index).getVehicleType() + " time "
 						+ vehs.get(index).getArrivalTime().toISOString());
+				
+				//v.add(vehs.get(index));
 			}
+			
+			return indexes;
 		//}
 	}
 	

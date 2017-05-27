@@ -28,9 +28,9 @@ public interface IVehicleGenerator {
 	public final static String VEHICLE_NUMBER = "vehicleNumber";
 	
 	// Type names
-	public final static String PERIOD_TYPE = "period";
-	public final static String SPEED_TYPE = "speed";
-	public final static String VEHICLEGENERATOR_TYPE = "vehicleGenerator";
+	public final static String PERIOD_TYPE = "period_generator";
+	public final static String SPEED_TYPE = "speed_generator";
+	public final static String VEHICLEGENERATOR_TYPE = "vehicle_generator";
 	public final static String TIME_HEADWAY_TYPE = "timeHeadway";
 	
 	
@@ -42,4 +42,8 @@ public interface IVehicleGenerator {
 	
 	public final static String HEADWAY_METHOD = "headway";
 	public final static String COUNT_METHOD = "count";
+	
+	public final static String COORDINATES_CHOICE = "coordinate_choice";
+	
+	public final static String COORDINATE_CHOICE_RANDOM = "random";
 }

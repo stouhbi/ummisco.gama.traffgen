@@ -3,12 +3,14 @@ package ummisco.gama.traffgen.types;
 
 
 import java.text.ParseException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
+
+
+import msi.gama.metamodel.shape.GamaPoint;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.setter;
@@ -23,7 +25,6 @@ import msi.gama.util.matrix.IMatrix;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.helpers.Transformer;
-import ummisco.gama.traffgen.species.Vehicle;
 
 
 @vars({
@@ -31,6 +32,7 @@ import ummisco.gama.traffgen.species.Vehicle;
 		@var(name = IVehicleGenerator.TIME_INTERVAL, type = IType.LIST, doc = @doc("the time interval on which this generation will occur")),
 		// The coordinates on which the arriving vehicles will be positioned
 		@var(name = IVehicleGenerator.COORDINATES, type = IType.LIST, doc = @doc("the coordinates on which the generation will occur")),
+		@var(name = IVehicleGenerator.COORDINATES_CHOICE, type = IType.STRING, doc=@doc("the choice of changing between corrdinates")),
 		// The type of transition of vehicles needed
 		@var(name = IVehicleGenerator.TRANSITION_TYPE, type = IType.STRING, init= IVehicleGenerator.TRANSITION_TYPE, doc = @doc("the transition type")),
 		// the types of vehicles that will be generated p.s the type could be
@@ -50,7 +52,8 @@ public class VehicleGenerator {
 	public final static int Id = 99;
 	public Random rnd = new Random();
 	private IList<GamaDate> timeInterval = GamaListFactory.create(Types.get(IType.STRING));
-	private IList<String> coordinates = GamaListFactory.create(Types.get(IType.STRING));
+	private IList<GamaPoint> coordinates = GamaListFactory.create(Types.get(IType.POINT));
+	private String coordinatesChoice = new String();
 	private String transitionType = IVehicleGenerator.TRANSITION_TYPE;
 	private IList<String> vehicleTypes = GamaListFactory.create(Types.get(IType.STRING));
 	private IMatrix<Double> transition;
@@ -60,13 +63,16 @@ public class VehicleGenerator {
 	private IList<Vehicle> vehicleList =GamaListFactory.create(Types.get(IType.AGENT));
 	
     public VehicleGenerator(IList<GamaDate> timeInterval, String transitionType,
-			IMatrix<Double> transition, IList<PeriodHeadwayGenerator> timeHeadway, SpeedGenerator speed, IList<String> vehicleTypes) {
+			IMatrix<Double> transition, IList<PeriodHeadwayGenerator> timeHeadway, SpeedGenerator speed, IList<String> vehicleTypes,
+			IList<GamaPoint> coordinates, String coordinatesChoice) {
 		this.timeInterval = timeInterval;
 		this.transitionType = transitionType;
 		this.transition = transition;
 		this.timeHeadway = timeHeadway;
 		this.speed = speed;
 		this.vehicleTypes = vehicleTypes;
+		this.coordinates = coordinates;
+		this.coordinatesChoice = coordinatesChoice;
 	}
 
 	//	// Generate the dataframe of metaData to send to R
@@ -224,17 +230,37 @@ public class VehicleGenerator {
 		int vehicleQueue = 0;
 		GamaDate nextDate = timeStart;
 		double vehicleTimeHeadway = 0;
+		GamaPoint initialPosition = null;
 		// residu should be the duration for a period to finish if we have timeHeadway that does not complete the duration of a period
 		double residu = 0;
 		// choose a random first vehicle
 		int previousVehicleType =  rnd.nextInt(vehicleTypes.size() - 1);
 		while (actualTime < diffTime) {
+			// generate the number of vehicles that are allowed to be generated in this period
 			int numberVehicles = timeHeadway.get(periodSeq).generateNumberVehicles();
+			
+			// I am goning to generate a sequence of vehicle type that would be equal to the number of allowed vehicles
+			ArrayList<String> vehicleTypeSequence = this.generateVehicleTypes(scope, previousVehicleType, (GamaMatrix<Double>) transition,
+					numberVehicles);
+			ArrayList<GamaPoint> positions = this.getPositions(numberVehicles);
+			for(int i = 0 ; i < numberVehicles; i++){
+				this.vehicleList.add(new Vehicle(vehicleTypeSequence.get(i), 0.0,
+						0.0, 0.0, null, false, positions.get(i)));
+			}
+			// time headway
+			vehicleList = timeHeadway.get(periodSeq).generateTimeHeadways(scope, vehicleList, nextDate);
+			nextDate = vehicleList.lastValue(scope).getArrivalTime();
+			vehicleList = speed.generateSpeeds(vehicleList);
+			previousVehicleType = this.vehicleTypes.indexOf(vehicleList.lastValue(scope).getVehicleType());
+			vehicleQueue += numberVehicles;
 			// let's generaaaaate
-			while (periodExpire <= timeHeadway.get(periodSeq).getDuration() && vehicleQueue < numberVehicles) {
+			/*while (periodExpire <= timeHeadway.get(periodSeq).getDuration() && vehicleQueue < numberVehicles) {
 				// generate vehicle Type
 				int currentVehicleType = this.generateVehicleType(scope, previousVehicleType,
 						(GamaMatrix<Double>) transition);
+				
+				// get the coordinate
+				initialPosition = this.getPosition();
 				// generate timeHeadway
 				vehicleTimeHeadway = timeHeadway.get(periodSeq).generateTimeHeadway(scope, vehicleList,
 						vehicleTypes.get(currentVehicleType));
@@ -247,12 +273,12 @@ public class VehicleGenerator {
 					// add the vehicle to the queue
 					nextDate = nextDate.plusMillis(residu*1000 + vehicleTimeHeadway*1000);
 					residu = 0;
-					Vehicle veh = new Vehicle(scope.getExperiment().getPopulation(), vehicleTypes.get(currentVehicleType), 0.0, 0.0, vehicleSpeed, nextDate,false);
+					Vehicle veh = new Vehicle(vehicleTypes.get(currentVehicleType), 0.0, 0.0, vehicleSpeed, nextDate,false, initialPosition);
 					vehicleList.add(veh);
 					previousVehicleType = currentVehicleType;
 					vehicleQueue++;
 				}
-			}
+			}*/
 			//residu =  periodExpire - nextDate.floatValue(scope);
 			//vehicleNumber.add(vehicleQueue);
 			//periodList.add(timeHeadway.get(periodSeq).getPeriodSequence());
@@ -265,6 +291,37 @@ public class VehicleGenerator {
 		
 	}
 	
+	/**
+	 * Generate a sequence of positions according to a number of vehicles
+	 * @param numberVehicles
+	 * @return
+	 */
+	private ArrayList<GamaPoint> getPositions(int numberVehicles) {
+		ArrayList<GamaPoint> positions = new ArrayList<GamaPoint>();
+		for(int i =1; i <= numberVehicles; i++ ){
+			positions.add(this.getPosition());
+		}
+		return positions;
+	}
+
+	/**
+	 * Generate a sequence of vehicle types using the transition matrix
+	 * @param scope
+	 * @param previousVehicleType
+	 * @param transition
+	 * @param numberVehicles
+	 * @return
+	 */
+	private ArrayList<String> generateVehicleTypes(IScope scope, int previousVehicleType, GamaMatrix<Double> transition, int numberVehicles) {
+		ArrayList<String> _vehicleTypes = new ArrayList<String>();
+		_vehicleTypes.add(this.vehicleTypes.get(previousVehicleType));
+		for(int i =1; i <= numberVehicles; i++){
+			vehicleTypes.add(this.vehicleTypes.get(this.generateVehicleType(scope, previousVehicleType, transition)));
+			previousVehicleType = this.vehicleTypes.indexOf(_vehicleTypes.get(i-1));
+		}
+		return _vehicleTypes;
+	}
+
 	/**
 	 * 
 	 * Generate vehicles based on a headway model
@@ -318,6 +375,7 @@ public class VehicleGenerator {
 		// residu should be the duration for a period to finish if we have timeHeadway that does not complete the duration of a period
 		double residu = 0;
 		double vehicleTimeHeadway = 0;
+		GamaPoint initialPosition = null;
 		// choose a random first vehicle
 		int previousVehicleType =  rnd.nextInt(vehicleTypes.size() - 1);
 		while (actualTime < diffTime) {
@@ -326,9 +384,12 @@ public class VehicleGenerator {
 				// generate vehicle Type
 				int currentVehicleType = this.generateVehicleType(scope, previousVehicleType,
 						(GamaMatrix<Double>) transition);
+				// get the coordinate
+				initialPosition = this.getPosition();
+				System.out.println("initial position "+initialPosition);
 				// generate timeHeadway
 				vehicleTimeHeadway = timeHeadway.get(periodSeq).generateTimeHeadway(scope, vehicleList,
-						vehicleTypes.get(currentVehicleType));
+						vehicleTypes.get(currentVehicleType), initialPosition);
 				// add the time headway to consider time before period expires
 				periodExpire += vehicleTimeHeadway;
 				double vehicleSpeed = speed.generateSpeed(vehicleTypes.get(currentVehicleType), vehicleTypes.get(previousVehicleType));
@@ -336,7 +397,7 @@ public class VehicleGenerator {
 					// add the vehicle to the queue
 					nextDate = nextDate.plusMillis(residu*1000 + vehicleTimeHeadway*1000);
 					residu = 0;
-					Vehicle veh = new Vehicle(scope.getExperiment().getPopulation(), vehicleTypes.get(currentVehicleType), 0.0, 0.0, vehicleSpeed, nextDate,false);
+					Vehicle veh = new Vehicle(vehicleTypes.get(currentVehicleType), 0.0, 0.0, vehicleSpeed, nextDate,false, initialPosition);
 					vehicleList.add(veh);
 					previousVehicleType = currentVehicleType;
 					vehicleQueue++;
@@ -351,6 +412,15 @@ public class VehicleGenerator {
 			periodSeq = (periodSeq == timeHeadway.size() - 1) ? 0 : periodSeq++;
 			
 		}
+	}
+
+	private GamaPoint getPosition() {
+		// TODO Auto-generated method stub
+		GamaPoint position = null;
+		if(this.coordinatesChoice.equals(IVehicleGenerator.COORDINATE_CHOICE_RANDOM))
+			position = this.coordinates.get(rnd.nextInt(this.coordinates.size()));
+		
+		return position;
 	}
 
 	// this will generate the next vehicle type in the queue
@@ -381,12 +451,12 @@ public class VehicleGenerator {
 	}
 
 	@getter(IVehicleGenerator.COORDINATES)
-	public IList<String> getCoordinates() {
+	public IList<GamaPoint> getCoordinates() {
 		return coordinates;
 	}
 	
 	@setter(IVehicleGenerator.COORDINATES)
-	public void setCoordinates(IList<String> coordinates) {
+	public void setCoordinates(IList<GamaPoint> coordinates) {
 		this.coordinates = coordinates;
 	}
 
@@ -445,6 +515,16 @@ public class VehicleGenerator {
 	@setter(IVehicleGenerator.VEHICLE_LIST)
 	public void setVehicleList(IList<Vehicle> vehicleList) {
 		this.vehicleList = vehicleList;
+	}
+
+	@getter(IVehicleGenerator.COORDINATES_CHOICE)
+	public String getCoordinatesChoice() {
+		return coordinatesChoice;
+	}
+
+	@setter(IVehicleGenerator.COORDINATES_CHOICE)
+	public void setCoordinatesChoice(String coordinatesChoice) {
+		this.coordinatesChoice = coordinatesChoice;
 	}
 
 

@@ -8,6 +8,7 @@ import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.setter;
 import msi.gama.precompiler.GamlAnnotations.var;
 import msi.gama.precompiler.GamlAnnotations.vars;
+import msi.gama.util.IList;
 import msi.gaml.types.IType;
 
 @vars({
@@ -41,6 +42,16 @@ public class SpeedGenerator {
 	public double generateSpeed(String currentVehicleType, String previousVehicleType) {
 		
 		return meanSpeed.get(currentVehicleType);
+	}
+
+	public IList<Vehicle> generateSpeeds(IList<Vehicle> vehicleList) {
+		if(vehicleList.size()>1){
+			vehicleList.get(0).setInitialSpeed(this.generateSpeed(vehicleList.get(0).getVehicleType(), null));
+			for(int i = 1; i < vehicleList.size(); i++)
+				vehicleList.get(i).setInitialSpeed(this.generateSpeed(vehicleList.get(i).getVehicleType(), vehicleList.get(i-1).getVehicleType()));
+		}
+		
+		return vehicleList;
 	}
 
 }

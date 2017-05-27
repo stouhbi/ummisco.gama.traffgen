@@ -14,4 +14,6 @@ public interface IVehicleGeneratorSkill {
 	public final static String INIT_VEHICLE = "initVehicle";
 	
 	public final static String VEHICLES = "vehicles";
+	
+	public final static String VEHICLE_SPECIES = "vehicle_species";
 }

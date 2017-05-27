@@ -2,6 +2,7 @@ package ummisco.gama.traffgen.operators;
 
 import java.util.Map;
 
+import msi.gama.metamodel.shape.GamaPoint;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.operator;
 import msi.gama.runtime.IScope;
@@ -47,8 +48,8 @@ public class TraffGen {
 	@operator(value = IVehicleGenerator.VEHICLEGENERATOR_TYPE)
 	@doc(value = "create instance of a vehicle Generator")
 	public static VehicleGenerator createGenerator(final IScope scope, final IList<GamaDate> timeInterval,
-			final String transitionType, final IMatrix<Double> transitionMatrix, final IList<String> vehicleTypes, final IList<PeriodHeadwayGenerator> timeHeadway,final SpeedGenerator speed){
-		return new VehicleGenerator(timeInterval, transitionType, transitionMatrix, timeHeadway, speed, vehicleTypes);
+			final String transitionType, final IMatrix<Double> transitionMatrix, final IList<String> vehicleTypes, final IList<PeriodHeadwayGenerator> timeHeadway,final SpeedGenerator speed, IList<GamaPoint> coordinates, String coordinatesChoice){
+		return new VehicleGenerator(timeInterval, transitionType, transitionMatrix, timeHeadway, speed, vehicleTypes, coordinates, coordinatesChoice);
 		
 	}
 }
