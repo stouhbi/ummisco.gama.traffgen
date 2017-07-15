@@ -45,5 +45,8 @@ public interface IVehicleGenerator {
 	
 	public final static String COORDINATES_CHOICE = "coordinate_choice";
 	
-	public final static String COORDINATE_CHOICE_RANDOM = "random";
+	public final static String COORDINATE_CHOICE_RANDOM_DEPENDANT = "random_dependant";
+	public final static String COORDINATE_CHOICE_RANDOM_INDEPENDANT = "random_independant";
+	public final static String COORDINATE_CHOICE_SPLIT_DEPENDANT = "split_dependant";
+	public final static String COORDINATE_CHOICE_SPLIT_INDEPENDANT = "split_independant";
 }

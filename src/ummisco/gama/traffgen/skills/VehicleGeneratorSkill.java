@@ -31,11 +31,16 @@ import msi.gaml.skills.Skill;
 import msi.gaml.types.IContainerType;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
+import ummisco.gama.distributions.Pareto4Gen;
 import ummisco.gama.helpers.Transformer;
 import ummisco.gama.traffgen.types.IVehicleGenerator;
 import ummisco.gama.traffgen.types.Vehicle;
 import ummisco.gama.traffgen.types.VehicleGenerator;
 import umontreal.ssj.probdist.FisherFDist;
+import umontreal.ssj.randvar.UniformGen;
+import umontreal.ssj.rng.LFSR113;
+import umontreal.ssj.rng.MRG32k3a;
+import umontreal.ssj.rng.RandomStream;
 import msi.gama.common.interfaces.IValue;
 import msi.gama.metamodel.agent.IAgent;
 import msi.gama.metamodel.shape.ILocation;
@@ -77,6 +82,15 @@ public class VehicleGeneratorSkill extends Skill {
 		firstDate = scope.getExperiment().getSimulation().getStartingDate();
 		nextUpdate = firstDate.plus(Duration.ofMillis(1000));
 		// generate
+		//System.out.println("phase 1");
+		//Pareto4Gen.nextDoubles(new LFSR113(), .9163265, 0.3958304, 2.250583, -0.01344653, 5000);
+		//RandomStream str = new MRG32k3a();
+		/*UniformGen str = new UniformGen(new MRG32k3a());
+		System.out.println("(");
+		for(int i = 0; i < 2000; i++){
+			System.out.println(str.nextDouble()+",");
+		}
+		System.out.println(")");*/
 		String type = "count";
 		if (scope.hasArg("type")) {
 			type = (String) scope.getArg("type", IType.STRING);

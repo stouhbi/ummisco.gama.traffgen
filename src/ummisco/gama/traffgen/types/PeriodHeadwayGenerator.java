@@ -9,10 +9,8 @@ import msi.gama.util.IList;
 import msi.gaml.operators.Dates;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
+import ummisco.gama.distributions.SingletonStream;
 import ummisco.gama.helpers.Transformer;
-import umontreal.ssj.probdist.DiscreteDistributionInt;
-import umontreal.ssj.probdist.Distribution;
-import umontreal.ssj.probdist.DistributionFactory;
 import umontreal.ssj.randvar.RandomVariateGenInt;
 import umontreal.ssj.rng.LFSR113;
 import umontreal.ssj.rng.RandomStream;
@@ -49,9 +47,8 @@ public class PeriodHeadwayGenerator {
 		this.setCountGenerationModel(countGenerationModel);
 		this.duration = duration;
 		if (this.countGenerationModel != null) {
-			Distribution countModelDist = DistributionFactory
-					.getDistribution(Transformer.distToString(countGenerationModel));
-			this.countModel = new RandomVariateGenInt(streamer, (DiscreteDistributionInt) countModelDist);
+			
+			this.countModel = (RandomVariateGenInt) Transformer.getGenerator(countGenerationModel, SingletonStream.getInstance());
 		}
 	}
 
@@ -95,7 +92,7 @@ public class PeriodHeadwayGenerator {
 		this.countGenerationModel = model;
 	}
 
-	public double generateTimeHeadway(IScope scope,IList<Vehicle> vehicleList, String currentVehicle, GamaPoint initalPosition) {
+	public double generateTimeHeadway(IScope scope,IList<Vehicle> vehicleList, String currentVehicle, GamaPoint initalPosition, Double remaining) {
 		@SuppressWarnings("unchecked")
 		ArrayList<VehicleTHGenerator> thgenerators = (ArrayList<VehicleTHGenerator>) getTHGenerators();
 		int genPreviousVehiceIndex = 0;
@@ -106,15 +103,21 @@ public class PeriodHeadwayGenerator {
 		 * vehicle Types are of different generation model
 		 */
 		for (int i = 0; i < thgenerators.size(); i++) {
+			if(vehicleList != null){
 			if (thgenerators.get(i).getVehicleTypes().contains(vehicleList.lastValue(scope)))
 				genPreviousVehiceIndex = i;
 			if (thgenerators.get(i).getVehicleTypes().contains(currentVehicle))
 				genCurrentVehicleIndex = i;
+			}else{
+				genPreviousVehiceIndex = -1;
+				if (thgenerators.get(i).getVehicleTypes().contains(currentVehicle))
+					genCurrentVehicleIndex = i;
+			}
 		}
 
-		if (genCurrentVehicleIndex == genPreviousVehiceIndex) {
+		if (genCurrentVehicleIndex == genPreviousVehiceIndex || genPreviousVehiceIndex == -1) {
 			// we'll use the same model to generate TimeHeadway
-			return thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway();
+			return thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway(remaining);
 		} else {
 			// means that time headway model for the current vehicle type is
 			// we need to find the last vehicle Type with the same generator and try to generate a coherent timeHeadway
@@ -124,7 +127,7 @@ public class PeriodHeadwayGenerator {
 			if(index !=-1){
 				boolean found = false;
 				while(!found){
-					arrival = thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway();
+					arrival = thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway(remaining);
 					GamaDate arrivalTime = vehicleList.get(index).getArrivalTime().plusMillis(arrival*1000);
 					double diff =  Math.abs(Dates.milliseconds_between(scope, arrivalTime, vehicleList.lastValue(scope).getArrivalTime()));
 					if(initalPosition == vehicleList.lastValue(scope).getPosition()){
@@ -138,7 +141,7 @@ public class PeriodHeadwayGenerator {
 				}
 			}else{
 				// it's the first time that any of vehicle type of this group is generated
-				arrival =  thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway();
+				arrival =  thgenerators.get(genCurrentVehicleIndex).generateTimeHeadway(remaining);
 			}
 			return arrival;
 		}
@@ -151,24 +154,97 @@ public class PeriodHeadwayGenerator {
 		return this.countModel.nextInt();
 	}
 
-	public IList<Vehicle> generateTimeHeadways(IScope scope, IList<Vehicle> vehicles, GamaDate startDate) {
+	public IList<Vehicle> generateTimeHeadways(IScope scope, IList<Vehicle> vehicles, GamaDate startDate, double residu) {
 		ArrayList<Double> arrivals = new ArrayList<Double>();
 		double sum = 0;
+		double remaining = this.getDuration();
+		// calculate the max that a timeHeadway should be
+		double max_TimeHeadway = (vehicles.size()==0) ? 0:this.getDuration()/vehicles.size();
 		boolean sequenceSuccess = false;
+		int attempts = 3;
 		while(!sequenceSuccess){
-			for(int i = 0; i < vehicles.size(); i++){
-				arrivals.add(this.generateTimeHeadway(scope, (IList<Vehicle>) vehicles.subList(0, i-1), vehicles.get(i).getVehicleType(), vehicles.get(i).getPosition()) );
+			System.out.println("Remaining "+remaining);
+			/*if(residu < IVehicleGenerator.MIN_HEADWAY){
+				arrivals.add(this.generateTimeHeadway(scope, null, vehicles.get(0).getVehicleType(), vehicles.get(0).getPosition(), (Double) sum ));
+			}else if(residu==-1.0){
+				arrivals.add(0.0);
+				residu = 0.0;
+			}else{
+				arrivals.add(0.0);
+			}*/
+			residu=0.0;
+			arrivals.add(this.generateTimeHeadway(scope, null, vehicles.get(0).getVehicleType(), vehicles.get(0).getPosition(), (Double) sum ));
+			sum+=arrivals.get(0);
+			remaining = this.getDuration() - sum;
+			for(int i = 1; i < vehicles.size(); i++){
+				IList<Vehicle> list2 = GamaListFactory.create(Types.get(VehicleTHGenerator.Id));
+				for(int j = 0; j<=i; j++)
+					list2.add(vehicles.get(j));
+				
+				arrivals.add(this.generateTimeHeadway(scope, list2, vehicles.get(i).getVehicleType(), vehicles.get(i).getPosition(), (Double) remaining ));
 				sum += arrivals.get(i);
+				
+				remaining = this.getDuration() - sum;
+				System.out.println("sum "+sum+ " Remaning "+remaining);
+				if(remaining < 0){
+					//  the additions has exceeded the period we should start again
+					double lastTH = arrivals.get(i);
+					arrivals.remove(i);
+					remaining = remaining + lastTH;
+					sum -= lastTH;
+					break;
+					/*if(attempts==0)
+						break;
+					attempts--;
+					i--;*/
+				}
+					
 			}
+			
+			System.out.println("New Sum --------------- "+sum + "Period "+ this.getDuration());
 			if(sum <= this.getDuration()){
 				// it worked no need to redo
+				System.out.println("found combination");
 				sequenceSuccess = true;
+			}else{
+				arrivals.clear();
 			}
+			sum = 0;
+			remaining = this.getDuration();
 		}
+		if(arrivals.size() != vehicles.size()){ // the size changed due to some remaining error
+			if(vehicles.size() - arrivals.size() == 1)
+				vehicles.remove(arrivals.size());
+			IList<Vehicle> list2 = GamaListFactory.create(Types.get(VehicleTHGenerator.Id));
+			for(int i =0; i<arrivals.size(); i++){
+				list2.add(vehicles.get(i));
+			}
+			vehicles = list2;
+		}
+		if(residu<IVehicleGenerator.MIN_HEADWAY){
+			startDate = startDate.plusMillis((arrivals.get(0)+residu)*1000);
+			double arrival = arrivals.get(0) + residu;
+			residu = 0;
+			vehicles.get(0).setArrivalTime(startDate);
+			vehicles.get(0).setTimeHeadway(arrival);
+		}else{
+			//startDate = startDate;
+			double arrival = residu;
+			residu = 0;
+			vehicles.get(0).setArrivalTime(startDate);
+			
+			vehicles.get(0).setTimeHeadway(arrival);
+		}
+		
+		
 		// now add arrival time to each vehicle
-		for(int i = 0; i < vehicles.size(); i++){
-			startDate = startDate.plusMillis(arrivals.get(i)*1000);
+		for(int i = 1; i < arrivals.size(); i++){
+			startDate = startDate.plusMillis((arrivals.get(i)+residu)*1000);
+			double arrival = arrivals.get(i) + residu;
+			residu = 0;
 			vehicles.get(i).setArrivalTime(startDate);
+			
+			vehicles.get(i).setTimeHeadway(arrival);
 		}
 		return vehicles;
 	}

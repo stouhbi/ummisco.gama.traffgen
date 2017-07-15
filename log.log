@@ -1,0 +1,32 @@
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+2017-07-15 10:48:43.079 java[88751:22209343] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+2017-07-15 10:48:43.080 java[88751:22209343] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+>GAMA version 1.7.0.qualifier loading...
+>GAMA models library version: .built_in_models_1495853933000
+>GAMA plugin loaded in 1604 ms: 	msi.gama.core
+>GAMA plugin loaded in 15 ms: 	ummisco.gama.network
+>GAMA plugin loaded in 107 ms: 	simtools.gaml.extensions.traffic
+>GAMA plugin loaded in 12 ms: 	simtools.gaml.extensions.physics
+>GAMA plugin loaded in 8 ms: 	irit.gaml.extensions.test
+>GAMA plugin loaded in 24 ms: 	ummisco.gaml.extensions.maths
+>GAMA plugin loaded in 118 ms: 	msi.gaml.extensions.fipa
+>GAMA plugin loaded in 49 ms: 	ummisco.gama.serialize
+>GAMA plugin loaded in 59 ms: 	ummisco.gama.traffgen
+>GAMA plugin loaded in 46 ms: 	irit.gaml.extensions.database
+>GAMA plugin loaded in 21 ms: 	msi.gama.lang.gaml
+>GAMA plugin loaded in 7 ms: 	ummisco.gama.java2d
+>GAMA plugin loaded in 142 ms: 	msi.gaml.architecture.simplebdi
+>GAMA plugin loaded in 14 ms: 	ummisco.gama.opengl
+>GAMA total load time 2343 ms.
+>GAMA building GAML artefacts in 873 ms
+System font = [1|.SF NS Text|11.0|0|COCOA|1|.SFNSText]
+!SESSION 2017-07-15 10:48:35.122 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product msi.gama.application.product --launcher.defaultAction openFile
+Command-line arguments:  -product msi.gama.application.product -data /Users/saadtouhbi/Documents/workspace/../runtime-gama.product -dev file:/Users/saadtouhbi/Documents/workspace/.metadata/.plugins/org.eclipse.pde.core/gama.product/dev.properties -os macosx -ws cocoa -arch x86_64 -consoleLog -data @noDefault --launcher.defaultAction openFile
+
+!ENTRY org.eclipse.core.net 1 0 2017-07-15 10:48:54.382
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

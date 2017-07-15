@@ -166,6 +166,38 @@
 <result>create a TH generator with model and parameters</result>
 </documentation>
 </operator>
+<operator alphabetOrder="nz" id="period_generator" name="period_generator">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.PeriodHeadwayGenerator" type="-13">
+<operand name="periodSequence" position="0" type="int"/>
+<operand name="THgenerators" position="1" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.VehicleTHGenerator&gt;"/>
+<operand name="duration" position="2" type="int"/>
+<operand name="countGenerationModel" position="3" type="map&lt;string,unknown&gt;"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result> create a Period Type instance</result>
+</documentation>
+</operator>
+<operator alphabetOrder="dm" id="dummy" name="dummy">
+<operatorCategories>
+<category id="TraffGen"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.Dummy" type="-13">
+<operand name="word" position="0" type="string"/>
+<operand name="number" position="1" type="float"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>create a dummy</result>
+</documentation>
+</operator>
 <operator alphabetOrder="nz" id="speed_generator" name="speed_generator">
 <operatorCategories>
 <category id="TraffGen"/>
@@ -193,44 +225,12 @@
 <operand name="vehicleTypes" position="3" type="list&lt;string&gt;"/>
 <operand name="timeHeadway" position="4" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.PeriodHeadwayGenerator&gt;"/>
 <operand name="speed" position="5" type="ummisco.gama.traffgen.types.SpeedGenerator"/>
-<operand name="coordinates" position="6" type="list&lt;point&gt;"/>
+<operand name="coordinates" position="6" type="java.util.Map&lt;msi.gama.metamodel.shape.GamaPoint,java.lang.Double&gt;"/>
 <operand name="coordinatesChoice" position="7" type="string"/>
 </operands>
 </combinaisonIO>
 <documentation>
 <result>create instance of a vehicle Generator</result>
-</documentation>
-</operator>
-<operator alphabetOrder="dm" id="dummy" name="dummy">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.Dummy" type="-13">
-<operand name="word" position="0" type="string"/>
-<operand name="number" position="1" type="float"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a dummy</result>
-</documentation>
-</operator>
-<operator alphabetOrder="nz" id="period_generator" name="period_generator">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.PeriodHeadwayGenerator" type="-13">
-<operand name="periodSequence" position="0" type="int"/>
-<operand name="THgenerators" position="1" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.VehicleTHGenerator&gt;"/>
-<operand name="duration" position="2" type="int"/>
-<operand name="countGenerationModel" position="3" type="map&lt;string,unknown&gt;"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result> create a Period Type instance</result>
 </documentation>
 </operator>
 <operator alphabetOrder="dm" id="dummy" name="dummy">

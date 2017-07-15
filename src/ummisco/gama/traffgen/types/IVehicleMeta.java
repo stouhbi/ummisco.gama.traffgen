@@ -10,4 +10,5 @@ public interface IVehicleMeta {
 	public static final String LAUNCHED = "launched";
 	public static final String INITIAL_POSITION = "position";
 	public static final String VEHICLE = "vehicle";
+	public static final String HEADWAY = "headway";
 }

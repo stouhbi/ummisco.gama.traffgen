@@ -48,7 +48,7 @@ public class TraffGen {
 	@operator(value = IVehicleGenerator.VEHICLEGENERATOR_TYPE)
 	@doc(value = "create instance of a vehicle Generator")
 	public static VehicleGenerator createGenerator(final IScope scope, final IList<GamaDate> timeInterval,
-			final String transitionType, final IMatrix<Double> transitionMatrix, final IList<String> vehicleTypes, final IList<PeriodHeadwayGenerator> timeHeadway,final SpeedGenerator speed, IList<GamaPoint> coordinates, String coordinatesChoice){
+			final String transitionType, final IMatrix<Double> transitionMatrix, final IList<String> vehicleTypes, final IList<PeriodHeadwayGenerator> timeHeadway,final SpeedGenerator speed,  Map<GamaPoint, Double> coordinates, String coordinatesChoice){
 		return new VehicleGenerator(timeInterval, transitionType, transitionMatrix, timeHeadway, speed, vehicleTypes, coordinates, coordinatesChoice);
 		
 	}

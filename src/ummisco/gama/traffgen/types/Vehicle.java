@@ -18,11 +18,13 @@ import msi.gaml.types.IType;
 	@var(name=IVehicleMeta.INITIAL_SPEED, type=IType.FLOAT, doc=@doc("the initial speed of the vehicle")),
 	@var(name=IVehicleMeta.ARRIVAL_TIME, type=IType.DATE, doc=@doc("the arrival time to the network")),
 	@var(name=IVehicleMeta.LAUNCHED, type=IType.BOOL, doc=@doc("is the vehicle launched")),
-	@var(name=IVehicleMeta.INITIAL_POSITION, type=IType.POINT, doc=@doc("the initial position of the vehicle"))
+	@var(name=IVehicleMeta.INITIAL_POSITION, type=IType.POINT, doc=@doc("the initial position of the vehicle")),
+	@var(name=IVehicleMeta.HEADWAY, type=IType.FLOAT, doc=@doc("the headway of the vehicle"))
 })
 public class Vehicle {
 	
 	public static final int Id = 94;
+	private Double timeHeadway;
 	private String vehicleType;
 	private Double vehicleWidth;
 	private Double vehicleHeight;
@@ -94,13 +96,14 @@ public class Vehicle {
 	}
 
 	public Vehicle(String vehicleType, Double vehicleWidth, Double vehicleHeight,
-			Double initialSpeed, GamaDate arrivalTime, Boolean launched, GamaPoint position) {
+			Double initialSpeed, GamaDate arrivalTime, Boolean launched, GamaPoint position, Double timeHeadway) {
 		this.vehicleType = vehicleType;
 		this.vehicleWidth = vehicleWidth;
 		this.vehicleHeight = vehicleHeight;
 		this.initialSpeed = initialSpeed;
 		this.arrivalTime = arrivalTime;
 		this.launched = launched;
+		this.timeHeadway = timeHeadway;
 		this.setPosition(position);
 	}
 
@@ -112,6 +115,16 @@ public class Vehicle {
 	@setter(IVehicleMeta.INITIAL_POSITION)
 	public void setPosition(GamaPoint position) {
 		this.position = position;
+	}
+
+	@getter(IVehicleMeta.HEADWAY)
+	public Double getTimeHeadway() {
+		return timeHeadway;
+	}
+
+	@setter(IVehicleMeta.HEADWAY)
+	public void setTimeHeadway(Double timeHeadway) {
+		this.timeHeadway = timeHeadway;
 	}
 	
 	
