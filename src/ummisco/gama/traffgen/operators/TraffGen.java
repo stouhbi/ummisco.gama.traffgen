@@ -7,22 +7,25 @@ import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.operator;
 import msi.gama.runtime.IScope;
 import msi.gama.util.GamaDate;
+import msi.gama.util.GamaMap;
 import msi.gama.util.IList;
 import msi.gama.util.matrix.IMatrix;
 import ummisco.gama.traffgen.types.Dummy;
+import ummisco.gama.traffgen.types.ITrafficLaw;
 import ummisco.gama.traffgen.types.IVehicleGenerator;
 import ummisco.gama.traffgen.types.PeriodHeadwayGenerator;
 import ummisco.gama.traffgen.types.SpeedGenerator;
+import ummisco.gama.traffgen.types.TrafficLaw;
 import ummisco.gama.traffgen.types.VehicleGenerator;
 import ummisco.gama.traffgen.types.VehicleTHGenerator;
 
 public class TraffGen {
 
 	
+		
 	@operator(value="dummy")
 	@doc(value = "create a dummy")
 	public static Dummy createDummy(final IScope scope, String word, Double number){
-		
 		return new Dummy(word, (Double) number);
 	}
 	
