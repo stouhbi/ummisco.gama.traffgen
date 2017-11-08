@@ -28,7 +28,12 @@ public abstract class AbstractGenerator implements IGenerator {
 	protected abstract AgentSeed nextElement(IScope scope, double lastDate, GamlSpecies spe, IShape location);
 	protected abstract List<GamlSpecies> getManagedSpecies();
 	
+	
 
+	protected boolean hasElementsToGenerate(int date)
+	{
+		return true;
+	}
 	
 	public IAgent previous(int nb)
 	{
