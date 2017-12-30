@@ -19,7 +19,7 @@ import msi.gaml.species.GamlSpecies;
 import ummisco.gama.traffgen.types.ITrafficGenerator;
 import ummisco.gama.traffgen.types.TrafficLaw;
 
-public class AtomicGenerator extends AbstractGenerator implements IGenerator {
+public class AtomicGenerator extends AbstractGenerator  {
 
 	
 	TrafficTimeTable timeHeadwayLaw = null;

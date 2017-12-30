@@ -17,6 +17,6 @@ public interface ITrafficGenerator {
 	public final static String ATOMIC_TRAFFIC_GENERATOR 		= "atomic_traffgen";
 	public final static String SCHEDULED_TRAFFIC_GENERATOR 		= "scheduled_traffgen";
 	public final static String SYNCHRONIZED_TRAFFIC_GENERATOR 	= "synchronized_traffgen";
-	public final static String TRANSITION_TRAFFIC_GENERATOR 	= "transition_traffgen";
+	public final static String MAP_TRAFFIC_GENERATOR 	= "map_traffgen";
 	
 }

@@ -13,13 +13,17 @@ import msi.gama.runtime.IScope;
 import msi.gama.util.GamaListFactory;
 import msi.gama.util.GamaMap;
 import msi.gama.util.IList;
+import msi.gama.util.matrix.IMatrix;
 import msi.gaml.species.GamlSpecies;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.traffgen.generators.AbstractGenerator;
 import ummisco.gama.traffgen.generators.AtomicGenerator;
 import ummisco.gama.traffgen.generators.IGenerator;
+import ummisco.gama.traffgen.generators.ListSplitGenerator;
 import ummisco.gama.traffgen.generators.MapSplitGenerator;
+import ummisco.gama.traffgen.generators.MatrixSplitGenerator;
+import ummisco.gama.traffgen.generators.TransitionGenerator;
 
 @vars({
 	@var(name = ITrafficGenerator.NEXT, type = IType.AGENT, doc = @doc("next agent to create")),
@@ -79,9 +83,9 @@ public class TrafficGenerator {
 	
 	
 	
-	@operator(value=ITrafficGenerator.TRANSITION_TRAFFIC_GENERATOR)
-	@doc(value = "create an transition traffic generator")
-	public static TrafficGenerator createTransitionTrafficGenerator(final IScope scope, final IList<TrafficGenerator> generators, final GamaMap<GamlSpecies,Double> nexts){
+	@operator(value=ITrafficGenerator.MAP_TRAFFIC_GENERATOR)
+	@doc(value = "create a map traffic generator")
+	public static TrafficGenerator createMapTrafficGenerator(final IScope scope, final IList<TrafficGenerator> generators, final GamaMap<GamlSpecies,Double> nexts){
 		AbstractGenerator[] gen = new AbstractGenerator[generators.size()];
 		for(int i = 0; i< gen.length; i++) {
 			gen[i] = (AbstractGenerator)generators.get(i).generator;
@@ -90,12 +94,12 @@ public class TrafficGenerator {
 		return new TrafficGenerator(res);
 	}
 	
-/*	
+
 	@operator(value=ITrafficGenerator.SYNCHRONIZED_TRAFFIC_GENERATOR)
-	@doc(value = "create an atomic traffic generator")
+	@doc(value = "create a list traffic generator")
 	public static TrafficGenerator createSynchronizeTrafficGenerator(final IScope scope, final IList<TrafficGenerator> generators, final IList<Double> nexts){
 		AbstractGenerator[] gen = new AbstractGenerator[generators.size()];
-		float[] choice = new float[generators.size()];
+		double[] choice = new double[generators.size()];
 		for(int i = 0; i< gen.length; i++) {
 			gen[i] = (AbstractGenerator)generators.get(i).generator;
 			choice[i] = nexts.get(i).floatValue();
@@ -105,10 +109,10 @@ public class TrafficGenerator {
 	}
 	
 	@operator(value=ITrafficGenerator.SYNCHRONIZED_TRAFFIC_GENERATOR)
-	@doc(value = "create an atomic traffic generator")
+	@doc(value = "create a matrix transition traffic generator")
 	public static TrafficGenerator createSynchronizeTrafficGenerator(final IScope scope, final IList<TrafficGenerator> generators, final IMatrix<Double> nexts){
 		AbstractGenerator[] gen = new AbstractGenerator[generators.size()];
-		float[][] choice = new float[generators.size()][generators.size()];
+		double[][] choice = new double[generators.size()][generators.size()];
 		for(int i = 0; i< gen.length; i++) {
 			gen[i] = (AbstractGenerator)generators.get(i).generator;
 			for(int j=0;j<gen.length;j++)
@@ -117,7 +121,7 @@ public class TrafficGenerator {
 		MatrixSplitGenerator res = new MatrixSplitGenerator(gen,choice);
 		return new TrafficGenerator(res);
 	}
-	*/
+	
 	@getter(ITrafficGenerator.NEXT)
 	public IAgent getNext(IScope scope) {
 		double duration = scope.getSimulation().getClock().getStartingDate().until(scope.getSimulation().getClock().getCurrentDate(), ChronoUnit.MILLIS)/1000;
