@@ -4,7 +4,7 @@ import msi.gama.runtime.IScope;
 import ummisco.gama.traffgen.types.TrafficLaw;
 
 public class DiscretTrafficFlow extends TrafficTimeTable {
-	private static int TIMETABLE_BUFFER = 1000;
+	private static int TIMETABLE_BUFFER = 10000;
 	
 	double 		vehicleFlow;
 	double []	timeTable;
