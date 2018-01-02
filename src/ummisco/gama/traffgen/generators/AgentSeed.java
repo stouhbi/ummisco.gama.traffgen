@@ -33,7 +33,7 @@ class AgentSeed {
 	public double getActivationDate() {
 		return activationDate;
 	}
-	public void setActivationDate(float activationDate) {
+	public void setActivationDate(double activationDate) {
 		this.activationDate = activationDate;
 	}
 	public ILocation getStartingPoint() {

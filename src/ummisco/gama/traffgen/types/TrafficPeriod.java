@@ -14,12 +14,16 @@ import msi.gaml.types.IType;
 })
 
 public class TrafficPeriod {
+	
+	public static final int Id = IType.AVAILABLE_TYPES+4570;
+	
+	
 	TrafficGenerator generator;
 	TrafficLaw individualsLaw;
 	int individual;
 	float duration; 
 	
-	
+	 
 	public TrafficPeriod(TrafficGenerator generator, TrafficLaw individualsLaw, float duration) {
 		super();
 		this.generator = generator;

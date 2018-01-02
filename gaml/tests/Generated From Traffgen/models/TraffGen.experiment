@@ -1,0 +1,32 @@
+/**
+ *  OpTraffGen
+ *  Author: automatic generator
+ *  Description: Unity Test of operators belonging to category TraffGen.
+ */
+
+experiment "Run Tests" type: test {	
+
+	
+		test dummyOp {
+
+		}
+	
+		test generation_modelOp {
+
+		}
+	
+		test period_generatorOp {
+
+		}
+	
+		test speed_generatorOp {
+
+		}
+	
+		test vehicle_generatorOp {
+
+		}
+	
+}
+
+	

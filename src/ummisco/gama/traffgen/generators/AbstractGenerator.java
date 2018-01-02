@@ -37,6 +37,7 @@ public abstract class AbstractGenerator implements IGenerator {
 	
 	public IAgent previous(int nb)
 	{
+		
 		if(nb > previous.length||nb == 0)
 			return null;
 		if(parent != null)

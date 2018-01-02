@@ -54,6 +54,7 @@ import static msi.gama.common.interfaces.IKeyword.*;
 
 public class GamlAdditions extends AbstractGamlAdditions {
 	public void initialize() throws SecurityException, NoSuchMethodException {
+	initializeDoc();
 	initializeType();
 	initializeFactory();
 	initializeSpecies();
@@ -65,18 +66,19 @@ public class GamlAdditions extends AbstractGamlAdditions {
 	initializeSkill();
 	initializeDisplay();
 	initializeExperiment();
-	initializeTest();
-	initializenull();
+	initializeConstant();
+	initializeTests();
+}public void initializeDoc()  {
 }public void initializeType()  {
 _type("dummy",new ummisco.gama.traffgen.types.DummyType(),89,104,ummisco.gama.traffgen.types.Dummy.class);
 _type("period_generator",new ummisco.gama.traffgen.types.PeriodHeadwayGeneratorType(),98,104,ummisco.gama.traffgen.types.PeriodHeadwayGenerator.class);
 _type("speed_generator",new ummisco.gama.traffgen.types.SpeedGeneratorType(),96,104,ummisco.gama.traffgen.types.SpeedGenerator.class);
 _type("traffgen_gen",new ummisco.gama.traffgen.types.TrafficGeneratorType(),4618,104,ummisco.gama.traffgen.types.TrafficGenerator.class);
 _type("traffgen_law",new ummisco.gama.traffgen.types.TrafficLawType(),4617,104,ummisco.gama.traffgen.types.TrafficLaw.class);
-_type("traffgen_period",new ummisco.gama.traffgen.types.TrafficPeriodType(),4617,104,ummisco.gama.traffgen.types.TrafficPeriod.class);
 _type("vehicle_generator",new ummisco.gama.traffgen.types.VehicleGeneratorType(),99,104,ummisco.gama.traffgen.types.VehicleGenerator.class);
 _type("timeHeadway",new ummisco.gama.traffgen.types.VehicleTHGeneratorType(),97,104,ummisco.gama.traffgen.types.VehicleTHGenerator.class);
 _type("vehicle",new ummisco.gama.traffgen.types.VehicleType(),94,104,ummisco.gama.traffgen.types.Vehicle.class);
+_type("traffgen_period",new ummisco.gama.traffgen.types.TrafficPeriodType(),4620,104,ummisco.gama.traffgen.types.TrafficPeriod.class);
 }public void initializeFactory()  {
 }public void initializeSpecies()  {
 }public void initializeSymbol()  {
@@ -131,7 +133,9 @@ _operator(S("atomic_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.clas
 _operator(S("atomic_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createAtomicGenerator", IScope.class,LI,ummisco.gama.traffgen.types.TrafficLaw.class,ummisco.gama.traffgen.types.TrafficLaw.class,IS),C(LI,ummisco.gama.traffgen.types.TrafficLaw.class,ummisco.gama.traffgen.types.TrafficLaw.class,IS),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createAtomicGenerator(s,((IList)o[0]),((ummisco.gama.traffgen.types.TrafficLaw)o[1]),((ummisco.gama.traffgen.types.TrafficLaw)o[2]),((IShape)o[3]));}});
 _operator(S("atomic_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createAtomicGenerator", IScope.class,GamlSpecies.class,ummisco.gama.traffgen.types.TrafficLaw.class,ummisco.gama.traffgen.types.TrafficLaw.class),C(GamlSpecies.class,ummisco.gama.traffgen.types.TrafficLaw.class,ummisco.gama.traffgen.types.TrafficLaw.class),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createAtomicGenerator(s,((GamlSpecies)o[0]),((ummisco.gama.traffgen.types.TrafficLaw)o[1]),((ummisco.gama.traffgen.types.TrafficLaw)o[2]));}});
 _operator(S("atomic_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createAtomicGenerator", IScope.class,GamlSpecies.class,ummisco.gama.traffgen.types.TrafficLaw.class,ummisco.gama.traffgen.types.TrafficLaw.class,IS),C(GamlSpecies.class,ummisco.gama.traffgen.types.TrafficLaw.class,ummisco.gama.traffgen.types.TrafficLaw.class,IS),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createAtomicGenerator(s,((GamlSpecies)o[0]),((ummisco.gama.traffgen.types.TrafficLaw)o[1]),((ummisco.gama.traffgen.types.TrafficLaw)o[2]),((IShape)o[3]));}});
-_operator(S("transition_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createTransitionTrafficGenerator", IScope.class,LI,GM),C(LI,GM),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createTransitionTrafficGenerator(s,((IList)o[0]),((GamaMap)o[1]));}});
+_operator(S("map_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createMapTrafficGenerator", IScope.class,LI,GM),C(LI,GM),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createMapTrafficGenerator(s,((IList)o[0]),((GamaMap)o[1]));}});
+_operator(S("synchronized_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createSynchronizeTrafficGenerator", IScope.class,LI,LI),C(LI,LI),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createSynchronizeTrafficGenerator(s,((IList)o[0]),((IList)o[1]));}});
+_operator(S("synchronized_traffgen"),ummisco.gama.traffgen.types.TrafficGenerator.class.getMethod("createSynchronizeTrafficGenerator", IScope.class,LI,IM),C(LI,IM),AI,ummisco.gama.traffgen.types.TrafficGenerator.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficGenerator run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficGenerator.createSynchronizeTrafficGenerator(s,((IList)o[0]),((IMatrix)o[1]));}});
 _operator(S("exponential_law"),ummisco.gama.traffgen.types.TrafficLaw.class.getMethod("createExponential", IScope.class,D),C(D),AI,ummisco.gama.traffgen.types.TrafficLaw.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficLaw run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficLaw.createExponential(s,asFloat(s,o[0]));}});
 _operator(S("pareto_3_law"),ummisco.gama.traffgen.types.TrafficLaw.class.getMethod("createPareto3", IScope.class,D,D,D),C(D,D,D),AI,ummisco.gama.traffgen.types.TrafficLaw.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficLaw run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficLaw.createPareto3(s,asFloat(s,o[0]),asFloat(s,o[1]),asFloat(s,o[2]));}});
 _operator(S("pareto_4_law"),ummisco.gama.traffgen.types.TrafficLaw.class.getMethod("createPareto4", IScope.class,D,D,D,D),C(D,D,D,D),AI,ummisco.gama.traffgen.types.TrafficLaw.class,false,-13,-13,-13,-13,new GamaHelper(){ @Override public ummisco.gama.traffgen.types.TrafficLaw run(IScope s,Object... o){return ummisco.gama.traffgen.types.TrafficLaw.createPareto4(s,asFloat(s,o[0]),asFloat(s,o[1]),asFloat(s,o[2]),asFloat(s,o[3]));}});
@@ -151,7 +155,7 @@ _action("launchVehicles",ummisco.gama.traffgen.skills.VehicleGeneratorSkill.clas
 _skill("vehicleGen",ummisco.gama.traffgen.skills.VehicleGeneratorSkill.class,AS);
 }public void initializeDisplay()  {
 }public void initializeExperiment()  {
-}public void initializeTest()  {
-}public void initializenull()  {
+}public void initializeConstant()  {
+}public void initializeTests()  {
 }
 }

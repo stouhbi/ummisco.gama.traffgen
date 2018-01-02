@@ -15,10 +15,7 @@ import ummisco.gama.distributions.Pareto3Gen;
 import ummisco.gama.distributions.Pareto4Gen;
 import ummisco.gama.distributions.Pearson5Gene;
 import ummisco.gama.distributions.SingletonStream;
-import ummisco.gama.traffgen.operators.ITraffGen;
-import umontreal.ssj.probdist.Pearson6Dist;
 import umontreal.ssj.randvar.ExponentialGen;
-import umontreal.ssj.randvar.Pearson6Gen;
 import umontreal.ssj.randvar.PoissonGen;
 import umontreal.ssj.randvar.RandomVariateGen;
 import umontreal.ssj.rng.RandomStream;
@@ -30,6 +27,7 @@ import umontreal.ssj.rng.RandomStream;
 	@var(name = ITrafficLaw.NEXT, type = IType.FLOAT, doc=@doc("Next value of the random generator"))
 })
 public class TrafficLaw extends GamaMap<String, Object> {
+	
 	public static final int Id = IType.AVAILABLE_TYPES+4567;
 	
 	RandomVariateGen internalDistribution = null;

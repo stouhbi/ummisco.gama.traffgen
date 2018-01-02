@@ -1,0 +1,32 @@
+/**
+ *  OpTrafficLaw
+ *  Author: automatic generator
+ *  Description: Unity Test of operators belonging to category TrafficLaw.
+ */
+
+experiment "Run Tests" type: test {	
+
+	
+		test exponential_lawOp {
+
+		}
+	
+		test pareto_3_lawOp {
+
+		}
+	
+		test pareto_4_lawOp {
+
+		}
+	
+		test pearson_5_lawOp {
+
+		}
+	
+		test poisson_lawOp {
+
+		}
+	
+}
+
+	

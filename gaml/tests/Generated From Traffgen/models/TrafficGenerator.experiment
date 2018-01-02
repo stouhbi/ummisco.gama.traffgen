@@ -1,0 +1,24 @@
+/**
+ *  OpTrafficGenerator
+ *  Author: automatic generator
+ *  Description: Unity Test of operators belonging to category TrafficGenerator.
+ */
+
+experiment "Run Tests" type: test {	
+
+	
+		test atomic_traffgenOp {
+
+		}
+	
+		test map_traffgenOp {
+
+		}
+	
+		test synchronized_traffgenOp {
+
+		}
+	
+}
+
+	

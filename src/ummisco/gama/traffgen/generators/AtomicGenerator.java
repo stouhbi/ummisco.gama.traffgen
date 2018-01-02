@@ -1,28 +1,21 @@
 package ummisco.gama.traffgen.generators;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //import com.sun.javafx.geom.IllegalPathStateException;
 
 import msi.gama.common.geometry.GeometryUtils;
-import msi.gama.common.interfaces.IKeyword;
-import msi.gama.metamodel.agent.IAgent;
 import msi.gama.metamodel.shape.ILocation;
 import msi.gama.metamodel.shape.IShape;
-import msi.gama.precompiler.GamlProperties;
 import msi.gama.runtime.IScope;
-import msi.gama.util.IList;
 import msi.gaml.species.GamlSpecies;
-import ummisco.gama.traffgen.types.ITrafficGenerator;
 import ummisco.gama.traffgen.types.TrafficLaw;
 
 public class AtomicGenerator extends AbstractGenerator  {
 
 	
-	TrafficTimeTable timeHeadwayLaw = null;
+	TrafficLaw timeHeadwayLaw = null;
 	TrafficLaw speedLaw = null;
 	ArrayList<GamlSpecies> species;
 	IShape shape;
@@ -31,7 +24,7 @@ public class AtomicGenerator extends AbstractGenerator  {
 	
 	private AtomicGenerator(TrafficLaw timeHeadwayLaw, TrafficLaw spl, IShape shape) {
 		super();
-		this.timeHeadwayLaw = new ContinuousTrafficFlow(spl);
+		this.timeHeadwayLaw = timeHeadwayLaw;
 		this.speedLaw = spl;
 		this.species = new ArrayList<GamlSpecies>();
 		this.shape = shape;
@@ -78,12 +71,12 @@ public class AtomicGenerator extends AbstractGenerator  {
 	public void lockFlow(double flow){
 		if(flow<=0)
 			unlockFlow();
-		TrafficLaw lw = this.timeHeadwayLaw.getLaw();
-		this.timeHeadwayLaw = new DiscretTrafficFlow(lw, flow);
+		/*TrafficLaw lw = this.timeHeadwayLaw;
+		this.timeHeadwayLaw = new DiscretTrafficFlow(lw, flow);*/
 	}
 	
 	public void unlockFlow(){
-		this.timeHeadwayLaw = new ContinuousTrafficFlow(this.timeHeadwayLaw.getLaw());
+		//this.timeHeadwayLaw = new ContinuousTrafficFlow(this.timeHeadwayLaw.getLaw());
 	}
 	
 	public ILocation chooseLocation(IScope scope,IShape loc)
@@ -104,8 +97,10 @@ public class AtomicGenerator extends AbstractGenerator  {
 	protected AgentSeed nextElement(IScope scope, double date, GamlSpecies s, IShape location ) {
 		GamlSpecies spe = this.chooseSpecies(scope, s);
 		double start =this.lastDate; // Math.max(date, this.lastDate);
-		double newDate = start + timeHeadwayLaw.next(scope);
+		double newDate = start + timeHeadwayLaw.getNext();
 		lastDate = newDate;
+		// Ici on doit voir si la generation de vitesse est dépendant ou indépendante
+		// On considère pour le moment le cas indépendant.
 		double speed = speedLaw.getNext();
 		System.out.println("creation agent "+ spe.getName()+" à la date "+ newDate);	
 		

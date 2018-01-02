@@ -7,7 +7,7 @@ import msi.gama.runtime.IScope;
 import msi.gama.runtime.exceptions.GamaRuntimeException;
 import msi.gaml.types.GamaType;
 
-@type(name = ITrafficPeriod.TYPE_NAME, id = TrafficLaw.Id, wraps = { TrafficPeriod.class}, kind = ISymbolKind.Variable.REGULAR
+@type(name = ITrafficPeriod.TYPE_NAME, id = TrafficPeriod.Id, wraps = { TrafficPeriod.class}, kind = ISymbolKind.Variable.REGULAR
 , doc= @doc(" traffic law for generation "))
 public class TrafficPeriodType extends GamaType<TrafficPeriod>{
 
