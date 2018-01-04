@@ -19,4 +19,7 @@ public interface ITrafficGenerator {
 	public final static String SYNCHRONIZED_TRAFFIC_GENERATOR 	= "synchronized_traffgen";
 	public final static String MAP_TRAFFIC_GENERATOR 	= "map_traffgen";
 	
+	public final static String DISCRET_TRAFFC_GENERATOR = "discret_gen";
+	public final static String CONTINUOUS_TRAFFIC_GENERATOR = "continuous_gen";
+	
 }

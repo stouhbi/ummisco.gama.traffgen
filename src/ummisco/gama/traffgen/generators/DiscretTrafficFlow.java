@@ -7,18 +7,21 @@ import msi.gama.metamodel.shape.ILocation;
 import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
 import msi.gaml.species.GamlSpecies;
+import ummisco.gama.traffgen.types.TrafficLaw;
 
 public class DiscretTrafficFlow extends TrafficTimeTable {
 	private static int TIMETABLE_BUFFER = 10000;
 	
-	double 		vehicleFlow;
+	TrafficLaw 		vehicleFlow;
 	IAgent []	timeTable;
 	int 		indexWrite;
 	int			indexRead;
+	double duration;
 
-	public  DiscretTrafficFlow(AbstractGenerator lw ,double flow) {
+	public  DiscretTrafficFlow(AbstractGenerator lw ,TrafficLaw flow, double duration) {
 		super(lw);
 		vehicleFlow = flow;
+		this.duration = duration;
 		timeTable = new IAgent[TIMETABLE_BUFFER];
 		indexWrite = 0;
 		indexRead = 0;
@@ -26,7 +29,7 @@ public class DiscretTrafficFlow extends TrafficTimeTable {
 	
 	void generateTimeTable(IScope scope, int begin, int end)
 	{
-		double duration = 0;
+		double totalDduration = 0;
 		int size = timeTable.length;
 		AgentSeed tmp = null;
 		for(int i=begin;i<end;i++) {
@@ -35,13 +38,13 @@ public class DiscretTrafficFlow extends TrafficTimeTable {
 			tmp =  this.generator.nextElement(scope, this.currentDate, prevSpec, prevLoc);
 			
 			timeTable[i%size] = (IAgent) tmp;
-			duration +=tmp.getActivationDate();
+			totalDduration +=tmp.getActivationDate();
 		}
 		
 		int nbVehicles = (end - begin);
 		
-		double expectedDuration = this.vehicleFlow * nbVehicles ;
-		double flowDifference = expectedDuration - duration;
+		//double expectedDuration = duration ;
+		double flowDifference = duration - totalDduration;
 		
 		double meanDiff = flowDifference / nbVehicles;
 		double sdev = meanDiff / 10;
@@ -71,7 +74,8 @@ public class DiscretTrafficFlow extends TrafficTimeTable {
 	@Override
 	public IAgent next(IScope scope) {
 		if(indexRead == indexWrite) {
-			generateTimeTable(scope, indexRead, indexWrite +timeTable.length );
+			int newFlow = (int) this.vehicleFlow.getNext();
+			generateTimeTable(scope, indexRead, indexWrite + newFlow );
 		}
 		return getNextVal();
 	}

@@ -1,26 +1,27 @@
-2018-01-02 12:21:24.335 java[43611:2024211] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
-2018-01-02 12:21:24.336 java[43611:2024211] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+2018-01-04 19:02:05.171 java[44086:2041084] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+2018-01-04 19:02:05.172 java[44086:2041084] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
 >GAMA version null loading...
 >GAMA models library version: .built_in_models_1495853933000
 >GAMA plugins with language additions: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
 >GAMA plugins with models: [msi.gama.models, msi.gaml.extensions.fipa, msi.gaml.architecture.simplebdi, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, ummisco.gama.serialize, simtools.gaml.extensions.traffic, ummisco.gama.network]
 >GAMA plugins with tests: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
->GAMA plugin loaded in 2897 ms: 	msi.gama.core_1.7.0.qualifier [10]
->GAMA plugin loaded in 16 ms: 	msi.gama.lang.gaml_1.7.0.qualifier [13]
->GAMA plugin loaded in 116 ms: 	simtools.gaml.extensions.traffic_1.7.0.qualifier [191]
->GAMA plugin loaded in 45 ms: 	msi.gaml.extensions.fipa_1.7.0.qualifier [17]
->GAMA plugin loaded in 109 ms: 	ummisco.gaml.extensions.stats_1.7.0.qualifier [204]
->GAMA plugin loaded in 120 ms: 	ummisco.gama.traffgen_1.0.0.qualifier [197]
->GAMA plugin loaded in 27 ms: 	ummisco.gama.serialize_1.7.0.qualifier [196]
->GAMA plugin loaded in 86 ms: 	irit.gaml.extensions.database_1.7.0.qualifier [5]
->GAMA plugin loaded in 22 ms: 	ummisco.gama.network_1.7.0.qualifier [194]
->GAMA plugin loaded in 437 ms: 	msi.gaml.architecture.simplebdi_1.7.0.qualifier [16]
->GAMA plugin loaded in 16 ms: 	msi.gama.headless_1.7.0.qualifier [12]
->GAMA plugin loaded in 20 ms: 	ummisco.gama.opengl_1.7.0.qualifier [195]
->GAMA plugin loaded in 36 ms: 	ummisco.gaml.extensions.maths_1.7.0.qualifier [203]
->GAMA plugin loaded in 6 ms: 	ummisco.gama.java2d_1.7.0.qualifier [193]
->GAMA plugin loaded in 67 ms: 	simtools.gaml.extensions.physics_1.7.0.qualifier [190]
-!SESSION 2018-01-02 12:21:15.678 -----------------------------------------------
+>GAMA plugin loaded in 1364 ms: 	msi.gama.core_1.7.0.qualifier [10]
+>GAMA plugin loaded in 9 ms: 	msi.gama.lang.gaml_1.7.0.qualifier [13]
+>GAMA plugin loaded in 78 ms: 	simtools.gaml.extensions.traffic_1.7.0.qualifier [191]
+>GAMA plugin loaded in 63 ms: 	msi.gaml.extensions.fipa_1.7.0.qualifier [17]
+>GAMA plugin loaded in 85 ms: 	ummisco.gaml.extensions.stats_1.7.0.qualifier [204]
+>GAMA plugin loaded in 83 ms: 	ummisco.gama.traffgen_1.0.0.qualifier [197]
+>GAMA plugin loaded in 17 ms: 	ummisco.gama.serialize_1.7.0.qualifier [196]
+>GAMA plugin loaded in 63 ms: 	irit.gaml.extensions.database_1.7.0.qualifier [5]
+>GAMA plugin loaded in 11 ms: 	ummisco.gama.network_1.7.0.qualifier [194]
+>GAMA plugin loaded in 248 ms: 	msi.gaml.architecture.simplebdi_1.7.0.qualifier [16]
+>GAMA plugin loaded in 11 ms: 	msi.gama.headless_1.7.0.qualifier [12]
+>GAMA plugin loaded in 17 ms: 	ummisco.gama.opengl_1.7.0.qualifier [195]
+>GAMA plugin loaded in 18 ms: 	ummisco.gaml.extensions.maths_1.7.0.qualifier [203]
+>GAMA plugin loaded in 3 ms: 	ummisco.gama.java2d_1.7.0.qualifier [193]
+>GAMA plugin loaded in 25 ms: 	simtools.gaml.extensions.physics_1.7.0.qualifier [190]
+>GAMA total load time 3251 ms.
+!SESSION 2018-01-04 19:01:57.233 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_101
 java.vendor=Oracle Corporation
@@ -28,1060 +29,301 @@ BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
 Framework arguments:  -product msi.gama.application.product --launcher.defaultAction openFile
 Command-line arguments:  -product msi.gama.application.product -data /Users/saadtouhbi/Documents/workspace/../runtime-gama.product -dev file:/Users/saadtouhbi/Documents/workspace/.metadata/.plugins/org.eclipse.pde.core/gama.product/dev.properties -os macosx -ws cocoa -arch x86_64 -consoleLog -data @noDefault --launcher.defaultAction openFile
 
-!ENTRY org.eclipse.ui 4 4 2018-01-02 12:21:33.622
+!ENTRY org.eclipse.ui 4 4 2018-01-04 19:02:12.691
 !MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
->GAMA total load time 6085 ms.
->GAMA building GAML artefacts in 1456 ms
-Reading workspace metadata in 100ms
-Jan 02, 2018 12:21:46 PM org.geotools.image.ImageWorker <clinit>
+Reading workspace metadata in 93ms
+>GAMA building GAML artefacts in 1700 ms
+Jan 04, 2018 7:02:21 PM org.geotools.image.ImageWorker <clinit>
 INFO: Warp/affine reduction enabled: true
-Detected problem in editors tab selection (see #2108). Fixed.
-Infinite recursion detected in completion proposal for org.eclipse.xtext.impl.AlternativesImpl@785cbe8a (cardinality: null, predicated: false, firstSetPredicated: false)
-Infinite recursion detected in completion proposal for org.eclipse.xtext.impl.AlternativesImpl@785cbe8a (cardinality: null, predicated: false, firstSetPredicated: false)
+Infinite recursion detected in completion proposal for org.eclipse.xtext.impl.AlternativesImpl@7466f042 (cardinality: null, predicated: false, firstSetPredicated: false)
 
-!ENTRY org.eclipse.core.resources 4 1 2018-01-02 12:26:07.848
-!MESSAGE Problems occurred while refreshing local changes
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.848
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Core' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.859
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.860
-!MESSAGE The project description file (.project) for 'Generated From Core' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.862
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Database' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.872
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.876
-!MESSAGE The project description file (.project) for 'Generated From Database' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.893
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Fipa' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.898
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.900
-!MESSAGE The project description file (.project) for 'Generated From Fipa' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.908
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Gaml' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.911
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.913
-!MESSAGE The project description file (.project) for 'Generated From Gaml' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.914
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Headless' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.923
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.927
-!MESSAGE The project description file (.project) for 'Generated From Headless' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.942
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Java2d' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.945
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.960
-!MESSAGE The project description file (.project) for 'Generated From Java2d' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.960
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Maths' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.961
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.961
-!MESSAGE The project description file (.project) for 'Generated From Maths' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.961
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Network' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.962
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.962
-!MESSAGE The project description file (.project) for 'Generated From Network' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.962
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Opengl' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.963
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.963
-!MESSAGE The project description file (.project) for 'Generated From Opengl' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.963
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Physics' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.973
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.973
-!MESSAGE The project description file (.project) for 'Generated From Physics' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.973
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Serialize' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.974
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.974
-!MESSAGE The project description file (.project) for 'Generated From Serialize' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.974
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Simplebdi' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.976
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.977
-!MESSAGE The project description file (.project) for 'Generated From Simplebdi' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.977
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Stats' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.978
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.978
-!MESSAGE The project description file (.project) for 'Generated From Stats' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.980
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Traffic' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.980
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.980
-!MESSAGE The project description file (.project) for 'Generated From Traffic' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:07.982
-!MESSAGE Error occurred during status handling
+!ENTRY org.eclipse.jface.text 4 0 2018-01-04 19:09:46.159
+!MESSAGE Unexpected runtime error while computing a text hover
 !STACK 0
-java.lang.ClassNotFoundException: msi.gama.application.workbench.ApplicationWorkbenchAdvisor$1 cannot be found by msi.gama.application_1.7.0.qualifier
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:439)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.getWorkbenchErrorHandler(ApplicationWorkbenchAdvisor.java:218)
-	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
-	at org.eclipse.ui.internal.progress.ProgressManager$2.done(ProgressManager.java:496)
-	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
-	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:102)
-	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:151)
-	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:694)
-	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+java.lang.NullPointerException
+	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
+	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
+	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+GAMA Caught a workbench message : Unexpected runtime error while computing a text hover
+java.lang.NullPointerException
+	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
+	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
+	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+3    [Worker-0] ERROR org.eclipse.xtext.ui.editor.validation.ValidationJob  - Error running validator
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1353)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:469)
+	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:513)
+	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:665)
+	at msi.gaml.descriptions.ValidationContext.hasErrorOn(ValidationContext.java:167)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:685)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:1)
+	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:364)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:904)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:1)
+	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:387)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:164)
+	at msi.gaml.expressions.GamlExpressionFactory.createExpr(GamlExpressionFactory.java:124)
+	at msi.gaml.descriptions.BasicExpressionDescription.compile(BasicExpressionDescription.java:88)
+	at msi.gaml.descriptions.SymbolDescription$4.visit(SymbolDescription.java:699)
+	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:70)
+	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:1)
+	at gnu.trove.map.hash.THashMap.forEachEntry(THashMap.java:319)
+	at msi.gaml.descriptions.SymbolDescription.visitFacets(SymbolDescription.java:163)
+	at msi.gaml.descriptions.IDescription.visitFacets(IDescription.java:212)
+	at msi.gaml.descriptions.SymbolDescription.validateFacets(SymbolDescription.java:659)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:624)
+	at msi.gaml.descriptions.StatementDescription.validate(StatementDescription.java:236)
+	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
+	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
+	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:873)
+	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
+	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
+	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
+	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
+	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
+	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:869)
+	at msi.gaml.descriptions.ModelDescription.visitOwnChildren(ModelDescription.java:374)
+	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
+	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
+	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
+	at msi.gaml.descriptions.ModelDescription.validate(ModelDescription.java:420)
+	at msi.gama.lang.gaml.resource.GamlResource.validate(GamlResource.java:185)
+	at msi.gama.lang.gaml.validation.GamlResourceValidator.validate(GamlResourceValidator.java:66)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:91)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob.createIssues(ValidationJob.java:86)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob.run(ValidationJob.java:67)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.core.resources 4 1 2018-01-02 12:26:07.994
-!MESSAGE Problems occurred while refreshing local changes
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.994
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Core' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.995
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.996
-!MESSAGE The project description file (.project) for 'Generated From Core' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.996
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Database' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.996
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.996
-!MESSAGE The project description file (.project) for 'Generated From Database' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.996
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Fipa' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.996
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.997
-!MESSAGE The project description file (.project) for 'Generated From Fipa' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.997
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Gaml' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.997
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.998
-!MESSAGE The project description file (.project) for 'Generated From Gaml' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.998
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Headless' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.998
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.998
-!MESSAGE The project description file (.project) for 'Generated From Headless' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.998
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Java2d' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:07.998
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:07.998
-!MESSAGE The project description file (.project) for 'Generated From Java2d' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:07.999
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Maths' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.001
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.006
-!MESSAGE The project description file (.project) for 'Generated From Maths' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.007
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Network' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.007
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.007
-!MESSAGE The project description file (.project) for 'Generated From Network' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.007
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Opengl' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.007
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.008
-!MESSAGE The project description file (.project) for 'Generated From Opengl' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.008
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Physics' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.008
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.008
-!MESSAGE The project description file (.project) for 'Generated From Physics' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.009
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Serialize' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.010
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.010
-!MESSAGE The project description file (.project) for 'Generated From Serialize' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.010
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Simplebdi' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.010
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.010
-!MESSAGE The project description file (.project) for 'Generated From Simplebdi' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.010
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Stats' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.011
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.011
-!MESSAGE The project description file (.project) for 'Generated From Stats' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.012
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Traffic' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.012
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.012
-!MESSAGE The project description file (.project) for 'Generated From Traffic' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!ENTRY org.apache.log4j 4 0 2018-01-04 19:09:49.824
+!MESSAGE org.eclipse.xtext.ui.editor.validation.ValidationJob  - Error running validator
 
-!ENTRY org.eclipse.core.resources 4 1 2018-01-02 12:26:08.013
-!MESSAGE Problems occurred while refreshing local changes
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.013
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Core' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.013
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.013
-!MESSAGE The project description file (.project) for 'Generated From Core' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.014
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Database' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.015
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.016
-!MESSAGE The project description file (.project) for 'Generated From Database' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.017
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Fipa' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.017
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.018
-!MESSAGE The project description file (.project) for 'Generated From Fipa' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.018
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Gaml' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.019
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.021
-!MESSAGE The project description file (.project) for 'Generated From Gaml' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.022
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Headless' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.023
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.025
-!MESSAGE The project description file (.project) for 'Generated From Headless' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.026
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Java2d' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.027
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.027
-!MESSAGE The project description file (.project) for 'Generated From Java2d' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.027
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Maths' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.027
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.028
-!MESSAGE The project description file (.project) for 'Generated From Maths' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.028
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Network' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.028
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.028
-!MESSAGE The project description file (.project) for 'Generated From Network' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.028
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Opengl' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.028
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.029
-!MESSAGE The project description file (.project) for 'Generated From Opengl' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.029
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Physics' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.029
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.029
-!MESSAGE The project description file (.project) for 'Generated From Physics' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.029
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Serialize' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.029
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.030
-!MESSAGE The project description file (.project) for 'Generated From Serialize' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.030
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Simplebdi' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.030
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.030
-!MESSAGE The project description file (.project) for 'Generated From Simplebdi' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.031
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Stats' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.031
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.031
-!MESSAGE The project description file (.project) for 'Generated From Stats' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 1 org.eclipse.core.resources 4 1 2018-01-02 12:26:08.031
-!MESSAGE Problems occurred while refreshing local changes
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
-	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
-	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:169)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-Contains: The project description file (.project) for 'Generated From Traffic' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-!SUBENTRY 2 org.eclipse.core.resources 4 271 2018-01-02 12:26:08.031
-!MESSAGE Errors occurred while refreshing resources with the local file system.
-!SUBENTRY 3 org.eclipse.core.resources 4 567 2018-01-02 12:26:08.031
-!MESSAGE The project description file (.project) for 'Generated From Traffic' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:08.032
-!MESSAGE Error occurred during status handling
 !STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workbench/ApplicationWorkbenchAdvisor$1
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.getWorkbenchErrorHandler(ApplicationWorkbenchAdvisor.java:218)
-	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:231)
-	at org.eclipse.ui.statushandlers.StatusManager$StatusManagerLogListener.logging(StatusManager.java:302)
-	at org.eclipse.core.internal.runtime.RuntimeLog.logToListeners(RuntimeLog.java:161)
-	at org.eclipse.core.internal.runtime.PlatformLogWriter.logged(PlatformLogWriter.java:103)
-	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.safeLogged(ExtendedLogReaderServiceFactory.java:88)
-	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.logPrivileged(ExtendedLogReaderServiceFactory.java:217)
-	at org.eclipse.osgi.internal.log.ExtendedLogReaderServiceFactory.log(ExtendedLogReaderServiceFactory.java:189)
-	at org.eclipse.osgi.internal.log.ExtendedLogServiceFactory.log(ExtendedLogServiceFactory.java:65)
-	at org.eclipse.osgi.internal.log.ExtendedLogServiceImpl.log(ExtendedLogServiceImpl.java:87)
-	at org.eclipse.osgi.internal.log.LoggerImpl.log(LoggerImpl.java:54)
-	at org.eclipse.core.internal.runtime.PlatformLogWriter.logging(PlatformLogWriter.java:44)
-	at org.eclipse.core.internal.runtime.RuntimeLog.log(RuntimeLog.java:97)
-	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:701)
-	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1353)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:469)
+	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:513)
+	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:665)
+	at msi.gaml.descriptions.ValidationContext.hasErrorOn(ValidationContext.java:167)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:685)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:1)
+	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:364)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:904)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:1)
+	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:387)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:164)
+	at msi.gaml.expressions.GamlExpressionFactory.createExpr(GamlExpressionFactory.java:124)
+	at msi.gaml.descriptions.BasicExpressionDescription.compile(BasicExpressionDescription.java:88)
+	at msi.gaml.descriptions.SymbolDescription$4.visit(SymbolDescription.java:699)
+	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:70)
+	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:1)
+	at gnu.trove.map.hash.THashMap.forEachEntry(THashMap.java:319)
+	at msi.gaml.descriptions.SymbolDescription.visitFacets(SymbolDescription.java:163)
+	at msi.gaml.descriptions.IDescription.visitFacets(IDescription.java:212)
+	at msi.gaml.descriptions.SymbolDescription.validateFacets(SymbolDescription.java:659)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:624)
+	at msi.gaml.descriptions.StatementDescription.validate(StatementDescription.java:236)
+	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
+	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
+	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:873)
+	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
+	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
+	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
+	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
+	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
+	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:869)
+	at msi.gaml.descriptions.ModelDescription.visitOwnChildren(ModelDescription.java:374)
+	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
+	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
+	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
+	at msi.gaml.descriptions.ModelDescription.validate(ModelDescription.java:420)
+	at msi.gama.lang.gaml.resource.GamlResource.validate(GamlResource.java:185)
+	at msi.gama.lang.gaml.validation.GamlResourceValidator.validate(GamlResourceValidator.java:66)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:91)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob.createIssues(ValidationJob.java:86)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob.run(ValidationJob.java:67)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+GAMA Caught a workbench message : org.eclipse.xtext.ui.editor.validation.ValidationJob  - Error running validator
 
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:17.945
-!MESSAGE Unhandled event loop exception
-!STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workspace/WorkspacePreferences$1
-	at msi.gama.application.workspace.WorkspacePreferences.getPreferenceFilters(WorkspacePreferences.java:74)
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.saveEclipsePreferences(ApplicationWorkbenchAdvisor.java:206)
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.preShutdown(ApplicationWorkbenchAdvisor.java:166)
-	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1118)
-	at org.eclipse.ui.internal.Workbench.access$22(Workbench.java:1113)
-	at org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1454)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1451)
-	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1424)
-	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1596)
-	at org.eclipse.ui.internal.WorkbenchWindow.access$16(WorkbenchWindow.java:1542)
-	at org.eclipse.ui.internal.WorkbenchWindow$11.run(WorkbenchWindow.java:1628)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1625)
-	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1639)
-	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:527)
-	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$7.shellClosed(WBWRenderer.java:518)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4230)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1491)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1514)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1499)
-	at org.eclipse.swt.widgets.Shell.closeWidget(Shell.java:612)
-	at org.eclipse.swt.widgets.Shell.windowShouldClose(Shell.java:2367)
-	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5690)
-	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
-	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:227)
-	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2130)
-	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2337)
-	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5756)
-	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
-	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5193)
-	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5342)
-	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
-	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3695)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-Caused by: java.lang.ClassNotFoundException: msi.gama.application.workspace.WorkspacePreferences$1 cannot be found by msi.gama.application_1.7.0.qualifier
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:439)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	... 59 more
+java.util.ConcurrentModificationException
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1353)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:469)
+	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:513)
+	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:665)
+	at msi.gaml.descriptions.ValidationContext.hasErrorOn(ValidationContext.java:167)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:685)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:1)
+	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:364)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:904)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:1)
+	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:387)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
+	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
+	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:164)
+	at msi.gaml.expressions.GamlExpressionFactory.createExpr(GamlExpressionFactory.java:124)
+	at msi.gaml.descriptions.BasicExpressionDescription.compile(BasicExpressionDescription.java:88)
+	at msi.gaml.descriptions.SymbolDescription$4.visit(SymbolDescription.java:699)
+	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:70)
+	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:1)
+	at gnu.trove.map.hash.THashMap.forEachEntry(THashMap.java:319)
+	at msi.gaml.descriptions.SymbolDescription.visitFacets(SymbolDescription.java:163)
+	at msi.gaml.descriptions.IDescription.visitFacets(IDescription.java:212)
+	at msi.gaml.descriptions.SymbolDescription.validateFacets(SymbolDescription.java:659)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:624)
+	at msi.gaml.descriptions.StatementDescription.validate(StatementDescription.java:236)
+	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
+	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
+	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:873)
+	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
+	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
+	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
+	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
+	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
+	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
+	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:869)
+	at msi.gaml.descriptions.ModelDescription.visitOwnChildren(ModelDescription.java:374)
+	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
+	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
+	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
+	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
+	at msi.gaml.descriptions.ModelDescription.validate(ModelDescription.java:420)
+	at msi.gama.lang.gaml.resource.GamlResource.validate(GamlResource.java:185)
+	at msi.gama.lang.gaml.validation.GamlResourceValidator.validate(GamlResourceValidator.java:66)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:91)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob.createIssues(ValidationJob.java:86)
+	at org.eclipse.xtext.ui.editor.validation.ValidationJob.run(ValidationJob.java:67)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:17.957
-!MESSAGE Error occurred during status handling
+!ENTRY org.eclipse.jface.text 4 0 2018-01-04 19:40:51.584
+!MESSAGE Unexpected runtime error while computing a text hover
 !STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workbench/ApplicationWorkbenchAdvisor$1
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.getWorkbenchErrorHandler(ApplicationWorkbenchAdvisor.java:218)
-	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:231)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:242)
-	at org.eclipse.ui.application.WorkbenchAdvisor.eventLoopException(WorkbenchAdvisor.java:330)
-	at org.eclipse.ui.internal.Workbench$3.eventLoopException(Workbench.java:526)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.handle(PartRenderingEngine.java:1149)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1139)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:20.862
-!MESSAGE Unhandled event loop exception
-!STACK 0
-org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NoClassDefFoundError: ummisco/gama/ui/controls/IPopupProvider$PopupText)
-	at org.eclipse.swt.SWT.error(SWT.java:4491)
-	at org.eclipse.swt.SWT.error(SWT.java:4406)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4024)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3700)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-Caused by: java.lang.NoClassDefFoundError: ummisco/gama/ui/controls/IPopupProvider$PopupText
-	at ummisco.gama.ui.controls.StatusControlContribution.getPopupText(StatusControlContribution.java:151)
-	at ummisco.gama.ui.controls.Popup2.createContents(Popup2.java:102)
-	at org.eclipse.jface.window.Window.create(Window.java:430)
-	at org.eclipse.jface.dialogs.PopupDialog.open(PopupDialog.java:1134)
-	at ummisco.gama.ui.controls.Popup2.display(Popup2.java:204)
-	at ummisco.gama.ui.controls.Popup2.lambda$4(Popup2.java:48)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
-	... 24 more
-Caused by: java.lang.ClassNotFoundException: ummisco.gama.ui.controls.IPopupProvider$PopupText cannot be found by ummisco.gama.ui.experiment_1.7.0.qualifier
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:439)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	... 32 more
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:20.863
-!MESSAGE Error occurred during status handling
-!STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workbench/ApplicationWorkbenchAdvisor$1
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.getWorkbenchErrorHandler(ApplicationWorkbenchAdvisor.java:218)
-	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:231)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:242)
-	at org.eclipse.ui.application.WorkbenchAdvisor.eventLoopException(WorkbenchAdvisor.java:330)
-	at org.eclipse.ui.internal.Workbench$3.eventLoopException(Workbench.java:526)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.handle(PartRenderingEngine.java:1149)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1137)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:21.753
-!MESSAGE Unhandled event loop exception
-!STACK 0
-org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.NoClassDefFoundError: ummisco/gama/ui/controls/IPopupProvider$PopupText)
-	at org.eclipse.swt.SWT.error(SWT.java:4491)
-	at org.eclipse.swt.SWT.error(SWT.java:4406)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4024)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3700)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-Caused by: java.lang.NoClassDefFoundError: ummisco/gama/ui/controls/IPopupProvider$PopupText
-	at ummisco.gama.ui.controls.StatusControlContribution.getPopupText(StatusControlContribution.java:151)
-	at ummisco.gama.ui.controls.Popup2.createContents(Popup2.java:102)
-	at ummisco.gama.ui.controls.Popup2.updateContents(Popup2.java:135)
-	at ummisco.gama.ui.controls.Popup2.display(Popup2.java:198)
-	at ummisco.gama.ui.controls.Popup2.lambda$4(Popup2.java:48)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
-	... 24 more
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:21.754
-!MESSAGE Error occurred during status handling
-!STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workbench/ApplicationWorkbenchAdvisor$1
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.getWorkbenchErrorHandler(ApplicationWorkbenchAdvisor.java:218)
-	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:231)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:242)
-	at org.eclipse.ui.application.WorkbenchAdvisor.eventLoopException(WorkbenchAdvisor.java:330)
-	at org.eclipse.ui.internal.Workbench$3.eventLoopException(Workbench.java:526)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.handle(PartRenderingEngine.java:1149)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1137)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:25.163
-!MESSAGE Unhandled event loop exception
-!STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workspace/WorkspacePreferences$1
-	at msi.gama.application.workspace.WorkspacePreferences.getPreferenceFilters(WorkspacePreferences.java:74)
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.saveEclipsePreferences(ApplicationWorkbenchAdvisor.java:206)
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.preShutdown(ApplicationWorkbenchAdvisor.java:166)
-	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1118)
-	at org.eclipse.ui.internal.Workbench.access$22(Workbench.java:1113)
-	at org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1454)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1451)
-	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1424)
-	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1596)
-	at org.eclipse.ui.internal.WorkbenchWindow.access$16(WorkbenchWindow.java:1542)
-	at org.eclipse.ui.internal.WorkbenchWindow$11.run(WorkbenchWindow.java:1628)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1625)
-	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1639)
-	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:527)
-	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$7.shellClosed(WBWRenderer.java:518)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4230)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1491)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1514)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1499)
-	at org.eclipse.swt.widgets.Shell.closeWidget(Shell.java:612)
-	at org.eclipse.swt.widgets.Shell.windowShouldClose(Shell.java:2367)
-	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5690)
-	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
-	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:227)
-	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2130)
-	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2337)
-	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5756)
-	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
-	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5193)
-	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5342)
-	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
-	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3695)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
-
-!ENTRY org.eclipse.ui 4 0 2018-01-02 12:26:25.164
-!MESSAGE Error occurred during status handling
-!STACK 0
-java.lang.NoClassDefFoundError: msi/gama/application/workbench/ApplicationWorkbenchAdvisor$1
-	at msi.gama.application.workbench.ApplicationWorkbenchAdvisor.getWorkbenchErrorHandler(ApplicationWorkbenchAdvisor.java:218)
-	at org.eclipse.ui.internal.WorkbenchErrorHandlerProxy.handle(WorkbenchErrorHandlerProxy.java:31)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:189)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:231)
-	at org.eclipse.ui.statushandlers.StatusManager.handle(StatusManager.java:242)
-	at org.eclipse.ui.application.WorkbenchAdvisor.eventLoopException(WorkbenchAdvisor.java:330)
-	at org.eclipse.ui.internal.Workbench$3.eventLoopException(Workbench.java:526)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.handle(PartRenderingEngine.java:1149)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1139)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:694)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:606)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at msi.gama.application.Application.start(Application.java:83)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+java.lang.NullPointerException
+	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
+	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
+	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+GAMA Caught a workbench message : Unexpected runtime error while computing a text hover
+java.lang.NullPointerException
+	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
+	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
+	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
+	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+Saving workspace metadata in 98ms

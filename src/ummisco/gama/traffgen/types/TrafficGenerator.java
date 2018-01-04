@@ -19,10 +19,13 @@ import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 import ummisco.gama.traffgen.generators.AbstractGenerator;
 import ummisco.gama.traffgen.generators.AtomicGenerator;
+import ummisco.gama.traffgen.generators.ContinuousTrafficFlow;
+import ummisco.gama.traffgen.generators.DiscretTrafficFlow;
 import ummisco.gama.traffgen.generators.IGenerator;
 import ummisco.gama.traffgen.generators.ListSplitGenerator;
 import ummisco.gama.traffgen.generators.MapSplitGenerator;
 import ummisco.gama.traffgen.generators.MatrixSplitGenerator;
+import ummisco.gama.traffgen.generators.TrafficTimeTable;
 import ummisco.gama.traffgen.generators.TransitionGenerator;
 
 @vars({
@@ -120,6 +123,25 @@ public class TrafficGenerator {
 		}
 		MatrixSplitGenerator res = new MatrixSplitGenerator(gen,choice);
 		return new TrafficGenerator(res);
+	}
+	
+
+	
+	
+	@operator(value=ITrafficGenerator.DISCRET_TRAFFC_GENERATOR)
+	@doc(value = "create a trafficTimeTable - DiscretTafficFlow")
+	public static TrafficGenerator createDiscretTrafficGenerator(final IScope scope, final TrafficGenerator generator, TrafficLaw vehicleFlow, int duration){
+		
+		TrafficTimeTable timeTable = new DiscretTrafficFlow((AbstractGenerator) generator.generator, vehicleFlow, duration);
+		return new TrafficGenerator(timeTable);
+	}
+	
+	@operator(value=ITrafficGenerator.CONTINUOUS_TRAFFIC_GENERATOR)
+	@doc(value = "create a trafficTimeTable - ContinuousTrafficFlow")
+	public static TrafficGenerator createContinuousTrafficGenerator(final IScope scope, final TrafficGenerator generator){
+		
+		TrafficTimeTable timeTable = new ContinuousTrafficFlow((AbstractGenerator) generator.generator);
+		return new TrafficGenerator(timeTable);
 	}
 	
 	@getter(ITrafficGenerator.NEXT)
