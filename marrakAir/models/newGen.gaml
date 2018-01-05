@@ -30,8 +30,8 @@ global{
 	map typeTran <- [car::30.0, bus::30.0, camaio::40.0];
 	traffgen_gen typeGen <- map_traffgen([gen1, gen2, gen3], typeTran);
 	
-	traffgen_gen discret_gen <- discret_gen();
-	traffgen_gen continuous_gen <- discret_gen();
+	traffgen_gen discret_gen <- discret_gen(typeGen, poisson_law(30), 48);
+	traffgen_gen continuous_gen <- continuous_gen(typeGen);
 	
 	traffgen_period period1 <- create_period(typeGen, 48, 20);
 	traffgen_period period2 <- create_period(typeGen, 37, 20);
