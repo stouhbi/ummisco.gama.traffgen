@@ -28,12 +28,7 @@ public abstract class AbstractGenerator implements IGenerator {
 	protected abstract AgentSeed nextElement(IScope scope, double lastDate, GamlSpecies spe, IShape location);
 	protected abstract List<GamlSpecies> getManagedSpecies();
 	
-	
 
-	protected boolean hasElementsToGenerate(int date)
-	{
-		return true;
-	}
 	
 	public IAgent previous(int nb)
 	{
@@ -77,12 +72,15 @@ public abstract class AbstractGenerator implements IGenerator {
 		AgentSeed agttmp;
 		for(Queue<AgentSeed> agt:gotIndividuals.values())
 		{
-			agttmp = agt.peek();
-			if(minDate> agttmp.getActivationDate())
-			{
-				tmplist = agt;
-				minDate = agttmp.getActivationDate();
+			if(!agt.isEmpty()){
+				agttmp = agt.peek();
+				if(minDate> agttmp.getActivationDate())
+				{
+					tmplist = agt;
+					minDate = agttmp.getActivationDate();
+				}
 			}
+			
 		}
 		agttmp = tmplist.poll();
 		return agttmp;
@@ -97,6 +95,7 @@ public abstract class AbstractGenerator implements IGenerator {
 			values.put(IKeyword.LOCATION, sagt.getStartingPoint());
 		}
 		values.put(ITrafficGenerator.ACTIVATION_DATE, new Double(sagt.getActivationDate()));
+		values.put(ITrafficGenerator.SPEED, new Double(sagt.getSpeed()));
 		ArrayList<Map<String,Object>> list = new ArrayList<>();
 		list.add(values);
 		
@@ -119,9 +118,9 @@ public abstract class AbstractGenerator implements IGenerator {
 			AgentSeed tmp= nextElement( scope,0, null, null);
 			this.gotIndividuals.get(tmp.getSpecies()).add(tmp);
 		}
-		AgentSeed tmp = popFirst();
+		AgentSeed agtseed = popFirst();
 		
-		IAgent agt = convertAgentSeedToAgent(scope,tmp);
+		IAgent agt = convertAgentSeedToAgent(scope,agtseed);
 		addNextToTree(agt);
 		return agt;
 	}
