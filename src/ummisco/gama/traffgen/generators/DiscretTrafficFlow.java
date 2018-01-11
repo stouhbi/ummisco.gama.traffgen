@@ -1,50 +1,42 @@
 package ummisco.gama.traffgen.generators;
 
-import java.util.List;
-
-import msi.gama.metamodel.agent.IAgent;
-import msi.gama.metamodel.shape.ILocation;
-import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
-import msi.gaml.species.GamlSpecies;
 import ummisco.gama.traffgen.types.TrafficLaw;
 
 public class DiscretTrafficFlow extends TrafficTimeTable {
-	private static int TIMETABLE_BUFFER = 10000;
+	private static int TIMETABLE_BUFFER = 5000;
 	
-	TrafficLaw 		vehicleFlow;
-	IAgent []	timeTable;
-	int 		indexWrite;
-	int			indexRead;
-	double duration;
+	private TrafficLaw 		vehicleFlow;
+	private double []	timeTable;
+	private int 		indexWrite;
+	private int			indexRead;
+	private int duration;
 
-	public  DiscretTrafficFlow(AbstractGenerator lw ,TrafficLaw flow, double duration) {
+	
+
+	public  DiscretTrafficFlow(TrafficLaw lw ,TrafficLaw flow, int duration) {
 		super(lw);
 		vehicleFlow = flow;
-		this.duration = duration;
-		timeTable = new IAgent[TIMETABLE_BUFFER];
+		timeTable = new double[TIMETABLE_BUFFER];
 		indexWrite = 0;
 		indexRead = 0;
+		this.duration = duration;
 	}
 	
 	void generateTimeTable(IScope scope, int begin, int end)
 	{
-		double totalDduration = 0;
+		double expectedDuration = 0;
 		int size = timeTable.length;
-		AgentSeed tmp = null;
+		double tmp = 0;
 		for(int i=begin;i<end;i++) {
-			GamlSpecies prevSpec = ((AgentSeed) this.previous[index]).getSpecies();
-			ILocation prevLoc = ((AgentSeed) this.previous[index]).getStartingPoint();
-			tmp =  this.generator.nextElement(scope, this.currentDate, prevSpec, prevLoc);
-			
-			timeTable[i%size] = (IAgent) tmp;
-			totalDduration +=tmp.getActivationDate();
+			tmp = this.timeHeadwayLaw.getNext();
+			timeTable[i%size] = tmp;
+			expectedDuration +=tmp;
 		}
 		
 		int nbVehicles = (end - begin);
 		
-		//double expectedDuration = duration ;
-		double flowDifference = duration - totalDduration;
+		double flowDifference = duration - expectedDuration;
 		
 		double meanDiff = flowDifference / nbVehicles;
 		double sdev = meanDiff / 10;
@@ -55,44 +47,65 @@ public class DiscretTrafficFlow extends TrafficTimeTable {
 		for(int i = begin; i<end; i++) {
 			 val = scope.getRandom().createGaussian(meanDiff,sdev );
 			 tempI = i%size;
-			 double th = ((AgentSeed) timeTable[tempI]).getActivationDate();
-			 res = th + val;
-			 ((AgentSeed) timeTable[tempI]).setActivationDate(res > 0 ? res: th);
+			 res = timeTable[tempI] + val;
+			 timeTable[tempI] = res > 0 ? res: timeTable[tempI];
 		}
-		
-		
 		
 		indexWrite = end;
 		
 	}
-	private IAgent getNextVal()
+	private double getNextVal()
 	{
 		return this.timeTable[indexRead++];
 	}
-	
-	
 	@Override
-	public IAgent next(IScope scope) {
+	public double next(IScope scope) {
 		if(indexRead == indexWrite) {
-			int newFlow = (int) this.vehicleFlow.getNext();
-			generateTimeTable(scope, indexRead, indexWrite + newFlow );
+			int trafficFlow = (int) vehicleFlow.getNext();
+			generateTimeTable(scope, indexRead, indexWrite + trafficFlow);
 		}
 		return getNextVal();
 	}
-
-	@Override
-	public void lockFlow(double fl) {
-		
+	
+	
+	public TrafficLaw getVehicleFlow() {
+		return vehicleFlow;
 	}
 
-	@Override
-	protected AgentSeed nextElement(IScope scope, double lastDate, GamlSpecies spe, IShape location) {
-		return (AgentSeed) this.timeTable[indexRead++];
+	public void setVehicleFlow(TrafficLaw vehicleFlow) {
+		this.vehicleFlow = vehicleFlow;
 	}
 
-	@Override
-	protected List<GamlSpecies> getManagedSpecies() {
-		return this.generator.getManagedSpecies();
+	public double[] getTimeTable() {
+		return timeTable;
+	}
+
+	public void setTimeTable(double[] timeTable) {
+		this.timeTable = timeTable;
+	}
+
+	public int getIndexWrite() {
+		return indexWrite;
+	}
+
+	public void setIndexWrite(int indexWrite) {
+		this.indexWrite = indexWrite;
+	}
+
+	public int getIndexRead() {
+		return indexRead;
+	}
+
+	public void setIndexRead(int indexRead) {
+		this.indexRead = indexRead;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 }

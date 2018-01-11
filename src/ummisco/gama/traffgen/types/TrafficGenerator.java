@@ -1,6 +1,7 @@
 package ummisco.gama.traffgen.types;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Map;
 
 import msi.gama.metamodel.agent.IAgent;
 import msi.gama.metamodel.shape.IShape;
@@ -43,14 +44,14 @@ public class TrafficGenerator {
 	}
 	
 	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
-	@doc(value = "create an atomic traffic generator")
+	@doc(value = "create an atomic traffic generator with one species and a shape location")
 	public static TrafficGenerator createAtomicGenerator(final IScope scope, GamlSpecies agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw , final IShape shp){
 		AtomicGenerator gen = new AtomicGenerator(agentSpecies,thLaw,speedLaw,shp);
 		return new TrafficGenerator(gen);
 	}
 
 	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
-	@doc(value = "create an atomic traffic generator")
+	@doc(value = "create an atomic traffic generator with one species")
 	public static TrafficGenerator createAtomicGenerator(final IScope scope, GamlSpecies agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw){
 		AtomicGenerator gen = new AtomicGenerator(agentSpecies,thLaw,speedLaw);
 		return new TrafficGenerator(gen);
@@ -58,7 +59,7 @@ public class TrafficGenerator {
 
 	
 	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
-	@doc(value = "create an atomic traffic generator")
+	@doc(value = "create an atomic traffic generator with a list of species and a shape location")
 	public static TrafficGenerator createAtomicGenerator(final IScope scope, IList<GamlSpecies> agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw , final IShape shp){
 		GamlSpecies[] sps = new GamlSpecies[agentSpecies.size()];
 		int i = 0;
@@ -69,6 +70,35 @@ public class TrafficGenerator {
 		AtomicGenerator gen = new AtomicGenerator(sps,thLaw,speedLaw,shp);
 		return new TrafficGenerator(gen);
 	}
+	
+	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
+	@doc(value = "create an atomic traffic generator with one species and vehicle flow, duration ")
+	public static TrafficGenerator createAtomicGenerator(final IScope scope, GamlSpecies agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw , final TrafficLaw vehicleFlow, int duration){
+		AtomicGenerator gen = new AtomicGenerator(agentSpecies,thLaw,speedLaw,vehicleFlow, duration);
+		return new TrafficGenerator(gen);
+	}
+	
+	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
+	@doc(value = "create an atomic traffic generator with one species vehicle flow, duration and a shape location")
+	public static TrafficGenerator createAtomicGenerator(final IScope scope, GamlSpecies agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw , final TrafficLaw vehicleFlow, int duration, final IShape shp){
+		AtomicGenerator gen = new AtomicGenerator(agentSpecies,thLaw,speedLaw,vehicleFlow, duration, shp);
+		return new TrafficGenerator(gen);
+	}
+	
+	
+	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
+	@doc(value = "create an atomic traffic generator with a list of species, vehicle flow, duration and a shape location")
+	public static TrafficGenerator createAtomicGenerator(final IScope scope, IList<GamlSpecies> agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw , final TrafficLaw vehicleFlow, int duration, final IShape shp){
+		GamlSpecies[] sps = new GamlSpecies[agentSpecies.size()];
+		int i = 0;
+		for(GamlSpecies sp:agentSpecies) {
+			sps[i] = sp;
+			i++;
+		}
+		AtomicGenerator gen = new AtomicGenerator(sps,thLaw,speedLaw,vehicleFlow, duration, shp);
+		return new TrafficGenerator(gen);
+	}
+	
 
 	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
 	@doc(value = "create an atomic traffic generator")
@@ -93,6 +123,11 @@ public class TrafficGenerator {
 		for(int i = 0; i< gen.length; i++) {
 			gen[i] = (AbstractGenerator)generators.get(i).generator;
 		}
+		/*System.out.println("Length of nexts "+nexts.size());
+		for (Map.Entry<GamlSpecies, Double> entry : nexts.entrySet())
+		{
+		    System.out.println("key: " + entry.getKey() + "; value: " + entry.getValue());
+		}*/
 		MapSplitGenerator res = new MapSplitGenerator(gen,nexts);
 		return new TrafficGenerator(res);
 	}
@@ -128,7 +163,7 @@ public class TrafficGenerator {
 
 	
 	
-	@operator(value=ITrafficGenerator.DISCRET_TRAFFC_GENERATOR)
+	/*@operator(value=ITrafficGenerator.DISCRET_TRAFFC_GENERATOR)
 	@doc(value = "create a trafficTimeTable - DiscretTafficFlow")
 	public static TrafficGenerator createDiscretTrafficGenerator(final IScope scope, final TrafficGenerator generator, TrafficLaw vehicleFlow, int duration){
 		
@@ -142,7 +177,9 @@ public class TrafficGenerator {
 		
 		TrafficTimeTable timeTable = new ContinuousTrafficFlow((AbstractGenerator) generator.generator);
 		return new TrafficGenerator(timeTable);
-	}
+	}*/
+	
+	
 	
 	@getter(ITrafficGenerator.NEXT)
 	public IAgent getNext(IScope scope) {

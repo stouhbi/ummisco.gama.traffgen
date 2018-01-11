@@ -148,56 +148,12 @@
 <constants/>
 <operatorsCategories>
 <category id="Iterator operators"/>
-<category id="TrafficLaw"/>
 <category id="TrafficGenerator"/>
-<category id="TraffGen"/>
+<category id="TrafficLaw"/>
 <category id="TrafficPeriod"/>
+<category id="TrafficScheduler"/>
 </operatorsCategories>
 <operators>
-<operator alphabetOrder="os" id="pearson_5_law" name="pearson_5_law">
-<operatorCategories>
-<category id="TrafficLaw"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/types/TrafficLaw.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficLaw" type="-13">
-<operand name="alpha" position="0" type="float"/>
-<operand name="beta" position="1" type="float"/>
-<operand name="u" position="2" type="float"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a pearson 5 traffic law person_5_law(alpha, beta,u);</result>
-</documentation>
-</operator>
-<operator alphabetOrder="os" id="speed_generator" name="speed_generator">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.SpeedGenerator" type="-13">
-<operand name="meanSpeed" position="0" type="java.util.Map&lt;java.lang.String,java.lang.Double&gt;"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Create a TimeHeadway model instance</result>
-</documentation>
-</operator>
-<operator alphabetOrder="ch" id="exponential_law" name="exponential_law">
-<operatorCategories>
-<category id="TrafficLaw"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/types/TrafficLaw.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficLaw" type="-13">
-<operand name="lambda" position="0" type="float"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create an exponential traffic law</result>
-</documentation>
-</operator>
 <operator alphabetOrder="os" id="pareto_3_law" name="pareto_3_law">
 <operatorCategories>
 <category id="TrafficLaw"/>
@@ -214,56 +170,18 @@
 <result>create a pareto 3 traffic law</result>
 </documentation>
 </operator>
-<operator alphabetOrder="os" id="period_generator" name="period_generator">
+<operator alphabetOrder="ch" id="exponential_law" name="exponential_law">
 <operatorCategories>
-<category id="TraffGen"/>
+<category id="TrafficLaw"/>
 </operatorCategories>
 <concepts/>
 <combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.PeriodHeadwayGenerator" type="-13">
-<operand name="periodSequence" position="0" type="int"/>
-<operand name="THgenerators" position="1" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.VehicleTHGenerator&gt;"/>
-<operand name="duration" position="2" type="int"/>
-<operand name="countGenerationModel" position="3" type="map&lt;string,unknown&gt;"/>
+<operands class="ummisco/gama/traffgen/types/TrafficLaw.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficLaw" type="-13">
+<operand name="lambda" position="0" type="float"/>
 </operands>
 </combinaisonIO>
 <documentation>
-<result> create a Period Type instance</result>
-</documentation>
-</operator>
-<operator alphabetOrder="tz" id="vehicle_generator" name="vehicle_generator">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.VehicleGenerator" type="-13">
-<operand name="timeInterval" position="0" type="msi.gama.util.IList&lt;msi.gama.util.GamaDate&gt;"/>
-<operand name="transitionType" position="1" type="string"/>
-<operand name="transitionMatrix" position="2" type="matrix&lt;float&gt;"/>
-<operand name="vehicleTypes" position="3" type="list&lt;string&gt;"/>
-<operand name="timeHeadway" position="4" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.PeriodHeadwayGenerator&gt;"/>
-<operand name="speed" position="5" type="ummisco.gama.traffgen.types.SpeedGenerator"/>
-<operand name="coordinates" position="6" type="java.util.Map&lt;msi.gama.metamodel.shape.GamaPoint,java.lang.Double&gt;"/>
-<operand name="coordinatesChoice" position="7" type="string"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create instance of a vehicle Generator</result>
-</documentation>
-</operator>
-<operator alphabetOrder="ch" id="continuous_gen" name="continuous_gen">
-<operatorCategories>
-<category id="TrafficGenerator"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
-<operand name="generator" position="0" type="ummisco.gama.traffgen.types.TrafficGenerator"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a trafficTimeTable - ContinuousTrafficFlow</result>
+<result>create an exponential traffic law</result>
 </documentation>
 </operator>
 <operator alphabetOrder="in" id="map_traffgen" name="map_traffgen">
@@ -281,6 +199,23 @@
 <result>create a map traffic generator</result>
 </documentation>
 </operator>
+<operator alphabetOrder="os" id="pareto_4_law" name="pareto_4_law">
+<operatorCategories>
+<category id="TrafficLaw"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/types/TrafficLaw.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficLaw" type="-13">
+<operand name="alpha" position="0" type="float"/>
+<operand name="gamma" position="1" type="float"/>
+<operand name="sigma" position="2" type="float"/>
+<operand name="u" position="3" type="float"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>create a pareto 4 traffic law</result>
+</documentation>
+</operator>
 <operator alphabetOrder="os" id="poisson_law" name="poisson_law">
 <operatorCategories>
 <category id="TrafficLaw"/>
@@ -293,57 +228,6 @@
 </combinaisonIO>
 <documentation>
 <result>create an exponential traffic law</result>
-</documentation>
-</operator>
-<operator alphabetOrder="ch" id="dummy" name="dummy">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.Dummy" type="-13">
-<operand name="word" position="0" type="string"/>
-<operand name="number" position="1" type="float"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a dummy</result>
-</documentation>
-</operator>
-<operator alphabetOrder="ab" id="atomic_traffgen" name="atomic_traffgen">
-<operatorCategories>
-<category id="TrafficGenerator"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
-<operand name="agentSpecies" position="0" type="msi.gama.util.IList&lt;msi.gaml.species.GamlSpecies&gt;"/>
-<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="shp" position="3" type="geometry"/>
-</operands>
-<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
-<operand name="agentSpecies" position="0" type="msi.gaml.species.GamlSpecies"/>
-<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="shp" position="3" type="geometry"/>
-</operands>
-<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
-<operand name="agentSpecies" position="0" type="msi.gama.util.IList&lt;msi.gaml.species.GamlSpecies&gt;"/>
-<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-</operands>
-<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
-<operand name="agentSpecies" position="0" type="msi.gaml.species.GamlSpecies"/>
-<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create an atomic traffic generator
-create an atomic traffic generator
-create an atomic traffic generator
-create an atomic traffic generator</result>
 </documentation>
 </operator>
 <operator alphabetOrder="os" id="synchronized_traffgen" name="synchronized_traffgen">
@@ -374,12 +258,12 @@ create a matrix transition traffic generator</result>
 <combinaisonIO>
 <operands class="ummisco/gama/traffgen/types/TrafficPeriod.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficPeriod" type="-13">
 <operand name="gen" position="0" type="ummisco.gama.traffgen.types.TrafficGenerator"/>
-<operand name="duration" position="1" type="float"/>
+<operand name="duration" position="1" type="int"/>
 <operand name="nbIndividual" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
 </operands>
 <operands class="ummisco/gama/traffgen/types/TrafficPeriod.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficPeriod" type="-13">
 <operand name="gen" position="0" type="ummisco.gama.traffgen.types.TrafficGenerator"/>
-<operand name="duration" position="1" type="float"/>
+<operand name="duration" position="1" type="int"/>
 <operand name="nbIndividual" position="2" type="int"/>
 </operands>
 </combinaisonIO>
@@ -388,38 +272,7 @@ create a matrix transition traffic generator</result>
 create a periode</result>
 </documentation>
 </operator>
-<operator alphabetOrder="ch" id="generation_model" name="generation_model">
-<operatorCategories>
-<category id="TraffGen"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/operators/TraffGen.java" contentType="-13" returnType="ummisco.gama.traffgen.types.VehicleTHGenerator" type="-13">
-<operand name="vehicleTypes" position="0" type="list&lt;string&gt;"/>
-<operand name="generationModel" position="1" type="map&lt;string,unknown&gt;"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a TH generator with model and parameters</result>
-</documentation>
-</operator>
-<operator alphabetOrder="ch" id="discret_gen" name="discret_gen">
-<operatorCategories>
-<category id="TrafficGenerator"/>
-</operatorCategories>
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
-<operand name="generator" position="0" type="ummisco.gama.traffgen.types.TrafficGenerator"/>
-<operand name="vehicleFlow" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
-<operand name="duration" position="2" type="int"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>create a trafficTimeTable - DiscretTafficFlow</result>
-</documentation>
-</operator>
-<operator alphabetOrder="os" id="pareto_4_law" name="pareto_4_law">
+<operator alphabetOrder="os" id="pearson_5_law" name="pearson_5_law">
 <operatorCategories>
 <category id="TrafficLaw"/>
 </operatorCategories>
@@ -427,13 +280,89 @@ create a periode</result>
 <combinaisonIO>
 <operands class="ummisco/gama/traffgen/types/TrafficLaw.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficLaw" type="-13">
 <operand name="alpha" position="0" type="float"/>
-<operand name="gamma" position="1" type="float"/>
-<operand name="sigma" position="2" type="float"/>
-<operand name="u" position="3" type="float"/>
+<operand name="beta" position="1" type="float"/>
+<operand name="u" position="2" type="float"/>
 </operands>
 </combinaisonIO>
 <documentation>
-<result>create a pareto 4 traffic law</result>
+<result>create a pearson 5 traffic law person_5_law(alpha, beta,u);</result>
+</documentation>
+</operator>
+<operator alphabetOrder="ab" id="atomic_traffgen" name="atomic_traffgen">
+<operatorCategories>
+<category id="TrafficGenerator"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gaml.species.GamlSpecies"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="vehicleFlow" position="3" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="duration" position="4" type="int"/>
+</operands>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gama.util.IList&lt;msi.gaml.species.GamlSpecies&gt;"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="vehicleFlow" position="3" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="duration" position="4" type="int"/>
+<operand name="shp" position="5" type="geometry"/>
+</operands>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gaml.species.GamlSpecies"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="shp" position="3" type="geometry"/>
+</operands>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gaml.species.GamlSpecies"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="vehicleFlow" position="3" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="duration" position="4" type="int"/>
+<operand name="shp" position="5" type="geometry"/>
+</operands>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gama.util.IList&lt;msi.gaml.species.GamlSpecies&gt;"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="shp" position="3" type="geometry"/>
+</operands>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gama.util.IList&lt;msi.gaml.species.GamlSpecies&gt;"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+</operands>
+<operands class="ummisco/gama/traffgen/types/TrafficGenerator.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficGenerator" type="-13">
+<operand name="agentSpecies" position="0" type="msi.gaml.species.GamlSpecies"/>
+<operand name="thLaw" position="1" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+<operand name="speedLaw" position="2" type="ummisco.gama.traffgen.types.TrafficLaw"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>create an atomic traffic generator with one species and vehicle flow, duration 
+create an atomic traffic generator with a list of species, vehicle flow, duration and a shape location
+create an atomic traffic generator with one species and a shape location
+create an atomic traffic generator with one species vehicle flow, duration and a shape location
+create an atomic traffic generator with a list of species and a shape location
+create an atomic traffic generator
+create an atomic traffic generator with one species</result>
+</documentation>
+</operator>
+<operator alphabetOrder="ch" id="create_schedule" name="create_schedule">
+<operatorCategories>
+<category id="TrafficScheduler"/>
+</operatorCategories>
+<concepts/>
+<combinaisonIO>
+<operands class="ummisco/gama/traffgen/types/TrafficScheduler.java" contentType="-13" returnType="ummisco.gama.traffgen.types.TrafficScheduler" type="-13">
+<operand name="pds" position="0" type="msi.gama.util.IList&lt;ummisco.gama.traffgen.types.TrafficPeriod&gt;"/>
+<operand name="type" position="1" type="string"/>
+</operands>
+</combinaisonIO>
+<documentation>
+<result>to create a scheduler</result>
 </documentation>
 </operator>
 <operator alphabetOrder="ch" id="dummy" name="dummy">
@@ -447,17 +376,6 @@ create a periode</result>
 <result>Casts the operand into the type dummy</result>
 </documentation>
 </operator>
-<operator alphabetOrder="tz" id="timeHeadway" name="timeHeadway">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.VehicleTHGeneratorType" contentType="" returnType="timeHeadway" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type timeHeadway</result>
-</documentation>
-</operator>
 <operator alphabetOrder="tz" id="traffgen_gen" name="traffgen_gen">
 <concepts/>
 <combinaisonIO>
@@ -469,37 +387,15 @@ create a periode</result>
 <result>Casts the operand into the type traffgen_gen</result>
 </documentation>
 </operator>
-<operator alphabetOrder="os" id="period_generator" name="period_generator">
+<operator alphabetOrder="tz" id="traffgen_scheduler" name="traffgen_scheduler">
 <concepts/>
 <combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.PeriodHeadwayGeneratorType" contentType="" returnType="period_generator" type="">
+<operands class="ummisco.gama.traffgen.types.TrafficSchedulerType" contentType="" returnType="traffgen_scheduler" type="">
 <operand name="val" position="0" type="any"/>
 </operands>
 </combinaisonIO>
 <documentation>
-<result>Casts the operand into the type period_generator</result>
-</documentation>
-</operator>
-<operator alphabetOrder="tz" id="vehicle" name="vehicle">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.VehicleType" contentType="" returnType="vehicle" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type vehicle</result>
-</documentation>
-</operator>
-<operator alphabetOrder="os" id="speed_generator" name="speed_generator">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.SpeedGeneratorType" contentType="" returnType="speed_generator" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type speed_generator</result>
+<result>Casts the operand into the type traffgen_scheduler</result>
 </documentation>
 </operator>
 <operator alphabetOrder="tz" id="traffgen_law" name="traffgen_law">
@@ -511,17 +407,6 @@ create a periode</result>
 </combinaisonIO>
 <documentation>
 <result>Casts the operand into the type traffgen_law</result>
-</documentation>
-</operator>
-<operator alphabetOrder="tz" id="vehicle_generator" name="vehicle_generator">
-<concepts/>
-<combinaisonIO>
-<operands class="ummisco.gama.traffgen.types.VehicleGeneratorType" contentType="" returnType="vehicle_generator" type="">
-<operand name="val" position="0" type="any"/>
-</operands>
-</combinaisonIO>
-<documentation>
-<result>Casts the operand into the type vehicle_generator</result>
 </documentation>
 </operator>
 <operator alphabetOrder="tz" id="traffgen_period" name="traffgen_period">
@@ -536,52 +421,7 @@ create a periode</result>
 </documentation>
 </operator>
 </operators>
-<skills>
-<skill class="ummisco.gama.traffgen.skills.VehicleGeneratorSkill" extends="" id="vehicleGen" name="vehicleGen">
-<vars>
-<var constant="false" depends_on="" name="generators" type="map">
-<documentation>
-<result>list of generators</result>
-</documentation>
-</var>
-<var constant="false" depends_on="" name="vehicles" type="list">
-<documentation>
-<result>the list of vehicles to generate</result>
-</documentation>
-</var>
-</vars>
-<actions>
-<action name="transform" returnType="msi.gama.util.matrix.IMatrix&lt;java.lang.Float&gt;">
-<args>
-<arg name="list" optional="false" type="list"/>
-<arg name="method" optional="true" type="string"/>
-</args>
-</action>
-<action name="generateVehicles" returnType="void">
-<args>
-<arg name="type" optional="true" type="string">
-<documentation>
-<result>type of generation, by count or by headway</result>
-</documentation>
-</arg>
-</args>
-</action>
-<action name="launchVehicles" returnType="void">
-<args/>
-<documentation>
-<result>action for generating vehicles based on schedule</result>
-</documentation>
-</action>
-<action name="initVehicle" returnType="msi.gama.util.IList&lt;java.lang.Integer&gt;">
-<args/>
-<documentation>
-<result>initiate vehicle from the list in order to</result>
-</documentation>
-</action>
-</actions>
-<concepts/>
-</skill>
-</skills>
+<skills/>
 <architectures/>
 <speciess/>
 <insideStatementKinds/>
@@ -593,33 +433,15 @@ create a periode</result>
 <type id="89" kind="104" name="dummy">
 <concepts/>
 </type>
-<type id="97" kind="104" name="timeHeadway">
-<documentation>
-<result> The timeHeadway metadata </result>
-</documentation>
-<concepts/>
-</type>
 <type id="4618" kind="104" name="traffgen_gen">
 <documentation>
 <result> traffic generator </result>
 </documentation>
 <concepts/>
 </type>
-<type id="98" kind="104" name="period_generator">
+<type id="4621" kind="104" name="traffgen_scheduler">
 <documentation>
-<result>Period of generation of vehicles</result>
-</documentation>
-<concepts/>
-</type>
-<type id="94" kind="104" name="vehicle">
-<documentation>
-<result>The vehicle type of gama</result>
-</documentation>
-<concepts/>
-</type>
-<type id="96" kind="104" name="speed_generator">
-<documentation>
-<result> The speed metadata </result>
+<result> traffic law for generation </result>
 </documentation>
 <concepts/>
 </type>
@@ -629,15 +451,9 @@ create a periode</result>
 </documentation>
 <concepts/>
 </type>
-<type id="99" kind="104" name="vehicle_generator">
-<documentation>
-<result>the vehicle generator for each timeInterval, this also has the vehicleType generation metadata and has the TH metdata type and speedmetaData Type</result>
-</documentation>
-<concepts/>
-</type>
 <type id="4620" kind="104" name="traffgen_period">
 <documentation>
-<result> traffic law for generation </result>
+<result> traffic period for generation </result>
 </documentation>
 <concepts/>
 </type>

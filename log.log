@@ -1,27 +1,8 @@
-2018-01-04 19:02:05.171 java[44086:2041084] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
-2018-01-04 19:02:05.172 java[44086:2041084] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+2018-01-11 18:11:11.575 java[57582:3293641] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+2018-01-11 18:11:11.576 java[57582:3293641] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
 >GAMA version null loading...
 >GAMA models library version: .built_in_models_1495853933000
->GAMA plugins with language additions: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
->GAMA plugins with models: [msi.gama.models, msi.gaml.extensions.fipa, msi.gaml.architecture.simplebdi, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, ummisco.gama.serialize, simtools.gaml.extensions.traffic, ummisco.gama.network]
->GAMA plugins with tests: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
->GAMA plugin loaded in 1364 ms: 	msi.gama.core_1.7.0.qualifier [10]
->GAMA plugin loaded in 9 ms: 	msi.gama.lang.gaml_1.7.0.qualifier [13]
->GAMA plugin loaded in 78 ms: 	simtools.gaml.extensions.traffic_1.7.0.qualifier [191]
->GAMA plugin loaded in 63 ms: 	msi.gaml.extensions.fipa_1.7.0.qualifier [17]
->GAMA plugin loaded in 85 ms: 	ummisco.gaml.extensions.stats_1.7.0.qualifier [204]
->GAMA plugin loaded in 83 ms: 	ummisco.gama.traffgen_1.0.0.qualifier [197]
->GAMA plugin loaded in 17 ms: 	ummisco.gama.serialize_1.7.0.qualifier [196]
->GAMA plugin loaded in 63 ms: 	irit.gaml.extensions.database_1.7.0.qualifier [5]
->GAMA plugin loaded in 11 ms: 	ummisco.gama.network_1.7.0.qualifier [194]
->GAMA plugin loaded in 248 ms: 	msi.gaml.architecture.simplebdi_1.7.0.qualifier [16]
->GAMA plugin loaded in 11 ms: 	msi.gama.headless_1.7.0.qualifier [12]
->GAMA plugin loaded in 17 ms: 	ummisco.gama.opengl_1.7.0.qualifier [195]
->GAMA plugin loaded in 18 ms: 	ummisco.gaml.extensions.maths_1.7.0.qualifier [203]
->GAMA plugin loaded in 3 ms: 	ummisco.gama.java2d_1.7.0.qualifier [193]
->GAMA plugin loaded in 25 ms: 	simtools.gaml.extensions.physics_1.7.0.qualifier [190]
->GAMA total load time 3251 ms.
-!SESSION 2018-01-04 19:01:57.233 -----------------------------------------------
+!SESSION 2018-01-11 18:11:03.110 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_101
 java.vendor=Oracle Corporation
@@ -29,301 +10,56 @@ BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
 Framework arguments:  -product msi.gama.application.product --launcher.defaultAction openFile
 Command-line arguments:  -product msi.gama.application.product -data /Users/saadtouhbi/Documents/workspace/../runtime-gama.product -dev file:/Users/saadtouhbi/Documents/workspace/.metadata/.plugins/org.eclipse.pde.core/gama.product/dev.properties -os macosx -ws cocoa -arch x86_64 -consoleLog -data @noDefault --launcher.defaultAction openFile
 
-!ENTRY org.eclipse.ui 4 4 2018-01-04 19:02:12.691
+!ENTRY org.eclipse.core.resources 2 10035 2018-01-11 18:11:14.180
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+>GAMA plugins with language additions: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
+>GAMA plugins with models: [msi.gama.models, msi.gaml.extensions.fipa, msi.gaml.architecture.simplebdi, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, ummisco.gama.serialize, simtools.gaml.extensions.traffic, ummisco.gama.network]
+>GAMA plugins with tests: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
+>GAMA plugin loaded in 1649 ms: 	msi.gama.core_1.7.0.qualifier [10]
+>GAMA plugin loaded in 7 ms: 	msi.gama.lang.gaml_1.7.0.qualifier [13]
+>GAMA plugin loaded in 108 ms: 	simtools.gaml.extensions.traffic_1.7.0.qualifier [191]
+>GAMA plugin loaded in 91 ms: 	msi.gaml.extensions.fipa_1.7.0.qualifier [17]
+>GAMA plugin loaded in 70 ms: 	ummisco.gaml.extensions.stats_1.7.0.qualifier [204]
+>GAMA plugin loaded in 81 ms: 	ummisco.gama.traffgen_1.0.0.qualifier [197]
+>GAMA plugin loaded in 16 ms: 	ummisco.gama.serialize_1.7.0.qualifier [196]
+>GAMA plugin loaded in 61 ms: 	irit.gaml.extensions.database_1.7.0.qualifier [5]
+>GAMA plugin loaded in 11 ms: 	ummisco.gama.network_1.7.0.qualifier [194]
+>GAMA plugin loaded in 580 ms: 	msi.gaml.architecture.simplebdi_1.7.0.qualifier [16]
+>GAMA plugin loaded in 9 ms: 	msi.gama.headless_1.7.0.qualifier [12]
+>GAMA plugin loaded in 17 ms: 	ummisco.gama.opengl_1.7.0.qualifier [195]
+>GAMA plugin loaded in 20 ms: 	ummisco.gaml.extensions.maths_1.7.0.qualifier [203]
+>GAMA plugin loaded in 6 ms: 	ummisco.gama.java2d_1.7.0.qualifier [193]
+>GAMA plugin loaded in 21 ms: 	simtools.gaml.extensions.physics_1.7.0.qualifier [190]
+>GAMA total load time 3779 ms.
+
+!ENTRY org.eclipse.ui 4 4 2018-01-11 18:11:19.758
 !MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
-Reading workspace metadata in 93ms
->GAMA building GAML artefacts in 1700 ms
-Jan 04, 2018 7:02:21 PM org.geotools.image.ImageWorker <clinit>
+>GAMA building GAML artefacts in 1137 ms
+Jan 11, 2018 6:11:49 PM org.geotools.image.ImageWorker <clinit>
 INFO: Warp/affine reduction enabled: true
-Infinite recursion detected in completion proposal for org.eclipse.xtext.impl.AlternativesImpl@7466f042 (cardinality: null, predicated: false, firstSetPredicated: false)
-
-!ENTRY org.eclipse.jface.text 4 0 2018-01-04 19:09:46.159
-!MESSAGE Unexpected runtime error while computing a text hover
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
-GAMA Caught a workbench message : Unexpected runtime error while computing a text hover
-java.lang.NullPointerException
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
-3    [Worker-0] ERROR org.eclipse.xtext.ui.editor.validation.ValidationJob  - Error running validator
-java.util.ConcurrentModificationException
-	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1353)
-	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
-	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:469)
-	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:513)
-	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:665)
-	at msi.gaml.descriptions.ValidationContext.hasErrorOn(ValidationContext.java:167)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:685)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:1)
-	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:364)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:904)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:1)
-	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:387)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:164)
-	at msi.gaml.expressions.GamlExpressionFactory.createExpr(GamlExpressionFactory.java:124)
-	at msi.gaml.descriptions.BasicExpressionDescription.compile(BasicExpressionDescription.java:88)
-	at msi.gaml.descriptions.SymbolDescription$4.visit(SymbolDescription.java:699)
-	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:70)
-	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:1)
-	at gnu.trove.map.hash.THashMap.forEachEntry(THashMap.java:319)
-	at msi.gaml.descriptions.SymbolDescription.visitFacets(SymbolDescription.java:163)
-	at msi.gaml.descriptions.IDescription.visitFacets(IDescription.java:212)
-	at msi.gaml.descriptions.SymbolDescription.validateFacets(SymbolDescription.java:659)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:624)
-	at msi.gaml.descriptions.StatementDescription.validate(StatementDescription.java:236)
-	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
-	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
-	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:873)
-	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
-	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
-	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
-	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
-	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
-	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:869)
-	at msi.gaml.descriptions.ModelDescription.visitOwnChildren(ModelDescription.java:374)
-	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
-	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
-	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
-	at msi.gaml.descriptions.ModelDescription.validate(ModelDescription.java:420)
-	at msi.gama.lang.gaml.resource.GamlResource.validate(GamlResource.java:185)
-	at msi.gama.lang.gaml.validation.GamlResourceValidator.validate(GamlResourceValidator.java:66)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:91)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob.createIssues(ValidationJob.java:86)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob.run(ValidationJob.java:67)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-
-!ENTRY org.apache.log4j 4 0 2018-01-04 19:09:49.824
-!MESSAGE org.eclipse.xtext.ui.editor.validation.ValidationJob  - Error running validator
-
-!STACK 0
-java.util.ConcurrentModificationException
-	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1353)
-	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
-	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:469)
-	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:513)
-	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:665)
-	at msi.gaml.descriptions.ValidationContext.hasErrorOn(ValidationContext.java:167)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:685)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:1)
-	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:364)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:904)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:1)
-	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:387)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:164)
-	at msi.gaml.expressions.GamlExpressionFactory.createExpr(GamlExpressionFactory.java:124)
-	at msi.gaml.descriptions.BasicExpressionDescription.compile(BasicExpressionDescription.java:88)
-	at msi.gaml.descriptions.SymbolDescription$4.visit(SymbolDescription.java:699)
-	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:70)
-	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:1)
-	at gnu.trove.map.hash.THashMap.forEachEntry(THashMap.java:319)
-	at msi.gaml.descriptions.SymbolDescription.visitFacets(SymbolDescription.java:163)
-	at msi.gaml.descriptions.IDescription.visitFacets(IDescription.java:212)
-	at msi.gaml.descriptions.SymbolDescription.validateFacets(SymbolDescription.java:659)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:624)
-	at msi.gaml.descriptions.StatementDescription.validate(StatementDescription.java:236)
-	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
-	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
-	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:873)
-	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
-	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
-	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
-	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
-	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
-	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:869)
-	at msi.gaml.descriptions.ModelDescription.visitOwnChildren(ModelDescription.java:374)
-	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
-	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
-	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
-	at msi.gaml.descriptions.ModelDescription.validate(ModelDescription.java:420)
-	at msi.gama.lang.gaml.resource.GamlResource.validate(GamlResource.java:185)
-	at msi.gama.lang.gaml.validation.GamlResourceValidator.validate(GamlResourceValidator.java:66)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:91)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob.createIssues(ValidationJob.java:86)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob.run(ValidationJob.java:67)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-GAMA Caught a workbench message : org.eclipse.xtext.ui.editor.validation.ValidationJob  - Error running validator
-
-java.util.ConcurrentModificationException
-	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1353)
-	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
-	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:498)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:152)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.findAny(ReferencePipeline.java:469)
-	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:513)
-	at one.util.streamex.AbstractStreamEx.findAny(AbstractStreamEx.java:665)
-	at msi.gaml.descriptions.ValidationContext.hasErrorOn(ValidationContext.java:167)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:685)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpression(GamlExpressionCompiler.java:1)
-	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:364)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:904)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.caseExpressionList(GamlExpressionCompiler.java:1)
-	at msi.gama.lang.gaml.gaml.util.GamlSwitch.doSwitch(GamlSwitch.java:387)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:53)
-	at org.eclipse.emf.ecore.util.Switch.doSwitch(Switch.java:69)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:199)
-	at msi.gama.lang.gaml.expression.GamlExpressionCompiler.compile(GamlExpressionCompiler.java:164)
-	at msi.gaml.expressions.GamlExpressionFactory.createExpr(GamlExpressionFactory.java:124)
-	at msi.gaml.descriptions.BasicExpressionDescription.compile(BasicExpressionDescription.java:88)
-	at msi.gaml.descriptions.SymbolDescription$4.visit(SymbolDescription.java:699)
-	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:70)
-	at msi.gaml.descriptions.IDescription$FacetVisitor.execute(IDescription.java:1)
-	at gnu.trove.map.hash.THashMap.forEachEntry(THashMap.java:319)
-	at msi.gaml.descriptions.SymbolDescription.visitFacets(SymbolDescription.java:163)
-	at msi.gaml.descriptions.IDescription.visitFacets(IDescription.java:212)
-	at msi.gaml.descriptions.SymbolDescription.validateFacets(SymbolDescription.java:659)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:624)
-	at msi.gaml.descriptions.StatementDescription.validate(StatementDescription.java:236)
-	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
-	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
-	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:873)
-	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
-	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
-	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
-	at msi.gaml.descriptions.IDescription$1.visit(IDescription.java:93)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:58)
-	at msi.gaml.descriptions.IDescription$DescriptionVisitor.execute(IDescription.java:1)
-	at msi.gama.util.TOrderedHashMap.forEachValue(TOrderedHashMap.java:169)
-	at msi.gaml.descriptions.SpeciesDescription.visitOwnChildren(SpeciesDescription.java:869)
-	at msi.gaml.descriptions.ModelDescription.visitOwnChildren(ModelDescription.java:374)
-	at msi.gaml.descriptions.SymbolDescription.validateChildren(SymbolDescription.java:749)
-	at msi.gaml.descriptions.SpeciesDescription.validateChildren(SpeciesDescription.java:785)
-	at msi.gaml.descriptions.SymbolDescription.validate(SymbolDescription.java:630)
-	at msi.gaml.descriptions.TypeDescription.validate(TypeDescription.java:615)
-	at msi.gaml.descriptions.ModelDescription.validate(ModelDescription.java:420)
-	at msi.gama.lang.gaml.resource.GamlResource.validate(GamlResource.java:185)
-	at msi.gama.lang.gaml.validation.GamlResourceValidator.validate(GamlResourceValidator.java:66)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:91)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob$1.exec(ValidationJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob.createIssues(ValidationJob.java:86)
-	at org.eclipse.xtext.ui.editor.validation.ValidationJob.run(ValidationJob.java:67)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-
-!ENTRY org.eclipse.jface.text 4 0 2018-01-04 19:40:51.584
-!MESSAGE Unexpected runtime error while computing a text hover
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
-GAMA Caught a workbench message : Unexpected runtime error while computing a text hover
-java.lang.NullPointerException
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:89)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:107)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:80)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:91)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:528)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:121)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
-Saving workspace metadata in 98ms
+java.lang.ClassCastException: msi.gama.util.GamaList cannot be cast to msi.gaml.species.GamlSpecies
+	at gaml.additions.GamlAdditions$21.run(GamlAdditions.java:108)
+	at gaml.additions.GamlAdditions$21.run(GamlAdditions.java:1)
+	at msi.gaml.expressions.NAryOperator.value(NAryOperator.java:83)
+	at msi.gama.runtime.ExecutionScope.lambda$5(ExecutionScope.java:442)
+	at msi.gama.runtime.ExecutionScope.runAndCatch(ExecutionScope.java:459)
+	at msi.gama.runtime.ExecutionScope.pushRunAndCatch(ExecutionScope.java:450)
+	at msi.gama.runtime.ExecutionScope.evaluate(ExecutionScope.java:442)
+	at msi.gaml.variables.Variable.initializeWith(Variable.java:448)
+	at msi.gama.metamodel.population.GamaPopulation.createAndUpdateVariablesFor(GamaPopulation.java:397)
+	at msi.gama.metamodel.population.GamaPopulation.createVariablesFor(GamaPopulation.java:377)
+	at msi.gama.kernel.simulation.SimulationPopulation.initSimulation(SimulationPopulation.java:107)
+	at msi.gama.kernel.simulation.SimulationPopulation.createAgents(SimulationPopulation.java:92)
+	at msi.gama.kernel.experiment.ExperimentAgent.createSimulation(ExperimentAgent.java:286)
+	at msi.gama.kernel.experiment.ExperimentAgent._init_(ExperimentAgent.java:241)
+	at msi.gama.metamodel.agent.MinimalAgent.init(MinimalAgent.java:206)
+	at msi.gama.kernel.experiment.ExperimentAgent.init(ExperimentAgent.java:253)
+	at msi.gama.runtime.ExecutionScope.lambda$3(ExecutionScope.java:435)
+	at msi.gama.runtime.ExecutionScope.runAndCatch(ExecutionScope.java:459)
+	at msi.gama.runtime.ExecutionScope.pushRunAndCatch(ExecutionScope.java:450)
+	at msi.gama.runtime.ExecutionScope.init(ExecutionScope.java:435)
+	at msi.gama.kernel.experiment.ExperimentScheduler.schedule(ExperimentScheduler.java:161)
+	at msi.gama.kernel.experiment.ExperimentAgent.schedule(ExperimentAgent.java:306)
+	at msi.gama.kernel.experiment.ExperimentPlan.open(ExperimentPlan.java:476)
+	at msi.gama.kernel.experiment.ExperimentController.lambda$0(ExperimentController.java:90)
+	at java.lang.Thread.run(Thread.java:745)

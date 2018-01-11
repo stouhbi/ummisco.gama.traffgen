@@ -1,4 +1,4 @@
-package ummisco.gama.traffgen.types;
+/*package ummisco.gama.traffgen.types;
 
 
 import msi.gama.precompiler.GamlAnnotations.type;
@@ -31,4 +31,4 @@ public class VehicleGeneratorType extends GamaType<VehicleGenerator>{
 		return null;
 	}
 
-}
+}*/

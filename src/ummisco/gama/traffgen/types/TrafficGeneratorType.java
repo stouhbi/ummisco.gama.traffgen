@@ -26,5 +26,6 @@ public class TrafficGeneratorType extends GamaType<TrafficGenerator> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 }

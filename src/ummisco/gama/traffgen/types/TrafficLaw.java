@@ -18,7 +18,10 @@ import ummisco.gama.distributions.SingletonStream;
 import umontreal.ssj.randvar.ExponentialGen;
 import umontreal.ssj.randvar.PoissonGen;
 import umontreal.ssj.randvar.RandomVariateGen;
+import umontreal.ssj.rng.GenF2w32;
 import umontreal.ssj.rng.RandomStream;
+
+
 
 
 @vars({
@@ -74,7 +77,8 @@ public class TrafficLaw extends GamaMap<String, Object> {
 	
 	static RandomVariateGen buildDistribution(String name, Map<String,Double> parameters)
 	{
-		RandomStream stream = SingletonStream.getInstance();
+		//RandomStream stream = SingletonStream.getInstance();
+		RandomStream stream = new GenF2w32();
 		if(name.equals(ITrafficLaw.PEARSON_5))
 			return new Pearson5Gene(stream, (parameters.get(ITrafficLaw.ALPHA)).doubleValue(), (parameters.get(ITrafficLaw.BETA)).doubleValue(), (parameters.get(ITrafficLaw.U)).doubleValue());
 		if(name.equals(ITrafficLaw.PARETO_4))
@@ -161,7 +165,7 @@ public class TrafficLaw extends GamaMap<String, Object> {
 	@doc(value = "create an exponential traffic law")
 	public static TrafficLaw createPoisson(final IScope scope, final Double lambda){
 		TrafficLaw res = new TrafficLaw();
-		res.put(ITrafficLaw.MODEL, ITrafficLaw.EXPONENTIAL);
+		res.put(ITrafficLaw.MODEL, ITrafficLaw.POISSON);
 		res.put(ITrafficLaw.LAMBDA, lambda);
 		return res;
 	}

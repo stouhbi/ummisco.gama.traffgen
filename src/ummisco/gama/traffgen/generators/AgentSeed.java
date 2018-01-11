@@ -1,6 +1,6 @@
 package ummisco.gama.traffgen.generators;
 
-import msi.gama.metamodel.shape.GamaPoint;
+
 import msi.gama.metamodel.shape.ILocation;
 import msi.gaml.species.GamlSpecies;
 

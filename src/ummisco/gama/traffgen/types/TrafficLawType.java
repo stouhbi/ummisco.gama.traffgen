@@ -7,7 +7,7 @@ import msi.gama.runtime.IScope;
 import msi.gama.runtime.exceptions.GamaRuntimeException;
 import msi.gama.util.GamaMap;
 import msi.gaml.types.GamaType;
-import ummisco.gama.traffgen.operators.TraffGen;
+
 
 @type(name = ITrafficLaw.TYPE_NAME, id = TrafficLaw.Id, wraps = { TrafficLaw.class}, kind = ISymbolKind.Variable.REGULAR
 , doc= @doc(" traffic law for generation "))

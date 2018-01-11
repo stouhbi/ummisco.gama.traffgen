@@ -1,0 +1,16 @@
+/**
+ *  OpTrafficScheduler
+ *  Author: automatic generator
+ *  Description: Unity Test of operators belonging to category TrafficScheduler.
+ */
+
+experiment "Run Tests" type: test {	
+
+	
+		test create_scheduleOp {
+
+		}
+	
+}
+
+	

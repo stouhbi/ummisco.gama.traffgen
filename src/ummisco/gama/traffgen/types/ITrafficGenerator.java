@@ -6,6 +6,8 @@ public interface ITrafficGenerator {
 	
 	public final static String ACTIVATION_DATE 					= "activated_at";
 	
+	public final static String SPEED 					= "speed";
+	
 	
 	public final static String NEXT 							= "next";
 	public final static String FLOW 							= "flow";

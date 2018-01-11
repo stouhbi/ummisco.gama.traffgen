@@ -8,7 +8,7 @@ import msi.gama.runtime.exceptions.GamaRuntimeException;
 import msi.gaml.types.GamaType;
 
 @type(name = ITrafficPeriod.TYPE_NAME, id = TrafficPeriod.Id, wraps = { TrafficPeriod.class}, kind = ISymbolKind.Variable.REGULAR
-, doc= @doc(" traffic law for generation "))
+, doc= @doc(" traffic period for generation "))
 public class TrafficPeriodType extends GamaType<TrafficPeriod>{
 
 	@Override

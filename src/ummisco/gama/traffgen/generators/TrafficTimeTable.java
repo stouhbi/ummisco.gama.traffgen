@@ -1,20 +1,18 @@
 package ummisco.gama.traffgen.generators;
 
-import msi.gama.metamodel.agent.IAgent;
 import msi.gama.runtime.IScope;
 import ummisco.gama.traffgen.types.TrafficLaw;
 
-public abstract class TrafficTimeTable extends AbstractGenerator{
-	AbstractGenerator generator;
-	double currentDate;
+public abstract class TrafficTimeTable {
+	TrafficLaw timeHeadwayLaw = null;
 	
-	protected TrafficTimeTable(AbstractGenerator tf){
-		this.generator = tf;
+	protected TrafficTimeTable(TrafficLaw t){
+		this.timeHeadwayLaw = t;
 	}
 	
-	public AbstractGenerator getGenerators(){
-		return this.generator;
+	public TrafficLaw getLaw(){
+		return this.timeHeadwayLaw;
 	}
 	
-	public abstract IAgent next(IScope scope);
+	public abstract double next(IScope scope);
 }

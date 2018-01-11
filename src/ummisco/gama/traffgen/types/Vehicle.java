@@ -1,4 +1,4 @@
-package ummisco.gama.traffgen.types;
+/*package ummisco.gama.traffgen.types;
 
 
 
@@ -129,4 +129,4 @@ public class Vehicle {
 	
 	
 
-}
+}*/

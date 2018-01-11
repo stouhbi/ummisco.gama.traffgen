@@ -1,4 +1,4 @@
-package ummisco.gama.traffgen.types;
+/*package ummisco.gama.traffgen.types;
 
 import msi.gama.precompiler.ISymbolKind;
 import msi.gama.runtime.IScope;
@@ -30,3 +30,4 @@ public class VehicleType extends GamaType<Vehicle> {
 	}
 
 }
+*/

@@ -9,4 +9,5 @@ public interface ITrafficPeriod {
 	public final static String GENERATOR 	= "generator";
 	public final static String INDIVIDUAL 	= "individual";
 	public final static String DURATION 	= "duration";
+	public final static String NEXT = "next";
 }

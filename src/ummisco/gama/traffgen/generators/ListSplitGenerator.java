@@ -41,9 +41,10 @@ public class ListSplitGenerator extends SplitGenerator{
 	protected AgentSeed nextElement(IScope scope, double lastdate, GamlSpecies spe, IShape location) {
 		int choice = getChoice(scope);
 		this.lastDate = Math.max(lastdate, lastDate);
-		AgentSeed agt= generators[choice].nextElement(scope,lastDate,spe, location  );
+		AgentSeed agt= generators[choice].nextElement(scope,lastDate,spe, location);
 		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return agt;
 	}
+	
 
 }

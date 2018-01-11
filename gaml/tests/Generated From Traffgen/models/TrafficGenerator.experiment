@@ -11,14 +11,6 @@ experiment "Run Tests" type: test {
 
 		}
 	
-		test continuous_genOp {
-
-		}
-	
-		test discret_genOp {
-
-		}
-	
 		test map_traffgenOp {
 
 		}

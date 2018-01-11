@@ -8,6 +8,7 @@ import msi.gaml.species.GamlSpecies;
 public class MatrixSplitGenerator  extends SplitGenerator{
 	
 	double[][] listOfRate;
+	GamlSpecies listOfSpecies;
 	double lastDate = 0;;
 	int previous = 0;
 
@@ -19,7 +20,9 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 	
 	private void configureGenerator(double[][] choice) {
 		listOfRate = choice;
-		
+		/*for(AbstractGenerator gen: generators){
+			
+		}*/
 	}
 
 
@@ -46,9 +49,21 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 	protected AgentSeed nextElement(IScope scope, double lastdate, GamlSpecies spe, IShape location) {
 		int choice = getChoice(scope);
 		this.lastDate = Math.max(lastdate, lastDate);
+		
 		AgentSeed agt= generators[choice].nextElement(scope,lastDate,spe, location  );
 		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return null;
 	}
+	
+	/*private int getGeneratorIndex(int choice){
+		int index = 0;
+		for(AbstractGenerator gen:generators){
+			if(gen.getManagedSpecies().contains(listOfSpecies[choice])){
+				return index;
+			}
+			index++;
+		}
+		return index;
+	}*/
 
 }
