@@ -183,9 +183,8 @@ public class TrafficGenerator {
 	
 	@getter(ITrafficGenerator.NEXT)
 	public IAgent getNext(IScope scope) {
-		double duration = scope.getSimulation().getClock().getStartingDate().until(scope.getSimulation().getClock().getCurrentDate(), ChronoUnit.MILLIS)/1000;
-				
-				
+		double duration = (double) scope.getExperiment().getSimulation().getStartingDate().until(scope.getExperiment().getSimulation().getCurrentDate(), ChronoUnit.MILLIS)/1000;
+		
 		//		getStepInMillis()*scope.getSimulation().getClock().getCycle();
 		return generator.next(scope, duration);
 	}

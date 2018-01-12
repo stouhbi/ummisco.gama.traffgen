@@ -50,7 +50,7 @@ public class TrafficScheduler {
 	@getter(value=ITrafficScheduler.NEXT)
 	@doc(value="get the next vehicle from the scheduler")
 	public IAgent getNext(IScope scope){
-		double currentTime = scope.getSimulation().getClock().getStartingDate().until(scope.getSimulation().getClock().getCurrentDate(), ChronoUnit.MILLIS)/1000;
+		double currentTime = (double) scope.getSimulation().getClock().getStartingDate().until(scope.getSimulation().getClock().getCurrentDate(), ChronoUnit.MILLIS)/1000;
 		System.out.println("current Time is "+ currentTime);
 		if(this.type.equals(ITrafficScheduler.TYPE_SEQUENCE))
 			return scheduleSequence(scope,currentTime);
@@ -62,8 +62,9 @@ public class TrafficScheduler {
 	}
 	
 	public IAgent scheduleSequence(IScope scope, double currentTime){
-		int duration = periods[currentPeriod].getDuration();
+		double duration = (double) periods[currentPeriod].getDuration()/1000;
 		if(currentTime%duration==0){ // this period has finished, go to next
+			System.out.println("Period "+currentPeriod+ " is finished");
 			currentPeriod++;
 			if(currentPeriod >= periods.length) return null;
 		}
@@ -74,6 +75,7 @@ public class TrafficScheduler {
 	public IAgent scheduleCycle(IScope scope, double currentTime){
 		int duration = periods[currentPeriod].getDuration();
 		if(currentTime%duration==0){ // this period has finished, go to next
+			System.out.println("Period "+currentPeriod+ " is finished");
 			currentPeriod++;
 			if(currentPeriod >= periods.length) currentPeriod=0;
 		}
