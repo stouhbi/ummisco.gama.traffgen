@@ -1,5 +1,6 @@
 package ummisco.gama.traffgen.generators;
 
+
 import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
 import msi.gaml.species.GamlSpecies;
@@ -8,7 +9,6 @@ public class ListSplitGenerator extends SplitGenerator{
 
 	double[] listOfRate;
 	double lastDate = 0;
-	double[] listOfSpecies;
 	
 	public ListSplitGenerator(AbstractGenerator[] gen, double[] choice) {
 		super(gen);
@@ -45,6 +45,8 @@ public class ListSplitGenerator extends SplitGenerator{
 		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return agt;
 	}
+
+	
 	
 
 }

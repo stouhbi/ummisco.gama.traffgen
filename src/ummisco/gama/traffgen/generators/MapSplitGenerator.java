@@ -63,6 +63,8 @@ public class MapSplitGenerator extends SplitGenerator {
 		for(int i = 0; i < listOfRate.length; i++){
 			System.out.println(" rate "+ listOfRate[i]);
 		}
+		
+		this.index=0;
 	}
 	
 	

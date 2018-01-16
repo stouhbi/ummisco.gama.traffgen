@@ -139,6 +139,15 @@ public class AtomicGenerator extends AbstractGenerator implements IGenerator {
 
 		return sdd;
 	}
+
+	@Override
+	protected List<IShape> getManagedPositions() {
+		ArrayList<IShape> locs = new ArrayList<IShape>();
+		locs.add(shape);
+		return locs;
+	}
+	
+	
 	
 	
 }

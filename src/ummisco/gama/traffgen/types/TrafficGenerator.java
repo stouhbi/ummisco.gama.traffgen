@@ -24,6 +24,7 @@ import ummisco.gama.traffgen.generators.ContinuousTrafficFlow;
 import ummisco.gama.traffgen.generators.DiscretTrafficFlow;
 import ummisco.gama.traffgen.generators.IGenerator;
 import ummisco.gama.traffgen.generators.ListSplitGenerator;
+import ummisco.gama.traffgen.generators.LocationSplitGenerator;
 import ummisco.gama.traffgen.generators.MapSplitGenerator;
 import ummisco.gama.traffgen.generators.MatrixSplitGenerator;
 import ummisco.gama.traffgen.generators.TrafficTimeTable;
@@ -160,6 +161,17 @@ public class TrafficGenerator {
 		return new TrafficGenerator(res);
 	}
 	
+	
+	@operator(value=ITrafficGenerator.LOCATION_GENERATOR)
+	@doc(value = "create a location traffic generator - we use only map in this case")
+	public static TrafficGenerator createLocationTrafficGenerator(final IScope scope, final IList<TrafficGenerator> generators, final GamaMap<IShape,Double> choice){
+		AbstractGenerator[] gen = new AbstractGenerator[generators.size()];
+		for(int i = 0; i< gen.length; i++) {
+			gen[i] = (AbstractGenerator)generators.get(i).generator;
+		}
+		LocationSplitGenerator res = new LocationSplitGenerator(gen,choice);
+		return new TrafficGenerator(res);
+	}
 
 	
 	

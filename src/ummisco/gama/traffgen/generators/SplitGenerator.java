@@ -5,6 +5,7 @@ import java.util.List;
 
 import msi.gama.metamodel.agent.IAgent;
 import msi.gama.metamodel.shape.ILocation;
+import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
 import msi.gaml.species.GamlSpecies;
 import ummisco.gama.traffgen.types.ITrafficGenerator;
@@ -37,6 +38,19 @@ public abstract class SplitGenerator extends AbstractGenerator {
 		for(double dte:lastCreationDates)
 			res = Math.max(dte,res);
 		return res;
+	}
+	
+	
+	@Override
+	protected List<IShape> getManagedPositions() {
+		ArrayList<IShape> allPositions = new ArrayList<IShape>();
+		for(AbstractGenerator agt :generators) {
+			for(IShape sp :agt.getManagedPositions()) {
+				if(!allPositions.contains(sp))
+					allPositions.add(sp);
+			}
+		}
+		return allPositions;
 	}
 
 }

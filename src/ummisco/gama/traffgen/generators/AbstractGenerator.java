@@ -28,6 +28,8 @@ public abstract class AbstractGenerator implements IGenerator {
 	protected abstract AgentSeed nextElement(IScope scope, double lastDate, GamlSpecies spe, IShape location);
 	protected abstract List<GamlSpecies> getManagedSpecies();
 	
+	protected abstract List<IShape> getManagedPositions();
+	
 
 	
 	public IAgent previous(int nb)
@@ -115,7 +117,7 @@ public abstract class AbstractGenerator implements IGenerator {
 		
 		while(shouldGenerateData())
 		{
-			AgentSeed tmp= nextElement( scope,0, null, null);
+			AgentSeed tmp= nextElement(scope,0, null, null);
 			this.gotIndividuals.get(tmp.getSpecies()).add(tmp);
 		}
 		AgentSeed agtseed = popFirst();
