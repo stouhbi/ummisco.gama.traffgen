@@ -61,14 +61,14 @@ public class ShiftedLogNormalDist extends ContinuousDistribution {
 	public static double inverseF (double meanlog, double sdlog, double u, double x) {
 		if(x-u < 0.0)
 			return 0.0;
-		return LognormalDist.inverseF(meanlog, sdlog, x-u);
+		return (u+LognormalDist.inverseF(meanlog, sdlog, x));
 	}
 	
 	@Override
 	public double inverseF(double x) {
 		if(x-u < 0.0)
 			return 0.0;
-		return LognormalDist.inverseF(meanlog, sdlog, x-u);
+		return (u+LognormalDist.inverseF(meanlog, sdlog, x));
 	}
 	
 	

@@ -62,14 +62,14 @@ public class Pearson6Distr extends ContinuousDistribution {
 	public static double inverseF(double alpha1, double alpha2, double sigma, double u, double x)  {
 		if(x-u < 0.0)
 			return 0.0;
-		return Pearson6Dist.inverseF(alpha1, alpha2, sigma, x-u);
+		return (u+Pearson6Dist.inverseF(alpha1, alpha2, sigma, x));
 	}
 	
 	@Override
 	public double inverseF(double x) {
 		if(x-u < 0.0)
 			return 0.0;
-		return Pearson6Dist.inverseF(alpha1, alpha2, sigma, x-u);
+		return (u+Pearson6Dist.inverseF(alpha1, alpha2, sigma, x));
 	}
 	
 	

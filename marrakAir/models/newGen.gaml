@@ -28,7 +28,7 @@ global{
 	//traffgen_law headway1 <-  pareto_4_law(0.3282351, 0.2914587, 2.040083, -0.198); // 2-4 all data
 	//traffgen_law headway1 <-  pareto_4_law(1.071, 0.424, 2.396, -0.009); // 10-14
 	//traffgen_law headway1 <-  inverse_gamma_law(3.467,1.0/1.306); // 2-4 all data
-	traffgen_law headway1 <-  gamma_law(1.1951304,0.1825619); // 2-4 all data
+	//traffgen_law headway1 <-  gamma_law(1.1951304,0.1825619); // 2-4 all data
 	//traffgen_law headway2 <-  pareto_4_law(0.672, 0.367, 2.189, -0.09);  // 5-9
 	//traffgen_law headway2 <-  pareto_4_law(1.557670, 0.4599637, 2.645302, -0.01399994); // 10-14 all data
 	traffgen_law headway2 <-  pareto_4_law(1.436, 0.444, 2.46, 0.014); // 10-14 
@@ -36,8 +36,11 @@ global{
 	traffgen_law speed <- poisson_law(20);
 	//geometry locat <- square(2) at :{4652.572627816505, 2453.786642591314, 0};
 	
-
-
+	//traffgen_law headway1 <-  pareto_3_law(0.412,2.327,-0.043); // 10-14
+	//traffgen_law headway1 <-  pearson_6_law(9.471, 5.947, 1.53, -0.54); // 15-19 phase 1
+	//traffgen_law headway1 <-  pearson_5_law(5.23, 14.473, -1.012); // 15-19 phase 1
+	
+	traffgen_law headway1 <-  shifted_lognormal_law(0.99, 0.787, 0.045); // 5-9 phase 2 M5
 	traffgen_gen gen1 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway1, speed, {4652.572627816505, 2453.786642591314, 0});
 	//traffgen_gen gen2 <- atomic_traffgen(species_of(bus), headway1, speed, {4652.572627816505, 2453.786642591314, 0});
 	//traffgen_gen gen3 <- atomic_traffgen(species_of(moto), headway1, speed, {4652.572627816505, 2453.786642591314, 0});

@@ -90,7 +90,7 @@ public class Pearson5Distr extends ContinuousDistribution {
 
 		System.out.println("u "+u + " alpha(shape) "+alpha+ " beta(scale)"+beta);
 		System.out.println("value  "+ ( u +  InverseGammaDist.inverseF(alpha, beta, x)));
-		return InverseGammaDist.inverseF (alpha, beta, x-u);
+		return (u+InverseGammaDist.inverseF (alpha, beta, x));
 	}
 	
 	@Override
@@ -104,7 +104,7 @@ public class Pearson5Distr extends ContinuousDistribution {
 
 		System.out.println("u "+u + " alpha(shape) "+alpha+ " beta(scale)"+beta);
 		System.out.println("value  "+ ( u +  InverseGammaDist.inverseF(alpha, beta, x)));
-		return InverseGammaDist.inverseF (alpha, beta, x-u);
+		return (u+InverseGammaDist.inverseF (alpha, beta, x));
 	}
 
 

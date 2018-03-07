@@ -239,7 +239,7 @@ public class TrafficLaw extends GamaMap<String, Object> {
 	}
 	
 	@operator(value=ITrafficLaw.SHIFTED_LOGNORMAL_LAW)
-	@doc(value = "create a shifted lognormal traffic law shifted_lognormal_law(meanlog, sdlog, u(location))")
+	@doc(value = "create a shifted lognormal traffic law shifted_lognormal_law(meanlog(scale), sdlog(shape), u(location))")
 	public static TrafficLaw createShiftedLogNormal(final IScope scope, final Double meanLog, final Double sdLog, final Double u){
 		TrafficLaw res = new TrafficLaw();
 		res.put(ITrafficLaw.MODEL, ITrafficLaw.SHIFTED_LOGNORMAL);
