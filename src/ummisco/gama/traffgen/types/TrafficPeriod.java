@@ -65,12 +65,12 @@ public class TrafficPeriod {
 	@getter(value=ITrafficPeriod.NEXT)
 	@doc(value =" Next on the period")
 	public IAgent getNext(IScope scope){
-		if(individuals >= individualsAllowed){
-			return null;
-		}else{
+		//if(individuals >= individualsAllowed){
+		//	return null;
+		//}else{
 			individuals++;
 			return this.generator.getNext(scope);
-		}
+		//}
 	}
 	
 	

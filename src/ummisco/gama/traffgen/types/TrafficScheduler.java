@@ -26,11 +26,13 @@ public class TrafficScheduler {
 	String type; // sequence or cycle
 	
 	int currentPeriod;
+	double currentTick;
 	
 	public TrafficScheduler(TrafficPeriod[] periods, String type) {
 		this.type = type;
 		this.periods = periods;
 		currentPeriod = periods.length > 0 ? 0:-1;
+		currentTick = 0;
 	}
 	
 	@operator(value= ITrafficScheduler.CREATE_SCHEDULE)
@@ -62,7 +64,7 @@ public class TrafficScheduler {
 	}
 	
 	public IAgent scheduleSequence(IScope scope, double currentTime){
-		double duration = (double) periods[currentPeriod].getDuration()/1000;
+		double duration = (double) periods[currentPeriod].getDuration();
 		if(currentTime%duration==0){ // this period has finished, go to next
 			System.out.println("Period "+currentPeriod+ " is finished");
 			currentPeriod++;
@@ -74,12 +76,18 @@ public class TrafficScheduler {
 	
 	public IAgent scheduleCycle(IScope scope, double currentTime){
 		int duration = periods[currentPeriod].getDuration();
-		if(currentTime%duration==0){ // this period has finished, go to next
+		System.out.println("Period "+currentPeriod + "currentTick "+currentTick);
+		if(Math.round(currentTick-0.5)%duration==0 & Math.round(currentTick-0.5)>=1){ // this period has finished, go to next
 			System.out.println("Period "+currentPeriod+ " is finished");
 			currentPeriod++;
 			if(currentPeriod >= periods.length) currentPeriod=0;
-		}
 			
+			currentTick = 0;
+		}
+	
+		double step = (double) scope.getExperiment().getSimulation().getTimeStep(scope);
+		
+		currentTick += step; 
 		return periods[currentPeriod].getNext(scope);
 	}
 	

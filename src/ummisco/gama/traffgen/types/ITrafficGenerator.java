@@ -5,6 +5,7 @@ public interface ITrafficGenerator {
 	public final static String TYPE_NAME 						= "traffgen_gen";
 	
 	public final static String ACTIVATION_DATE 					= "activated_at";
+	public final static String TIV  = "tiv";
 	
 	public final static String SPEED 					= "speed";
 	

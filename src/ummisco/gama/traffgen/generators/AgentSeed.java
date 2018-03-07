@@ -9,13 +9,16 @@ class AgentSeed {
 	private double speed;
 	private double activationDate;
 	private ILocation startingPoint;
+	private double tiv;
+	
 	 
-	public AgentSeed(GamlSpecies species, double speed, double activationDate, ILocation startingPoint) {
+	public AgentSeed(GamlSpecies species, double speed, double activationDate, ILocation startingPoint, double tiv) {
 		super();
 		this.species = species;
 		this.speed = speed;
 		this.activationDate = activationDate;
 		this.startingPoint = startingPoint;
+		this.setTiv(tiv);
 	}
 	
 	public GamlSpecies getSpecies() {
@@ -41,6 +44,14 @@ class AgentSeed {
 	}
 	public void setStartingPoint(ILocation startingPoint) {
 		this.startingPoint = startingPoint;
+	}
+
+	public double getTiv() {
+		return tiv;
+	}
+
+	public void setTiv(double tiv) {
+		this.tiv = tiv;
 	}
 	
 	

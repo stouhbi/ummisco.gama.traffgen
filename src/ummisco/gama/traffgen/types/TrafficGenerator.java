@@ -195,10 +195,10 @@ public class TrafficGenerator {
 	
 	@getter(ITrafficGenerator.NEXT)
 	public IAgent getNext(IScope scope) {
-		double duration = (double) scope.getExperiment().getSimulation().getStartingDate().until(scope.getExperiment().getSimulation().getCurrentDate(), ChronoUnit.MILLIS)/1000;
+		double currentTime = (double) scope.getExperiment().getSimulation().getStartingDate().until(scope.getExperiment().getSimulation().getCurrentDate(), ChronoUnit.MILLIS)/1000;
 		
 		//		getStepInMillis()*scope.getSimulation().getClock().getCycle();
-		return generator.next(scope, duration);
+		return generator.next(scope, currentTime);
 	}
 
 	@getter(ITrafficGenerator.PREVIOUS)
