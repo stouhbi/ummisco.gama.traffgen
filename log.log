@@ -1,8 +1,32 @@
+<<<<<<< HEAD
+2018-03-07 09:25:55.167 java[29539:1174006] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+2018-03-07 09:25:55.168 java[29539:1174006] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
+>GAMA version null loading...
+>GAMA models library version: .built_in_models_1495853933000
+>GAMA plugin loaded in 2358 ms: 	msi.gama.core_1.7.0.qualifier [10]
+>GAMA plugin loaded in 10 ms: 	msi.gama.lang.gaml_1.7.0.qualifier [13]
+>GAMA plugin loaded in 99 ms: 	simtools.gaml.extensions.traffic_1.7.0.qualifier [191]
+>GAMA plugin loaded in 43 ms: 	msi.gaml.extensions.fipa_1.7.0.qualifier [17]
+>GAMA plugin loaded in 32 ms: 	ummisco.gaml.extensions.stats_1.7.0.qualifier [204]
+>GAMA plugin loaded in 52 ms: 	ummisco.gama.traffgen_1.0.0.qualifier [197]
+>GAMA plugin loaded in 20 ms: 	ummisco.gama.serialize_1.7.0.qualifier [196]
+>GAMA plugin loaded in 87 ms: 	irit.gaml.extensions.database_1.7.0.qualifier [5]
+>GAMA plugin loaded in 21 ms: 	ummisco.gama.network_1.7.0.qualifier [194]
+>GAMA plugin loaded in 259 ms: 	msi.gaml.architecture.simplebdi_1.7.0.qualifier [16]
+>GAMA plugin loaded in 17 ms: 	msi.gama.headless_1.7.0.qualifier [12]
+>GAMA plugin loaded in 20 ms: 	ummisco.gama.opengl_1.7.0.qualifier [195]
+>GAMA plugin loaded in 26 ms: 	ummisco.gaml.extensions.maths_1.7.0.qualifier [203]
+>GAMA plugin loaded in 6 ms: 	ummisco.gama.java2d_1.7.0.qualifier [193]
+>GAMA plugin loaded in 9 ms: 	simtools.gaml.extensions.physics_1.7.0.qualifier [190]
+>GAMA total load time 3212 ms.
+!SESSION 2018-03-07 09:25:46.816 -----------------------------------------------
+=======
 2018-01-11 18:11:11.575 java[57582:3293641] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
 2018-01-11 18:11:11.576 java[57582:3293641] *** WARNING: Method userSpaceScaleFactor in class NSWindow is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead. 
 >GAMA version null loading...
 >GAMA models library version: .built_in_models_1495853933000
 !SESSION 2018-01-11 18:11:03.110 -----------------------------------------------
+>>>>>>> parent of bc34a90... Added more laws
 eclipse.buildId=unknown
 java.version=1.8.0_101
 java.vendor=Oracle Corporation
@@ -10,6 +34,12 @@ BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
 Framework arguments:  -product msi.gama.application.product --launcher.defaultAction openFile
 Command-line arguments:  -product msi.gama.application.product -data /Users/saadtouhbi/Documents/workspace/../runtime-gama.product -dev file:/Users/saadtouhbi/Documents/workspace/.metadata/.plugins/org.eclipse.pde.core/gama.product/dev.properties -os macosx -ws cocoa -arch x86_64 -consoleLog -data @noDefault --launcher.defaultAction openFile
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.ui 4 4 2018-03-07 09:26:01.595
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+>GAMA building GAML artefacts in 909 ms
+Reading workspace metadata in 115ms
+=======
 !ENTRY org.eclipse.core.resources 2 10035 2018-01-11 18:11:14.180
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
 >GAMA plugins with language additions: [msi.gama.core, ummisco.gama.java2d, msi.gama.lang.gaml, msi.gaml.extensions.fipa, irit.gaml.extensions.database, ummisco.gama.traffgen, ummisco.gama.opengl, simtools.gaml.extensions.physics, ummisco.gaml.extensions.maths, msi.gama.headless, simtools.gaml.extensions.traffic, ummisco.gaml.extensions.stats, msi.gaml.architecture.simplebdi, ummisco.gama.serialize, ummisco.gama.network]
@@ -63,3 +93,4 @@ java.lang.ClassCastException: msi.gama.util.GamaList cannot be cast to msi.gaml.
 	at msi.gama.kernel.experiment.ExperimentPlan.open(ExperimentPlan.java:476)
 	at msi.gama.kernel.experiment.ExperimentController.lambda$0(ExperimentController.java:90)
 	at java.lang.Thread.run(Thread.java:745)
+>>>>>>> parent of bc34a90... Added more laws

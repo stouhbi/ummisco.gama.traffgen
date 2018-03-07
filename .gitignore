@@ -4,6 +4,7 @@ target/*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+*.log
 
 # Package Files #
 *.jar
@@ -14,3 +15,5 @@ target/*
 hs_err_pid*
 .apt_generated/*
 bin/*
+*.log
+*.log
