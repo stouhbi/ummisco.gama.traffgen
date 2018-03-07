@@ -3,55 +3,42 @@ package ummisco.gama.distributions;
 import umontreal.ssj.randvar.RandomVariateGen;
 import umontreal.ssj.rng.RandomStream;
 
-public class Pearson5Gene extends RandomVariateGen {
+public class ShiftedLogNormalGen extends RandomVariateGen{
+	
+	// meanlog shape
+	private double meanlog;
+	
+	// sdlog scale
+	private double sdlog;
+	
+	// location
+	private double u;
 
-	/** shape alpha>0 **/
-	protected double alpha;
-	
-	
-	/** scale beta>0 **/
-	protected double beta;
-	
-	/** location u **/
-	protected double u;
-
-	public Pearson5Gene(RandomStream s, double alpha, double beta, double u) {
-		super(s, new Pearson5Distr(alpha, beta, u));
-		this.alpha = alpha;
-		this.beta = beta;
-		this.u = u;
-	}
-	
-	public Pearson5Gene(RandomStream s, Pearson5Distr dist) {
-		super(s, dist);
-		if (dist != null){
-			this.dist = dist;
-			setParams(dist.getAlpha(), dist.getBeta(), dist.getU());
-		}
+	public ShiftedLogNormalGen(RandomStream s, Double meanlog, Double sdlog, Double u) {
+		super(s, new ShiftedLogNormalDist(meanlog, sdlog, u));
+		this.dist = new ShiftedLogNormalDist(meanlog, sdlog, u);
+		this.setParams(meanlog, sdlog, u);
+		
 	}
 	
 	
-	public void setParams (double alpha, double beta,double u) {
-		if (alpha <= 0.0)
-			throw new IllegalArgumentException ("alpha (shape) <= 0");
-		if (beta <= 0.0)
-			throw new IllegalArgumentException ("beta (scale) <= 0");
-
-		this.alpha = alpha;
-		this.beta = beta;
+	public void setParams (double meanlog, double sdlog,double u) {
+		this.meanlog = meanlog;
+		this.sdlog = sdlog;
 		this.u = u;
 		//supportA = beta;
 	}
 	
 	public double[] getParams() {
-		double[] retour = {alpha, beta, u};
+		double[] retour = {meanlog, sdlog, u};
 		return retour;
 	}
 	
+	
 	public static double nextDouble (RandomStream s,
-			double alpha, double beta, double u) {
+			Double meanlog, Double sdlog, Double u) {
 		System.out.println("Random Stream : "+s.nextDouble());
-		return Pearson5Distr.inverseF (alpha, beta, u, s.nextDouble());
+		return ShiftedLogNormalDist.inverseF (meanlog, sdlog, u, s.nextDouble());
 	}
 
 	@Override
@@ -78,16 +65,17 @@ public class Pearson5Gene extends RandomVariateGen {
 	
 
 	public static double[] nextDoubles (RandomStream s,
-			double alpha, double beta, double u, int number) {
+			Double meanlog, Double sdlog, Double u, int number) {
 		double[] vals = new double[number];
 		System.out.println("(");
 		for(int i = 0; i < number; i++){
-			vals[i] = Pearson5Distr.inverseF (alpha, beta, u, s.nextDouble());
+			vals[i] = ShiftedLogNormalDist.inverseF (meanlog, sdlog, u, s.nextDouble());
 			System.out.println(vals[i]+",");
 		}
 		System.out.println(")");
 		return vals;
 		
 	}
-	
+
+
 }

@@ -80,27 +80,31 @@ public class Pearson5Distr extends ContinuousDistribution {
 	/**
 	 * Computes the inverse of the distribution function.
 	 */
-	public static double inverseF (double alpha, double beta, double u, double v) {
+	public static double inverseF (double alpha, double beta, double u, double x) {
 		if (alpha <= 0.0)
 			throw new IllegalArgumentException ("alpha (shape) <= 0");
 		if (beta <= 0.0)
 			throw new IllegalArgumentException ("beta (scale) <= 0");
+		if(x-u < 0.0)
+			return 0.0;
 
 		System.out.println("u "+u + " alpha(shape) "+alpha+ " beta(scale)"+beta);
-		System.out.println("value  "+ ( u +  InverseGammaDist.inverseF(alpha, beta, v)));
-		return (u +  InverseGammaDist.inverseF (alpha, beta, v));
+		System.out.println("value  "+ ( u +  InverseGammaDist.inverseF(alpha, beta, x)));
+		return InverseGammaDist.inverseF (alpha, beta, x-u);
 	}
 	
 	@Override
-	public double inverseF(double v) {
+	public double inverseF(double x) {
 		if (alpha <= 0.0)
 			throw new IllegalArgumentException ("alpha (shape) <= 0");
 		if (beta <= 0.0)
 			throw new IllegalArgumentException ("beta (scale) <= 0");
+		if(x-u < 0.0)
+			return 0.0;
 
 		System.out.println("u "+u + " alpha(shape) "+alpha+ " beta(scale)"+beta);
-		System.out.println("value  "+ ( u +  InverseGammaDist.inverseF(alpha, beta, v)));
-		return (u + InverseGammaDist.inverseF (alpha, beta, v));
+		System.out.println("value  "+ ( u +  InverseGammaDist.inverseF(alpha, beta, x)));
+		return InverseGammaDist.inverseF (alpha, beta, x-u);
 	}
 
 
