@@ -14,6 +14,7 @@ public interface ITrafficLaw {
 	static final String PEARSON_5_LAW = "pearson_5_law";
 	static final String PEARSON_6_LAW = "pearson_6_law";
 	
+	public static final String UNIFORM_LAW = "uniform_law";
 	
 	static final String EXPO_LAW = "exponential_law";
 	static final String SHIFTED_EXPO_LAW = "shifted_exponential_law";
@@ -48,11 +49,15 @@ public interface ITrafficLaw {
 	public static final String LOGNORMAL 		= "LOGNORMAL";
 	public static final String SHIFTED_LOGNORMAL 		= "SHIFTED_LOGNORMAL";
 	
+	public static final String UNIFORM = "UNIFORM";
+	
 	public static final String MODEL 		= "model";
 	public static final String NEXT 		= "next";
 	public static final String ALPHA 		= "alpha";
 	public static final String BETA 		= "beta";
 	public static final String GAMMA 		= "gamma";
+	public static final String MIN 		= "min";
+	public static final String MAX 		= "max";
 	
 	public static final String SIGMA 		= "sigma";
 	public static final String LAMBDA 		= "lambda";
@@ -65,6 +70,8 @@ public interface ITrafficLaw {
 	
 	//public final static String LAW_PARAMETERS = "law_parameters";
 	public final static String PARAMETERS = "parameters";
+
+	
 
 	
 }

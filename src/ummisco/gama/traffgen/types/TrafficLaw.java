@@ -24,6 +24,7 @@ import umontreal.ssj.randvar.InverseGammaGen;
 import umontreal.ssj.randvar.LognormalGen;
 import umontreal.ssj.randvar.PoissonGen;
 import umontreal.ssj.randvar.RandomVariateGen;
+import umontreal.ssj.randvar.UniformGen;
 import umontreal.ssj.rng.GenF2w32;
 import umontreal.ssj.rng.RandomStream;
 
@@ -107,6 +108,9 @@ public class TrafficLaw extends GamaMap<String, Object> {
 		if(name.equals(ITrafficLaw.EXPONENTIAL))
 			return new ExponentialGen(stream, parameters.get(ITrafficLaw.LAMBDA));
 		
+		if(name.equals(ITrafficLaw.UNIFORM))
+			return new UniformGen(stream, parameters.get(ITrafficLaw.MIN), parameters.get(ITrafficLaw.MAX));
+		
 		if(name.equals(ITrafficLaw.GAMMAM)) // alpha = shape, beta = rate
 			return new GammaGen(stream, parameters.get(ITrafficLaw.ALPHA), parameters.get(ITrafficLaw.LAMBDA));
 		
@@ -149,6 +153,10 @@ public class TrafficLaw extends GamaMap<String, Object> {
 			res.put(ITrafficLaw.SDLOG, map.get(ITrafficLaw.SDLOG));
 		if(map.containsKey(ITrafficLaw.ALPHA2))
 			res.put(ITrafficLaw.ALPHA2, map.get(ITrafficLaw.ALPHA2));
+		if(map.containsKey(ITrafficLaw.MIN))
+			res.put(ITrafficLaw.MIN, map.get(ITrafficLaw.MIN));
+		if(map.containsKey(ITrafficLaw.MAX))
+			res.put(ITrafficLaw.MAX, map.get(ITrafficLaw.MAX));
 		return res;
 	}
 	
@@ -273,6 +281,16 @@ public class TrafficLaw extends GamaMap<String, Object> {
 		return res;
 	}
 	
+	@operator(value=ITrafficLaw.UNIFORM_LAW)
+	@doc(value = "create a uniform law uniform_law(min, max)")
+	public static TrafficLaw createUniform(final IScope scope, final Double min, final Double max){
+		TrafficLaw res = new TrafficLaw();
+		res.put(ITrafficLaw.MODEL, ITrafficLaw.UNIFORM);
+		res.put(ITrafficLaw.MIN, min);
+		res.put(ITrafficLaw.MAX, max);
+		
+		return res;
+	}
 	
 	
 }
