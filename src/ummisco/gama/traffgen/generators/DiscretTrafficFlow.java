@@ -36,7 +36,14 @@ public class DiscretTrafficFlow extends TrafficTimeTable {
 		//int size = timeTable.size();
 		double tmp = 0;
 		for(int i=begin;i<end;i++) {
-			tmp = this.timeHeadwayLaw.getNext();
+			int attempts = 0; 
+			while(attempts < 3){
+				tmp = this.timeHeadwayLaw.getNext();
+				if(tmp > duration)
+					attempts++;
+				else
+					break;
+			}
 			timeTable.add(tmp);
 			//timeTable.set(i%size, tmp);
 			expectedDuration +=tmp;
@@ -61,10 +68,30 @@ public class DiscretTrafficFlow extends TrafficTimeTable {
 			 res = timeTable.get(tempI) + val;
 			 timeTable.set(tempI, res > 0 ? res: timeTable.get(tempI));
 		}*/
-		
-		if(flowDifference >= 0) timeTable.add(duration+1.0); // add dummy TIV
+
+
+		/*if(flowDifference <= 0){ // attempt to adjust the last TH to have a good number of vehicles
+			int attempts=0;
+			while(attempts<3){
+				double val = timeTable.get(end-1);
+				expectedDuration = expectedDuration - val;
+				tmp = this.timeHeadwayLaw.getNext();
+				timeTable.set(end-1, tmp);
+				expectedDuration +=tmp;
+				if((duration - expectedDuration) < 0)
+					attempts++;
+			}
+		}*/
+
 		indexRead = begin;
 		indexWrite = end;
+		if(flowDifference >= 0){
+			timeTable.add(duration+0.5); // add dummy TIV
+			indexWrite = end+1;
+		}
+
+	
+		
 
 	}
 
