@@ -15,4 +15,6 @@ public abstract class TrafficTimeTable {
 	}
 	
 	public abstract double next(IScope scope);
+	
+	
 }

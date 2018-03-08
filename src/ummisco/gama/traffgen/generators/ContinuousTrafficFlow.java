@@ -14,5 +14,6 @@ public class ContinuousTrafficFlow extends TrafficTimeTable{
 	public double next(IScope scope) {
 		return this.timeHeadwayLaw.getNext();
 	}
+
 	
 }

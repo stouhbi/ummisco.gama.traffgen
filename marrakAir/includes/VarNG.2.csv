@@ -1,2 +1,0 @@
-(((((((((((((string(truc.width) + ';') + string(truc.height)) + ';') + string(truc.activated_at)) + ';') + string(truc.speed)) + ';') + string(truc.tiv)) + ';') + truc.location.x) + ':') + truc.location.y) + ':') + truc.location.z
-3.0,7.0,3.1445937158505766,25.0,3.1445937158505766,4652.572627816505:2453.786642591314:0.0

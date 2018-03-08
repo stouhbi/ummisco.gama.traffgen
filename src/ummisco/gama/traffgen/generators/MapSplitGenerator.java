@@ -93,7 +93,7 @@ public class MapSplitGenerator extends SplitGenerator {
 			agt = listOfGenerator[choice].nextElement(scope,lastDate,listOfSpecies[choice],location );
 		}*/
 		
-		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
+		if(agt!=null) this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return agt;
 	}
 	

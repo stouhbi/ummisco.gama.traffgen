@@ -32,8 +32,7 @@ public abstract class AbstractGenerator implements IGenerator {
 
 
 
-	public IAgent previous(int nb)
-	{
+	public IAgent previous(int nb){
 
 		if(nb > previous.length||nb == 0)
 			return null;
@@ -49,8 +48,7 @@ public abstract class AbstractGenerator implements IGenerator {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void generateBuffers()
-	{
+	private void generateBuffers(){
 		this.previous = new IAgent[bufferSize];
 		this.index = 0;
 		List<GamlSpecies> species = this.getManagedSpecies();
@@ -60,20 +58,22 @@ public abstract class AbstractGenerator implements IGenerator {
 		}
 	}
 
-	private boolean shouldGenerateData()
-	{
+	private boolean shouldGenerateData(){
+		int index=0;
 		for(Queue<AgentSeed> agt:gotIndividuals.values())
-			if(agt.isEmpty()) return true;
+			if(agt.isEmpty()) index++;
+		if(index==gotIndividuals.size()){
+			System.out.println("should generate more vehicles");
+			return true; // all queues are empty
+		}
 		return false;
 	}
 
-	private AgentSeed popFirst(double currentDate, double step)
-	{
+	private AgentSeed popFirst(double currentDate, double step){
 		Queue<AgentSeed> tmplist=null;
 		double minDate = Double.MAX_VALUE;
 		AgentSeed agttmp = null;
-		for(Queue<AgentSeed> agt:gotIndividuals.values())
-		{
+		for(Queue<AgentSeed> agt:gotIndividuals.values()){
 
 			// clean up queue
 			boolean end = false;
@@ -107,8 +107,7 @@ public abstract class AbstractGenerator implements IGenerator {
 	}
 
 
-	private IAgent convertAgentSeedToAgent(IScope scope,AgentSeed sagt)
-	{
+	private IAgent convertAgentSeedToAgent(IScope scope,AgentSeed sagt){
 		Map<String,Object> values = new HashMap<String,Object>();
 		if(sagt.getStartingPoint() != null)
 		{
@@ -126,18 +125,17 @@ public abstract class AbstractGenerator implements IGenerator {
 	}
 
 
-	public IAgent next(IScope scope,double currentdate)
-	{
+	public IAgent next(IScope scope,double currentdate){
 		if(this.parent !=null) 
 			return null;
 		else
 			if(this.gotIndividuals == null)
 				generateBuffers();
 
-		while(shouldGenerateData())
-		{
+		while(shouldGenerateData()){
 			AgentSeed tmp= nextElement(scope,currentdate, null, null);
-			this.gotIndividuals.get(tmp.getSpecies()).add(tmp);
+			if(tmp !=null) this.gotIndividuals.get(tmp.getSpecies()).add(tmp);
+			else break;
 		}
 
 		double step = (double) scope.getExperiment().getSimulation().getTimeStep(scope);
@@ -157,8 +155,7 @@ public abstract class AbstractGenerator implements IGenerator {
 
 
 
-	public int bufferSize()
-	{
+	public int bufferSize(){
 		return this.previous.length;
 	}
 

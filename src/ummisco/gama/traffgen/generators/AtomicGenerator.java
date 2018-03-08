@@ -20,21 +20,24 @@ public class AtomicGenerator extends AbstractGenerator implements IGenerator {
 	ArrayList<GamlSpecies> species;
 	IShape shape;
 	double lastDate;
-	
+	boolean isContinuous;
 	
 	private AtomicGenerator(TrafficLaw timeHeadwayLaw, TrafficLaw spl, IShape shape) {
 		super();
 		this.timeHeadwayLaw = new ContinuousTrafficFlow(timeHeadwayLaw);
+		isContinuous = true;
 		this.speedLaw = spl;
 		this.species = new ArrayList<GamlSpecies>();
 		this.shape = shape;
 		lastDate = 0;
+		
 		
 	}
 	
 	private AtomicGenerator(TrafficLaw timeHeadwayLaw, TrafficLaw spl, TrafficLaw vehicleFlow, int duration, IShape shape) {
 		super();
 		this.timeHeadwayLaw = new DiscretTrafficFlow(timeHeadwayLaw, vehicleFlow, duration);
+		isContinuous = false;
 		this.speedLaw = spl;
 		this.species = new ArrayList<GamlSpecies>();
 		this.shape = shape;
@@ -128,8 +131,9 @@ public class AtomicGenerator extends AbstractGenerator implements IGenerator {
 	
 	@Override
 	protected AgentSeed nextElement(IScope scope, double date, GamlSpecies s, IShape location ) {
+		
 		GamlSpecies spe = this.chooseSpecies(scope, s);
-		double start =this.lastDate; // Math.max(date, this.lastDate);
+		double start =date; // Math.max(date, this.lastDate);
 		double tiv = timeHeadwayLaw.next(scope);
 		double newDate = start + tiv;
 		lastDate = newDate;

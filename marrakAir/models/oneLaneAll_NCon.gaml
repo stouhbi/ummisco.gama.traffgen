@@ -142,7 +142,12 @@ global{
 			
 		}
 		
-		truc <-  schedule_NG_2.next;
+		/*write "2_4 : " + count_2_4.next;
+		write "5_9 : " + count_5_9.next;
+		write "10_14 : " + count_10_14.next;$/
+		
+		
+		/*truc <-  schedule_NG_2.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
@@ -167,7 +172,7 @@ global{
 			write "at location "+truc.location;
 			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNM.2.csv" type:"csv" rewrite:false;
 			
-		}
+		}*/
 		
 	}
 
