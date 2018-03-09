@@ -74,15 +74,19 @@ public abstract class AbstractGenerator implements IGenerator {
 		double minDate = Double.MAX_VALUE;
 		AgentSeed agttmp = null;
 		for(Queue<AgentSeed> agt:gotIndividuals.values()){
-
 			// clean up queue
 			boolean end = false;
 			
 			while(!end && !agt.isEmpty()){
 				agttmp = agt.peek();
-				if(agttmp.getActivationDate() < currentDate - 2*step) // remove old vehicles
-					agt.poll();
-				else end = true;
+				if(agttmp.getActivationDate() < currentDate - 2*step){
+					// remove old vehicles
+					AgentSeed t = agt.poll();
+				}else{
+					end = true;
+				}
+					
+				
 			}
 			// if there is still agents in this queue
 			if(!agt.isEmpty()){ 
@@ -132,10 +136,11 @@ public abstract class AbstractGenerator implements IGenerator {
 			if(this.gotIndividuals == null)
 				generateBuffers();
 
-		while(shouldGenerateData()){
+		if(shouldGenerateData()){
 			AgentSeed tmp= nextElement(scope,currentdate, null, null);
-			if(tmp !=null) this.gotIndividuals.get(tmp.getSpecies()).add(tmp);
-			else break;
+			if(tmp != null){
+				this.gotIndividuals.get(tmp.getSpecies()).add(tmp);
+			}
 		}
 
 		double step = (double) scope.getExperiment().getSimulation().getTimeStep(scope);

@@ -133,15 +133,17 @@ public class AtomicGenerator extends AbstractGenerator implements IGenerator {
 	protected AgentSeed nextElement(IScope scope, double date, GamlSpecies s, IShape location ) {
 		
 		GamlSpecies spe = this.chooseSpecies(scope, s);
-		double start =date; // Math.max(date, this.lastDate);
+		double start = date; // Math.max(date, this.lastDate);
 		double tiv = timeHeadwayLaw.next(scope);
 		double newDate = start + tiv;
 		lastDate = newDate;
 		double speed = speedLaw.getNext();
-		System.out.println("creation agent "+ spe.getName()+" à la date "+ newDate + " avec un vitesse de "+speedLaw.getNext());	
+		
+		
+		System.out.println("creation agent "+ spe.getName()+" à la date "+ newDate + " avec un vitesse de "+speed);	
 		
 		AgentSeed sdd = new AgentSeed(spe,speed,newDate,chooseLocation(scope,location), tiv); 
-
+		
 		return sdd;
 	}
 

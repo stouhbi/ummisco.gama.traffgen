@@ -20,9 +20,11 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 	
 	private void configureGenerator(double[][] choice) {
 		listOfRate = choice;
-		/*for(AbstractGenerator gen: generators){
-			
-		}*/
+		for(int i = 0; i < listOfRate.length; i++){
+			for(int j = 0; j < listOfRate[i].length; j++){
+				System.out.println("line "+i+" column "+j  + " rate " + listOfRate[i][j]);
+			}
+		}
 	}
 
 
@@ -30,29 +32,29 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 		double[] choices = listOfRate[previous];
 		double number = scope.getRandom().between(0.0, 1.0);
 		double tmp = 0;
-		int i = 0;
-		for(i=0;i<choices.length;i++){
+		int choice = 0;
+		for(int i = 0; i < choices.length; i++){
 			tmp+=choices[i];
-			if(number < tmp ) return i;
+			if(number < tmp ){
+				choice = i;
+				previous = i;
+				return choice;
+			}
 		}
-		previous = i;
-		return i;
+		previous = choice;
+		return choice;
 	}
 
 	
-	public void lockFlow(double fl) {
-		
-
-	}
+	public void lockFlow(double fl) {}
 
 	
-	protected AgentSeed nextElement(IScope scope, double lastdate, GamlSpecies spe, IShape location) {
+	protected AgentSeed nextElement(IScope scope, double currentDate, GamlSpecies spe, IShape location) {
 		int choice = getChoice(scope);
-		this.lastDate = Math.max(lastdate, lastDate);
-		
+		this.lastDate = Math.max(currentDate, lastDate);
 		AgentSeed agt= generators[choice].nextElement(scope,lastDate,spe, location  );
 		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
-		return null;
+		return agt;
 	}
 	
 	/*private int getGeneratorIndex(int choice){
