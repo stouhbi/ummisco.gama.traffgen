@@ -100,6 +100,18 @@ public class TrafficGenerator {
 		return new TrafficGenerator(gen);
 	}
 	
+	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
+	@doc(value = "create an atomic traffic generator with a list of species, vehicle flow, duration and a shape location")
+	public static TrafficGenerator createAtomicGenerator(final IScope scope, IList<GamlSpecies> agentSpecies, final TrafficLaw thLaw , final TrafficLaw speedLaw , final TrafficLaw vehicleFlow, int duration){
+		GamlSpecies[] sps = new GamlSpecies[agentSpecies.size()];
+		int i = 0;
+		for(GamlSpecies sp:agentSpecies) {
+			sps[i] = sp;
+			i++;
+		}
+		AtomicGenerator gen = new AtomicGenerator(sps,thLaw,speedLaw,vehicleFlow, duration);
+		return new TrafficGenerator(gen);
+	}
 
 	@operator(value=ITrafficGenerator.ATOMIC_TRAFFIC_GENERATOR)
 	@doc(value = "create an atomic traffic generator")
@@ -158,6 +170,27 @@ public class TrafficGenerator {
 				choice[i][j] = nexts.get(scope, j, i).floatValue();
 		}
 		MatrixSplitGenerator res = new MatrixSplitGenerator(gen,choice);
+		return new TrafficGenerator(res);
+	}
+	
+	@operator(value=ITrafficGenerator.SYNCHRONIZED_TRAFFIC_GENERATOR)
+	@doc(value = "create a matrix transition traffic generator")
+	public static TrafficGenerator createSynchronizeTrafficGenerator(final IScope scope, final IList<TrafficGenerator> generators, final IMatrix<Double> nexts, final IList<GamlSpecies> species){
+		AbstractGenerator[] gen = new AbstractGenerator[generators.size()];
+		double[][] choice = new double[nexts.getRow(scope, 0).length(scope)][nexts.getRow(scope, 0).length(scope)];
+		
+		for(int i = 0; i< gen.length; i++) {
+			gen[i] = (AbstractGenerator)generators.get(i).generator;
+			
+		}
+		
+		
+		for(int i = 0; i < choice.length; i++)
+			for(int j = 0; j < choice[i].length; j++) 
+				choice[i][j] = nexts.get(scope, j, i).floatValue();
+		
+		
+		MatrixSplitGenerator res = new MatrixSplitGenerator(gen,choice, species);
 		return new TrafficGenerator(res);
 	}
 	

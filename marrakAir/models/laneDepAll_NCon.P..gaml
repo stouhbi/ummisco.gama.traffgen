@@ -59,119 +59,69 @@ global{
 	//traffgen_scheduler schedule <- create_schedule([period1, period2], "cycle"); 
 	
 	//// Continuous generation scenarios 
-	//map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
-	matrix typeTran <- matrix([[0.3628789, 0.6323804, 0.004740698], [0.2819887, 0.7140288, 0.003982528], [0.4736842, 0.5263158, 0.0]]); // 2 roues, 4 roues, Bus
+	map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
 	traffgen_law speed <- poisson_law(20);
-	traffgen_law count_2_4 <- uniform_law(2,6);
-	traffgen_law count_5_9 <- uniform_law(5,11);
+	traffgen_law count_2_4 <- uniform_law(2,4);
+	traffgen_law count_5_9 <- uniform_law(5,9);
 	traffgen_law count_10_14 <- uniform_law(10,14);
 	traffgen_law count_15_19 <- uniform_law(15,19);
 	
-	/***		VarNG.1  *****/
+	map locTran <- [{4652.572627816505, 2453.786642591314, 0}::0.2243127, {4652.572627816505, 2553.786642591314, 0}::0.4574742, {4652.572627816505, 2653.786642591314, 0}::0.3182131];
+	/***		Var3G.1 *****/
+	traffgen_law headway_3G_11 <-  pareto_3_law(0.588, 2.883, 0); // 5-9
+	traffgen_law headway_3G_12 <-  pareto_4_law(0.111, 0.093, 1.611, -0.497); // 2-4
 	
-	traffgen_law headway_NG_11 <-  pareto_4_law(0.5977091, 0.5129527, 2.313488, 0.197999954); // 2-4
-	traffgen_law headway_NG_12 <-  pareto_4_law(0.7208561, 0.3819021, 2.263117, -0.06309249); // 5-9
+	traffgen_gen gen_3G_11 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_11, speed, count_5_9, 48);
+	traffgen_gen gen_3G_12 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_12, speed, count_2_4, 37);
+	traffgen_gen typeGen_3G_11 <- map_traffgen([gen_3G_11], typeTran);
+	traffgen_gen typeGen_3G_12 <- map_traffgen([gen_3G_12], copy(typeTran));
 	
-	traffgen_gen gen_NG_11 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NG_11, speed, count_2_4, 48, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen gen_NG_12 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NG_12, speed, count_5_9, 37, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_NG_11 <- synchronized_traffgen([gen_NG_11], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
-	traffgen_gen typeGen_NG_12 <- synchronized_traffgen([gen_NG_12], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen locGen_3G_11 <- location_traffgen([typeGen_3G_11], locTran);
+	traffgen_gen locGen_3G_12 <- location_traffgen([typeGen_3G_12], locTran);
 	
-	traffgen_period period_NG_11 <- create_period(typeGen_NG_11, 48, 1390);
-	traffgen_period period_NG_12 <- create_period(typeGen_NG_12, 37, 3000);
+	traffgen_period period_3G_11 <- create_period(locGen_3G_11, 48, 1390);
+	traffgen_period period_3G_12 <- create_period(locGen_3G_12, 37, 3000);
 
-	traffgen_scheduler schedule_NG_1 <- create_schedule([period_NG_11, period_NG_12], "cycle"); 
+	traffgen_scheduler schedule_3G_1 <- create_schedule([period_3G_11, period_3G_12], "cycle"); 
 	
-	/****          VARNG.2  **********/
-	traffgen_law headway_NG_21 <-   pareto_3_law(0.412,2.327,-0.043); // 10-14 
-	traffgen_law headway_NG_22 <-  pareto_4_law(1.436, 0.444, 2.46, 0.014); // 10-14 
+	/****         VAR3G.2  **********/
+	traffgen_law headway_3G_21 <-   pareto_4_law(1.237, 0.568,2.366,-0.002); // 10-14 
+	traffgen_law headway_3G_22 <-  pareto_3_law(2.688, 3.492, -0.326); // 15-19 
 	
-	traffgen_gen gen_NG_21 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NG_21, speed, count_10_14, 48, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen gen_NG_22 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NG_22, speed, count_10_14, 37, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_NG_21 <- synchronized_traffgen([gen_NG_21], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
-	traffgen_gen typeGen_NG_22 <- synchronized_traffgen([gen_NG_22], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen gen_3G_21 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_21, speed, count_10_14, 48);
+	traffgen_gen gen_3G_22 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_22, speed, count_15_19, 37);
+	traffgen_gen typeGen_3G_21 <- map_traffgen([gen_3G_21], typeTran);
+	traffgen_gen typeGen_3G_22 <- map_traffgen([gen_3G_22], copy(typeTran));
 	
-	traffgen_period period_NG_21 <- create_period(typeGen_NG_21, 48, 1390);
-	traffgen_period period_NG_22 <- create_period(typeGen_NG_22, 37, 3000);
+	traffgen_gen locGen_3G_21 <- location_traffgen([typeGen_3G_21], locTran);
+	traffgen_gen locGen_3G_22 <- location_traffgen([typeGen_3G_22], locTran);
+	
+	traffgen_period period_3G_21 <- create_period(locGen_3G_21, 48, 1390);
+	traffgen_period period_3G_22 <- create_period(locGen_3G_22, 37, 3000);
 
-	traffgen_scheduler schedule_NG_2 <- create_schedule([period_NG_21, period_NG_22], "cycle"); 
+	traffgen_scheduler schedule_3G_2 <- create_schedule([period_3G_21, period_3G_22], "cycle"); 
 	
-	
-	/***** 	VARNM.1		******* */
-	traffgen_law headway_NM_11 <-   pareto_3_law(0.432,2.663,0); // 5-9
-	traffgen_law headway_NM_12 <-  shifted_lognormal_law(0.99, 0.787, 0.045); // 5-9
-	
-	traffgen_gen gen_NM_11 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NM_11, speed, count_5_9, 30, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen gen_NM_12 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NM_12, speed,  count_5_9, 30, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_NM_11 <- synchronized_traffgen([gen_NM_11], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
-	traffgen_gen typeGen_NM_12 <- synchronized_traffgen([gen_NM_12], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
-	
-	traffgen_period period_NM_11 <- create_period(typeGen_NM_11, 30, 1390);
-	traffgen_period period_NM_12 <- create_period(typeGen_NM_12, 30, 3000);
 
-	traffgen_scheduler schedule_NM_1 <- create_schedule([period_NM_11, period_NM_12], "cycle"); 
-	
-	
-	
-	/***** 	VARNM.2		******* */
-	traffgen_law headway_NM_21 <-   pareto_3_law(0.432,2.663,0); // 5-9
-	traffgen_law headway_NM_22 <-  pearson_3_law(2.359, 1.071, 0); // 10-14 
-	
-	traffgen_gen gen_NM_21 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NM_21, speed, count_5_9, 30, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen gen_NM_22 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_NM_22, speed, count_10_14, 30, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_NM_21 <- synchronized_traffgen([gen_NM_21], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
-	traffgen_gen typeGen_NM_22 <- synchronized_traffgen([gen_NM_22], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
-	
-	traffgen_period period_NM_21 <- create_period(typeGen_NM_21, 30, 1390);
-	traffgen_period period_NM_22 <- create_period(typeGen_NM_22, 30, 3000);
-
-	traffgen_scheduler schedule_NM_2 <- create_schedule([period_NM_21, period_NM_22], "cycle"); 
-	
-	
-	
 	
 	
 	
 	
 	reflex generate {
-		vehicle truc <-  schedule_NG_1.next;
+		vehicle truc <-  schedule_3G_1.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
-			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNG.1M.csv" type:"csv" rewrite:false;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/Var3NG.1.csv" type:"csv" rewrite:false;
 			
 		}
 		
-		/*write "2_4 : " + count_2_4.next;
-		write "5_9 : " + count_5_9.next;
-		write "10_14 : " + count_10_14.next;*/
-		
-		
-		truc <-  schedule_NG_2.next;
+		truc <-  schedule_3G_2.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
-			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNG.2M.csv" type:"csv" rewrite:false;
-			
-		}
-		
-		truc <-  schedule_NM_1.next;
-		if(truc!=nil){
-			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
-			write  " arrival time "+ truc.activated_at;
-			write "at location "+truc.location;
-			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNM.1M.csv" type:"csv" rewrite:false;
-			
-		}
-		
-		truc <-  schedule_NM_2.next;
-		if(truc!=nil){
-			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
-			write  " arrival time "+ truc.activated_at;
-			write "at location "+truc.location;
-			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNM.2M.csv" type:"csv" rewrite:false;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/Var3NG.2.csv" type:"csv" rewrite:false;
 			
 		}
 		

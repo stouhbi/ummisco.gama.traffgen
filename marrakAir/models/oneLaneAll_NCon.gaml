@@ -61,8 +61,8 @@ global{
 	//// Continuous generation scenarios 
 	map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
 	traffgen_law speed <- poisson_law(20);
-	traffgen_law count_2_4 <- uniform_law(2,6);
-	traffgen_law count_5_9 <- uniform_law(5,11);
+	traffgen_law count_2_4 <- uniform_law(2,4);
+	traffgen_law count_5_9 <- uniform_law(5,9);
 	traffgen_law count_10_14 <- uniform_law(10,14);
 	traffgen_law count_15_19 <- uniform_law(15,19);
 	

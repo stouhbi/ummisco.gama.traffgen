@@ -52,5 +52,13 @@ public abstract class SplitGenerator extends AbstractGenerator {
 		}
 		return allPositions;
 	}
+	
+	public static double getMax(double[] choices) {
+		double max = Double.MIN_VALUE;
+		for(int i  = 0; i < choices.length; i++  ){
+			if(max <= choices[i]) max = choices[i];
+		}
+		return max;
+	}
 
 }

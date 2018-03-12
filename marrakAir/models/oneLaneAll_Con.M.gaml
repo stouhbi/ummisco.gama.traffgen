@@ -68,8 +68,8 @@ global{
 	
 	traffgen_gen gen_CG_11 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CG_11, speed, {4652.572627816505, 2453.786642591314, 0});
 	traffgen_gen gen_CG_12 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CG_12, speed, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_CG_11 <- synchronized_traffgen([gen_CG_11], typeTran);
-	traffgen_gen typeGen_CG_12 <- synchronized_traffgen([gen_CG_12], copy(typeTran));
+	traffgen_gen typeGen_CG_11 <- synchronized_traffgen([gen_CG_11], typeTran, [species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen typeGen_CG_12 <- synchronized_traffgen([gen_CG_12], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
 	
 	traffgen_period period_CG_11 <- create_period(typeGen_CG_11, 48, 1390);
 	traffgen_period period_CG_12 <- create_period(typeGen_CG_12, 37, 3000);
@@ -82,8 +82,8 @@ global{
 	
 	traffgen_gen gen_CG_21 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CG_21, speed, {4652.572627816505, 2453.786642591314, 0});
 	traffgen_gen gen_CG_22 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CG_22, speed, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_CG_21 <- synchronized_traffgen([gen_CG_21], typeTran);
-	traffgen_gen typeGen_CG_22 <- synchronized_traffgen([gen_CG_22], copy(typeTran));
+	traffgen_gen typeGen_CG_21 <- synchronized_traffgen([gen_CG_21], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen typeGen_CG_22 <- synchronized_traffgen([gen_CG_22], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
 	
 	traffgen_period period_CG_21 <- create_period(typeGen_CG_21, 48, 1390);
 	traffgen_period period_CG_22 <- create_period(typeGen_CG_22, 37, 3000);
@@ -97,8 +97,8 @@ global{
 	
 	traffgen_gen gen_CM_11 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CM_11, speed, {4652.572627816505, 2453.786642591314, 0});
 	traffgen_gen gen_CM_12 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CM_12, speed, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_CM_11 <- synchronized_traffgen([gen_CM_11], typeTran);
-	traffgen_gen typeGen_CM_12 <- synchronized_traffgen([gen_CM_12], copy(typeTran));
+	traffgen_gen typeGen_CM_11 <- synchronized_traffgen([gen_CM_11], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen typeGen_CM_12 <- synchronized_traffgen([gen_CM_12], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
 	
 	traffgen_period period_CM_11 <- create_period(typeGen_CM_11, 30, 1390);
 	traffgen_period period_CM_12 <- create_period(typeGen_CM_12, 30, 3000);
@@ -113,8 +113,8 @@ global{
 	
 	traffgen_gen gen_CM_21 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CM_21, speed, {4652.572627816505, 2453.786642591314, 0});
 	traffgen_gen gen_CM_22 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_CM_22, speed, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_CM_21 <- synchronized_traffgen([gen_CM_21], typeTran);
-	traffgen_gen typeGen_CM_22 <- synchronized_traffgen([gen_CM_22], copy(typeTran));
+	traffgen_gen typeGen_CM_21 <- synchronized_traffgen([gen_CM_21], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen typeGen_CM_22 <- synchronized_traffgen([gen_CM_22], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
 	
 	traffgen_period period_CM_21 <- create_period(typeGen_CM_21, 30, 1390);
 	traffgen_period period_CM_22 <- create_period(typeGen_CM_22, 30, 3000);
@@ -128,8 +128,8 @@ global{
 	
 	traffgen_gen gen_KS1_31 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_KS1_31, speed, {4652.572627816505, 2453.786642591314, 0});
 	traffgen_gen gen_KS1_32 <- atomic_traffgen([ species_of(moto), species_of(car),species_of(bus)], headway_KS1_32, speed, {4652.572627816505, 2453.786642591314, 0});
-	traffgen_gen typeGen_KS1_31 <- synchronized_traffgen([gen_KS1_31], typeTran);
-	traffgen_gen typeGen_KS1_32 <- synchronized_traffgen([gen_KS1_32], copy(typeTran));
+	traffgen_gen typeGen_KS1_31 <- synchronized_traffgen([gen_KS1_31], typeTran, [ species_of(moto), species_of(car),species_of(bus)]);
+	traffgen_gen typeGen_KS1_32 <- synchronized_traffgen([gen_KS1_32], copy(typeTran), [ species_of(moto), species_of(car),species_of(bus)]);
 	
 	traffgen_period period_KS1_31 <- create_period(typeGen_KS1_31, 48, 1390);
 	traffgen_period period_KS1_32 <- create_period(typeGen_KS1_32, 37, 3000);

@@ -2,22 +2,31 @@ package ummisco.gama.traffgen.generators;
 
 import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
+import msi.gama.util.IList;
 import msi.gama.util.matrix.IMatrix;
 import msi.gaml.species.GamlSpecies;
 
 public class MatrixSplitGenerator  extends SplitGenerator{
 	
 	double[][] listOfRate;
-	GamlSpecies listOfSpecies;
+	IList<GamlSpecies> listOfSpecies;
 	double lastDate = 0;;
 	int previous = 0;
 
 	public MatrixSplitGenerator(AbstractGenerator[] gen, double[][] choice) {
 		super(gen);
+		listOfSpecies = null;
 		configureGenerator(choice);
 	}
 
 	
+	public MatrixSplitGenerator(AbstractGenerator[] gen, double[][] choice, IList<GamlSpecies> species) {
+		super(gen);
+		this.listOfSpecies = species;
+		configureGenerator(choice);
+	}
+
+
 	private void configureGenerator(double[][] choice) {
 		listOfRate = choice;
 		for(int i = 0; i < listOfRate.length; i++){
@@ -45,17 +54,33 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 		return choice;
 	}
 
-	
+
+
 	public void lockFlow(double fl) {}
 
 	
 	protected AgentSeed nextElement(IScope scope, double currentDate, GamlSpecies spe, IShape location) {
 		int choice = getChoice(scope);
 		this.lastDate = Math.max(currentDate, lastDate);
-		AgentSeed agt= generators[choice].nextElement(scope,lastDate,spe, location  );
+		if(listOfSpecies != null){
+			if(choice < listOfSpecies.size())
+			spe = listOfSpecies.get(choice);
+		}
+		
+		AgentSeed agt= getCorrespondingGenerator(choice).nextElement(scope,lastDate,spe, location  );
 		
 		if(agt!=null) this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return agt;
+	}
+
+
+	private AbstractGenerator getCorrespondingGenerator(int choice) {
+		if(listOfSpecies != null ){
+			for(int i = 0; i < this.generators.length; i++){
+				if(this.generators[i].getManagedSpecies().contains(listOfSpecies.get(choice))) return this.generators[i];
+			}
+		}
+		return this.generators[choice];
 	}
 	
 	/*private int getGeneratorIndex(int choice){
