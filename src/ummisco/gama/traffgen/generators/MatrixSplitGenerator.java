@@ -34,7 +34,7 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 		double tmp = 0;
 		int choice = 0;
 		for(int i = 0; i < choices.length; i++){
-			tmp+=choices[i];
+			tmp += choices[i];
 			if(number < tmp ){
 				choice = i;
 				previous = i;
@@ -53,7 +53,8 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 		int choice = getChoice(scope);
 		this.lastDate = Math.max(currentDate, lastDate);
 		AgentSeed agt= generators[choice].nextElement(scope,lastDate,spe, location  );
-		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
+		
+		if(agt!=null) this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return agt;
 	}
 	
