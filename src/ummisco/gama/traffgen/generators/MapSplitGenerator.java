@@ -14,7 +14,6 @@ public class MapSplitGenerator extends SplitGenerator {
 	double [] listOfRate;
 	GamlSpecies [] listOfSpecies;
 	//AbstractGenerator [] listOfGenerator;
-	double lastDate = 0;
 	
 	
 	public MapSplitGenerator(AbstractGenerator[] gen, Map<GamlSpecies,Double> choice) {

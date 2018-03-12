@@ -10,7 +10,6 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 	
 	double[][] listOfRate;
 	IList<GamlSpecies> listOfSpecies;
-	double lastDate = 0;;
 	int previous = 0;
 
 	public MatrixSplitGenerator(AbstractGenerator[] gen, double[][] choice) {

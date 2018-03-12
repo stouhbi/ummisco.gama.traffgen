@@ -8,7 +8,6 @@ import msi.gaml.species.GamlSpecies;
 public class ListSplitGenerator extends SplitGenerator{
 
 	double[] listOfRate;
-	double lastDate = 0;
 	
 	public ListSplitGenerator(AbstractGenerator[] gen, double[] choice) {
 		super(gen);

@@ -13,6 +13,7 @@ import ummisco.gama.traffgen.types.ITrafficGenerator;
 public abstract class SplitGenerator extends AbstractGenerator {
 	protected AbstractGenerator[] generators;
 	protected double[] lastCreationDates;
+	double lastDate = 0;
 	
 	protected abstract int getChoice(IScope scope);
 	public  abstract void lockFlow(double fl);

@@ -12,7 +12,6 @@ public class LocationSplitGenerator extends SplitGenerator {
 
 	double listOfRate[];
 	IShape listOfShapes[];
-	double lastDate = 0;
 
 	public LocationSplitGenerator(AbstractGenerator[] gen, Map<IShape,Double> choice) {
 		super(gen);
@@ -91,12 +90,12 @@ public class LocationSplitGenerator extends SplitGenerator {
 	}
 
 	@Override
-	protected AgentSeed nextElement(IScope scope, double lastdate, GamlSpecies spe, IShape location) {
+	protected AgentSeed nextElement(IScope scope, double currentDate, GamlSpecies spe, IShape location) {
 		int choice = getChoice(scope);
-		this.lastDate = Math.max(lastdate, lastDate);
+		this.lastDate = Math.max(currentDate, lastDate);
 		int genChoice = getGeneratorIndex(choice);
 		AgentSeed agt = this.generators[genChoice].nextElement(scope,lastDate,null,listOfShapes[choice] );
-		this.lastDate = Math.max(agt.getActivationDate(), lastDate);
+		if(agt != null) this.lastDate = Math.max(agt.getActivationDate(), lastDate);
 		return agt;
 	}
 
