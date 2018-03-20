@@ -19,22 +19,22 @@ import msi.gaml.types.IType;
 })
 
 public class TrafficScheduler {
-	
+
 	public static final int Id = IType.AVAILABLE_TYPES+4571;
 	TrafficPeriod[] periods;
-	
+
 	String type; // sequence or cycle
-	
+
 	int currentPeriod;
 	double currentTick;
-	
+
 	public TrafficScheduler(TrafficPeriod[] periods, String type) {
 		this.type = type;
 		this.periods = periods;
 		currentPeriod = periods.length > 0 ? 0:-1;
 		currentTick = 0;
 	}
-	
+
 	@operator(value= ITrafficScheduler.CREATE_SCHEDULE)
 	@doc(value= "to create a scheduler")
 	public static TrafficScheduler createSchedule(final IList<TrafficPeriod> pds, final String type){
@@ -44,11 +44,11 @@ public class TrafficScheduler {
 			periods[i] = period;
 			i++;
 		}
-		
+
 		return new TrafficScheduler(periods, type);
-		
+
 	}
-	
+
 	@getter(value=ITrafficScheduler.NEXT)
 	@doc(value="get the next vehicle from the scheduler")
 	public IAgent getNext(IScope scope){
@@ -58,22 +58,28 @@ public class TrafficScheduler {
 			return scheduleSequence(scope,currentTime);
 		else if(this.type.equals(ITrafficScheduler.TYPE_CYCLIC))
 			return scheduleCycle(scope, currentTime);
-		
+
 		return null;
-		
+
 	}
-	
+
 	public IAgent scheduleSequence(IScope scope, double currentTime){
 		double duration = (double) periods[currentPeriod].getDuration();
-		if(currentTime%duration==0){ // this period has finished, go to next
+		System.out.println("Period "+currentPeriod + "currentTick "+currentTick);
+		if(Math.round(currentTick-0.5)%duration==0 & Math.round(currentTick-0.5)>=1){ // this period has finished, go to next
 			System.out.println("Period "+currentPeriod+ " is finished");
 			currentPeriod++;
+			currentTick = 0;
 			if(currentPeriod >= periods.length) return null;
 		}
-			
+
+		double step = (double) scope.getExperiment().getSimulation().getTimeStep(scope);
+
+		currentTick += step; 
+
 		return periods[currentPeriod].getNext(scope);
 	}
-	
+
 	public IAgent scheduleCycle(IScope scope, double currentTime){
 		int duration = periods[currentPeriod].getDuration();
 		System.out.println("Period "+currentPeriod + "currentTick "+currentTick);
@@ -81,15 +87,15 @@ public class TrafficScheduler {
 			System.out.println("Period "+currentPeriod+ " is finished");
 			currentPeriod++;
 			if(currentPeriod >= periods.length) currentPeriod=0;
-			
+
 			currentTick = 0;
 		}
-	
+
 		double step = (double) scope.getExperiment().getSimulation().getTimeStep(scope);
-		
+
 		currentTick += step; 
 		return periods[currentPeriod].getNext(scope);
 	}
-	
+
 
 }

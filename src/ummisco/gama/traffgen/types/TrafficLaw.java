@@ -22,6 +22,7 @@ import umontreal.ssj.randvar.ExponentialGen;
 import umontreal.ssj.randvar.GammaGen;
 import umontreal.ssj.randvar.InverseGammaGen;
 import umontreal.ssj.randvar.LognormalGen;
+import umontreal.ssj.randvar.NormalGen;
 import umontreal.ssj.randvar.PoissonGen;
 import umontreal.ssj.randvar.RandomVariateGen;
 import umontreal.ssj.randvar.UniformGen;
@@ -122,6 +123,10 @@ public class TrafficLaw extends GamaMap<String, Object> {
 		
 		if(name.equals(ITrafficLaw.SHIFTED_LOGNORMAL))
 			return new ShiftedLogNormalGen(stream, parameters.get(ITrafficLaw.MEANLOG), parameters.get(ITrafficLaw.SDLOG), parameters.get(ITrafficLaw.U));
+		
+		if(name.equals(ITrafficLaw.NORMAL))
+			return new NormalGen(stream, parameters.get(ITrafficLaw.MEAN), parameters.get(ITrafficLaw.SIGMA));
+		
 		return null;
 	}
 	
@@ -292,5 +297,16 @@ public class TrafficLaw extends GamaMap<String, Object> {
 		return res;
 	}
 	
+	
+	@operator(value=ITrafficLaw.NORMAL_LAW)
+	@doc(value = "create a normal law uniform_law(mean, sigma)")
+	public static TrafficLaw createNormal(final IScope scope, final Double mean, final Double sigma){
+		TrafficLaw res = new TrafficLaw();
+		res.put(ITrafficLaw.MODEL, ITrafficLaw.NORMAL);
+		res.put(ITrafficLaw.MEAN, mean);
+		res.put(ITrafficLaw.SIGMA, sigma);
+		
+		return res;
+	}
 	
 }

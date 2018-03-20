@@ -9,6 +9,7 @@ import msi.gama.metamodel.agent.IAgent;
 import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
 import msi.gaml.species.GamlSpecies;
+import ummisco.gama.helpers.Transformer;
 
 public class MapSplitGenerator extends SplitGenerator {
 	double [] listOfRate;
@@ -76,7 +77,7 @@ public class MapSplitGenerator extends SplitGenerator {
 			tmp+=listOfRate[i];
 			if(number <= tmp ) return i;
 		}
-		return i==listOfRate.length ? i-1:i;
+		return i==listOfRate.length ? Transformer.getMaxIndex(listOfRate):i;
 	}
 
 	protected AgentSeed nextElement(IScope scope,double lastdate, GamlSpecies spe, IShape location) {

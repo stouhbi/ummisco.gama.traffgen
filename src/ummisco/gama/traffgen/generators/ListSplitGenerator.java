@@ -4,6 +4,7 @@ package ummisco.gama.traffgen.generators;
 import msi.gama.metamodel.shape.IShape;
 import msi.gama.runtime.IScope;
 import msi.gaml.species.GamlSpecies;
+import ummisco.gama.helpers.Transformer;
 
 public class ListSplitGenerator extends SplitGenerator{
 
@@ -22,15 +23,13 @@ public class ListSplitGenerator extends SplitGenerator{
 	protected int getChoice(IScope scope) {
 		double number = scope.getRandom().between(0.0, 1.0);
 		double tmp = 0;
-		int choice = 0;
-		for(int i=0;i<listOfRate.length;i++){
-			tmp += listOfRate[i];
-			if(number < tmp ){
-				choice = i;
-				return i;
-			}
+		int i = 0;
+		for(i=0;i<listOfRate.length;i++){
+			tmp+=listOfRate[i];
+			if(number <= tmp ) return i;
 		}
-		return choice;
+		
+		return i==listOfRate.length ? Transformer.getMaxIndex(listOfRate):i;
 	}
 
 	

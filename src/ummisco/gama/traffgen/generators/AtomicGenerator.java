@@ -133,7 +133,7 @@ public class AtomicGenerator extends AbstractGenerator implements IGenerator {
 	protected AgentSeed nextElement(IScope scope, double date, GamlSpecies s, IShape location ) {
 		
 		GamlSpecies spe = this.chooseSpecies(scope, s);
-		double start =  this.lastDate;
+		double start =  Math.max(date, this.lastDate);
 		double tiv = timeHeadwayLaw.next(scope);
 		double newDate = start + tiv;
 		

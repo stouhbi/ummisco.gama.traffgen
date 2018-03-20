@@ -1,14 +1,13 @@
 /**
-* Name: newGen
+* Name: simpleModels
 * Author: saadtouhbi
-* Description:
-* Tags: traffic generation
+* Description: 
+* Tags: Tag1, Tag2, TagN
 */
 
-model newGen
+model simpleModels
 
 /* Insert your model definition here */
-
 global{
 
 	date starting_date <- date([2017,4,12,8,0,0]);
@@ -59,42 +58,62 @@ global{
 	//traffgen_scheduler schedule <- create_schedule([period1, period2], "cycle"); 
 	
 	//// Continuous generation scenarios 
-	map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
-	map locTran <- [{4652.572627816505, 2453.786642591314, 0}::0.2243127, {4652.572627816505, 2553.786642591314, 0}::0.4574742, {4652.572627816505, 2653.786642591314, 0}::0.3182131];
+	//map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
+	list typeTran <- [0.2793914, 0.720608575];
+	//matrix typeTran <- matrix([[0.3666905, 0.6333095], [0.2429616, 0.7570384]]); // 2 roues, 4 roues
 	traffgen_law speed <- poisson_law(20);
-	/***		Var3G.1 *****/
-	traffgen_law headway_3G_11 <-  pareto_3_law(0.588, 2.883, 0); // 5-9
-	traffgen_law headway_3G_12 <-  pareto_4_law(0.111, 0.093, 1.611, -0.497); // 2-4
 	
-	traffgen_gen gen_3G_11 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_11, speed);
-	traffgen_gen gen_3G_12 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_12, speed);
-	traffgen_gen typeGen_3G_11 <- map_traffgen([gen_3G_11], typeTran);
-	traffgen_gen typeGen_3G_12 <- map_traffgen([gen_3G_12], copy(typeTran));
+	/***		Continuous   *****/
 	
-	traffgen_gen locGen_3G_11 <- location_traffgen([typeGen_3G_11], locTran);
-	traffgen_gen locGen_3G_12 <- location_traffgen([typeGen_3G_12], locTran);
+	traffgen_law headway_VG_11 <-  normal_law(1.5, 0.5);
 	
-	traffgen_period period_3G_11 <- create_period(locGen_3G_11, 48, 1390);
-	traffgen_period period_3G_12 <- create_period(locGen_3G_12, 37, 3000);
+	traffgen_law headway_VG_12 <-  pearson_3_law(2.359, 1.071, 0);
+	traffgen_law headway_VG_13 <-  exponential_law(0.25); 
+	
+	
+	traffgen_gen gen_VG_11 <- atomic_traffgen([ species_of(moto), species_of(car)], headway_VG_11, speed, {4652.572627816505, 2453.786642591314, 0});
+	traffgen_gen gen_VG_12 <- atomic_traffgen([ species_of(moto), species_of(car)], headway_VG_12, speed, {4652.572627816505, 2453.786642591314, 0});
+	
+	traffgen_gen gen_VG_13 <- atomic_traffgen([ species_of(moto), species_of(car)], headway_VG_13, speed, {4652.572627816505, 2453.786642591314, 0});
+	
+	
+	traffgen_gen typeGen_VG_1 <- synchronized_traffgen([gen_VG_11], typeTran);
+	traffgen_gen typeGen_VG_2 <- synchronized_traffgen([gen_VG_12], copy(typeTran));
+	traffgen_gen typeGen_VG_3 <- synchronized_traffgen([gen_VG_13], copy(typeTran));
+	
+	traffgen_period period_VG_1 <- create_period(typeGen_VG_1, 3600, 1390);
+	traffgen_period period_VG_2 <- create_period(typeGen_VG_2, 3600, 3000);
+	traffgen_period period_VG_3 <- create_period(typeGen_VG_3, 3600, 3000);
 
-	traffgen_scheduler schedule_3G_1 <- create_schedule([period_3G_11, period_3G_12], "cycle"); 
+	traffgen_scheduler schedule_VG_11 <- create_schedule([period_VG_1], "sequence"); 
+	traffgen_scheduler schedule_VG_12 <- create_schedule([period_VG_2], "sequence"); 
+	traffgen_scheduler schedule_VG_13 <- create_schedule([period_VG_3], "sequence"); 
 	
-	/****         VAR3G.2  **********/
-	traffgen_law headway_3G_21 <-   pareto_4_law(1.237, 0.568,2.366,-0.002); // 10-14 
-	traffgen_law headway_3G_22 <-  pearson_3_law(2.688, 3.492, -0.326); // 15-19 
+	/****          discrete  **********/
+	traffgen_law count_5_9 <- uniform_law(10,14);
+	traffgen_law count_poiss <- poisson_law(4);
 	
-	traffgen_gen gen_3G_21 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_21, speed);
-	traffgen_gen gen_3G_22 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_22, speed);
-	traffgen_gen typeGen_3G_21 <- map_traffgen([gen_3G_21], typeTran);
-	traffgen_gen typeGen_3G_22 <- map_traffgen([gen_3G_22], copy(typeTran));
+	traffgen_law headway_VG_21 <-  pearson_3_law(2.359, 1.071, 0);
+	traffgen_law headway_VG_22 <- exponential_law(0.25);
 	
-	traffgen_gen locGen_3G_21 <- location_traffgen([typeGen_3G_21], locTran);
-	traffgen_gen locGen_3G_22 <- location_traffgen([typeGen_3G_22], locTran);
 	
-	traffgen_period period_3G_21 <- create_period(locGen_3G_21, 48, 1390);
-	traffgen_period period_3G_22 <- create_period(locGen_3G_22, 37, 3000);
+	// 2 roues 
+	traffgen_gen gen_VG_21 <- atomic_traffgen([ species_of(moto), species_of(car)], headway_VG_21, speed, count_5_9, 30, {4652.572627816505, 2453.786642591314, 0});
+	traffgen_gen gen_VG_22 <- atomic_traffgen([ species_of(moto), species_of(car)], headway_VG_22, speed, count_poiss, 30, {4652.572627816505, 2453.786642591314, 0});
+	
+	
+	
+	traffgen_gen typeGen_VG_21 <- synchronized_traffgen([gen_VG_21], typeTran);
+	traffgen_gen typeGen_VG_22 <- synchronized_traffgen([gen_VG_22], copy(typeTran));
+	
+	traffgen_period period_VG_21 <- create_period(typeGen_VG_21, 3600, 1390);
+	traffgen_period period_VG_22 <- create_period(typeGen_VG_22, 3600, 3000);
 
-	traffgen_scheduler schedule_3G_2 <- create_schedule([period_3G_21, period_3G_22], "cycle"); 
+	traffgen_scheduler schedule_VG_21 <- create_schedule([period_VG_21], "cycle"); 
+	
+	traffgen_scheduler schedule_VG_22 <- create_schedule([period_VG_22], "cycle"); 
+	
+	
 	
 
 	
@@ -102,27 +121,57 @@ global{
 	
 	
 	reflex generate {
-		vehicle truc <-  schedule_3G_1.next;
+		/*vehicle truc <-  schedule_VG_11.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
-			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/Var3G.1.csv" type:"csv" rewrite:false;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarS.1.csv" type:"csv" rewrite:false;
 			
 		}
 		
-		truc <-  schedule_3G_2.next;
+		truc <-  schedule_VG_12.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
-			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/Var3G.2.csv" type:"csv" rewrite:false;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarS.2.csv" type:"csv" rewrite:false;
 			
 		}
+		
+		truc <-  schedule_VG_13.next;
+		if(truc!=nil){
+			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
+			write  " arrival time "+ truc.activated_at;
+			write "at location "+truc.location;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarS.3.csv" type:"csv" rewrite:false;
+			
+		}*/
+		
+		vehicle truc <-  schedule_VG_21.next;
+		if(truc!=nil){
+			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
+			write  " arrival time "+ truc.activated_at;
+			write "at location "+truc.location;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNS.1.csv" type:"csv" rewrite:false;
+			
+		}
+		
+		/*vehicle truc <-  schedule_VG_22.next;
+		if(truc!=nil){
+			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
+			write  " arrival time "+ truc.activated_at;
+			write "at location "+truc.location;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNS.2.csv" type:"csv" rewrite:false;
+			
+		}*/
 		
 	}
 
 }
+
+
+
 
 
 species road {

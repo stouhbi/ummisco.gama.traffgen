@@ -38,6 +38,10 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 
 	protected int getChoice(IScope scope) {
 		double[] choices = listOfRate[previous];
+		System.out.println("printing the choices");
+		for(int i = 0; i < choices.length; i++){
+			System.out.println("index i "+ choices[i]);
+		}
 		double number = scope.getRandom().between(0.0, 1.0);
 		double tmp = 0;
 		int choice = 0;
@@ -46,9 +50,11 @@ public class MatrixSplitGenerator  extends SplitGenerator{
 			if(number < tmp ){
 				choice = i;
 				previous = i;
+				System.out.println("next choice is "+i);
 				return choice;
 			}
 		}
+		System.out.println("next choice is + "+choice);
 		previous = choice;
 		return choice;
 	}

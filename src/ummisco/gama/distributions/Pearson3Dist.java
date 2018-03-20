@@ -60,16 +60,16 @@ public class Pearson3Dist extends ContinuousDistribution {
 	 * Computes the inverse of the distribution function.
 	 */
 	public static double inverseF (double alpha, double sigma, double u, double x) {
-		if(x-u < 0.0)
-			return 0.0;
-		return GammaDist.inverseF(alpha, 1.0/sigma, 5, x-u);
+		/*if(x-u < 0.0)
+			return 0.0;*/
+		return (u + GammaDist.inverseF(alpha, 1.0/sigma, 5, x));
 	}
 	
 	@Override
 	public double inverseF(double x) {
-		if(x-u < 0.0)
-			return 0.0;
-		return GammaDist.inverseF(alpha, 1.0/sigma, 5, x-u);
+		/*if(x-u < 0.0)
+			return 0.0;*/
+		return (u+GammaDist.inverseF(alpha, 1.0/sigma, 5, x));
 	}
 	
 	

@@ -1,6 +1,5 @@
 package ummisco.gama.distributions;
 
-import umontreal.ssj.probdist.GammaDist;
 import umontreal.ssj.randvar.RandomVariateGen;
 import umontreal.ssj.rng.RandomStream;
 

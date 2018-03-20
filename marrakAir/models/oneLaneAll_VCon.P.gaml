@@ -60,7 +60,7 @@ global{
 	
 	//// Continuous generation scenarios 
 	//map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
-	list typeTran <- [0.2793914, 0.720608575];
+	list typeTran <- [0.2793914, 0.720608575]; // 2 roues, 4 roues
 	//matrix typeTran <- matrix([[0.3666905, 0.6333095], [0.2429616, 0.7570384]]); // 2 roues, 4 roues
 	traffgen_law speed <- poisson_law(20);
 	
@@ -134,14 +134,14 @@ global{
 			
 		}
 		
-		truc <-  schedule_VG_2.next;
+		/*truc <-  schedule_VG_2.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
 			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarVG.2.csv" type:"csv" rewrite:false;
 			
-		}
+		}*/
 		
 		
 	}

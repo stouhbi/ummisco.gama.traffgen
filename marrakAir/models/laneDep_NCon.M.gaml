@@ -86,7 +86,7 @@ global{
 	
 	/****         VAR3G.2  **********/
 	traffgen_law headway_3G_21 <-   pareto_4_law(1.237, 0.568,2.366,-0.002); // 10-14 
-	traffgen_law headway_3G_22 <-  pareto_3_law(2.688, 3.492, -0.326); // 15-19 
+	traffgen_law headway_3G_22 <-  pearson_3_law(2.688, 3.492, -0.326); // 15-19 
 	
 	traffgen_gen gen_3G_21 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_21, speed, count_10_14, 48);
 	traffgen_gen gen_3G_22 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_3G_22, speed, count_15_19, 37);

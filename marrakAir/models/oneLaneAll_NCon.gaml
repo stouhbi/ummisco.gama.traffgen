@@ -127,27 +127,41 @@ global{
 	traffgen_scheduler schedule_NM_2 <- create_schedule([period_NM_21, period_NM_22], "cycle"); 
 	
 	
+	/***  		KS1.3	******/
+	traffgen_law headway_KS1_31 <-  pearson_6_law(9.471, 5.947, 1.53, -0.54); // 15-19 phase 1 
+	traffgen_law headway_KS1_32 <-  pareto_4_law(0.721, 0.382, 2.263, -0.0631); // 5-9
+	
+	traffgen_gen gen_KS1_31 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_KS1_31, speed, count_15_19, 48, {4652.572627816505, 2453.786642591314, 0});
+	traffgen_gen gen_KS1_32 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_KS1_32, speed, count_5_9, 37, {4652.572627816505, 2453.786642591314, 0});
+	traffgen_gen typeGen_KS1_31 <- map_traffgen([gen_KS1_31], typeTran);
+	traffgen_gen typeGen_KS1_32 <- map_traffgen([gen_KS1_32], copy(typeTran));
+	
+	traffgen_period period_KS1_31 <- create_period(typeGen_KS1_31, 48, 1390);
+	traffgen_period period_KS1_32 <- create_period(typeGen_KS1_32, 37, 3000);
+
+	traffgen_scheduler schedule_KS1_3 <- create_schedule([period_KS1_31, period_KS1_32], "cycle"); 
+	
 	
 	
 	
 	
 	
 	reflex generate {
-		vehicle truc <-  schedule_NG_1.next;
+		/*vehicle truc <-  schedule_NG_1.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
 			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNG.1.csv" type:"csv" rewrite:false;
 			
-		}
+		}*/
 		
 		/*write "2_4 : " + count_2_4.next;
 		write "5_9 : " + count_5_9.next;
 		write "10_14 : " + count_10_14.next;*/
 		
 		
-		truc <-  schedule_NG_2.next;
+		/*truc <-  schedule_NG_2.next;
 		if(truc!=nil){
 			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
 			write  " arrival time "+ truc.activated_at;
@@ -171,6 +185,15 @@ global{
 			write  " arrival time "+ truc.activated_at;
 			write "at location "+truc.location;
 			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNM.2.csv" type:"csv" rewrite:false;
+			
+		}*/
+		
+		vehicle truc <-  schedule_KS1_3.next;
+		if(truc!=nil){
+			write "this vehicle width is" + truc.width + " height is "+ truc.height + " initial speed "+ truc.speed ;
+			write  " arrival time "+ truc.activated_at;
+			write "at location "+truc.location;
+			save (string(truc.width) + ";" + string(truc.height) + ";" + string(truc.activated_at) + ";"  + string(truc.speed) + ";" + string(truc.tiv) + ";" + truc.location.x + ":" + truc.location.y + ":" + truc.location.z) to: "../includes/VarNKS1.3.csv" type:"csv" rewrite:false;
 			
 		}
 		

@@ -26,7 +26,7 @@ public interface ITrafficLaw {
 	
 	public static final String LOGNORMAL_LAW 		= "lognormal_law";
 	public static final String SHIFTED_LOGNORMAL_LAW 		= "shifted_lognormal_law";
-	
+	public static final String NORMAL_LAW 		= "normal_law";
 	
 	
 	public final static String PEARSON_3 	= "PEAESON_3";
@@ -48,6 +48,7 @@ public interface ITrafficLaw {
 	
 	public static final String LOGNORMAL 		= "LOGNORMAL";
 	public static final String SHIFTED_LOGNORMAL 		= "SHIFTED_LOGNORMAL";
+	public static final String NORMAL 		= "NORMAL";
 	
 	public static final String UNIFORM = "UNIFORM";
 	
@@ -60,6 +61,7 @@ public interface ITrafficLaw {
 	public static final String MAX 		= "max";
 	
 	public static final String SIGMA 		= "sigma";
+	public static final String MEAN 		= "mean";
 	public static final String LAMBDA 		= "lambda";
 	public static final String U 			= "u";
 	public static final String ALPHA2 = "alpha2";
