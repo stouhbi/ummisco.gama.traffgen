@@ -35,7 +35,7 @@ global{
 	/* PERCENTAGE TRANSITION */
 	
 	// continuus, matrix transition vehicle type dependent
-	matrix typeTranP <- matrix([[0.3666905, 0.2429616], [0.6333095, 0.7570384]]); // 2 roues, 4 roues
+	list typeTranP <- [0.2793914, 0.720608575]; // 2 roues, 4 roues
 	
 	/***		VarPVG.1   *****/
 	// 2 roues

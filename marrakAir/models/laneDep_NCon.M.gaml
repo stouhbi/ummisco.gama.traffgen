@@ -19,46 +19,9 @@ global{
 	graph the_graph;
 	geometry shape <- envelope(shape_file_bound);
 
-	// Generation Creation
-
-	//traffgen_law headway1 <-  pareto_4_law(0.18, 0.19, 1.787, -0.198); // 2-4
-	//traffgen_law headway1 <-  pareto_4_law(0.5977091, 0.5129527, 2.313488, 0.197999954); // 2-4
-	//traffgen_law headway1 <-  pareto_4_law(1.29, 0.497, 2.997, 0.015); // 10-14 Casa c faux. can't mix two roads. phase length
-	//traffgen_law headway1 <-  pareto_4_law(1.071276, 0.4240384, 2.395897, -0.009000063); // 10-14 all data
-	//traffgen_law headway1 <-  pareto_4_law(0.3282351, 0.2914587, 2.040083, -0.198); // 2-4 all data
-	//traffgen_law headway1 <-  pareto_4_law(1.071, 0.424, 2.396, -0.009); // 10-14
-	//traffgen_law headway1 <-  inverse_gamma_law(3.467,1.0/1.306); // 2-4 all data
-	//traffgen_law headway1 <-  gamma_law(1.1951304,0.1825619); // 2-4 all data
-	//traffgen_law headway2 <-  pareto_4_law(0.672, 0.367, 2.189, -0.09);  // 5-9
-	//traffgen_law headway2 <-  pareto_4_law(1.557670, 0.4599637, 2.645302, -0.01399994); // 10-14 all data
-	//traffgen_law headway2 <-  pareto_4_law(1.436, 0.444, 2.46, 0.014); // 10-14 
-	//traffgen_law headway2 <-  pareto_4_law(0.7208561, 0.3819021, 2.263117, -0.06309249); // 5-9
-	//traffgen_law speed <- poisson_law(20);
-	//geometry locat <- square(2) at :{4652.572627816505, 2453.786642591314, 0};
 	
-	//traffgen_law headway1 <-  pareto_3_law(0.412,2.327,-0.043); // 10-14
-	//traffgen_law headway1 <-  pearson_6_law(9.471, 5.947, 1.53, -0.54); // 15-19 phase 1
-	//traffgen_law headway1 <-  pearson_5_law(5.23, 14.473, -1.012); // 15-19 phase 1
 	
-	//traffgen_law headway1 <-  shifted_lognormal_law(0.99, 0.787, 0.045); // 5-9 phase 2 M5
-	//traffgen_gen gen1 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway1, speed, {4652.572627816505, 2453.786642591314, 0});
-	//traffgen_gen gen2 <- atomic_traffgen(species_of(bus), headway1, speed, {4652.572627816505, 2453.786642591314, 0});
-	//traffgen_gen gen3 <- atomic_traffgen(species_of(moto), headway1, speed, {4652.572627816505, 2453.786642591314, 0});
-	//map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
-	//traffgen_gen typeGen <- map_traffgen([gen1], typeTran);   
-	
-
-	//traffgen_law countLaw <- poisson_law(29.0232558);
-	//traffgen_gen gen4 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway2, speed, {4652.572627816505, 2453.786642591314, 0});
-	//traffgen_gen gen5 <- atomic_traffgen(species_of(bus), headway2, speed,  {4652.572627816505, 2453.786642591314, 0});
-	//traffgen_gen gen6 <- atomic_traffgen(species_of(moto), headway2, speed,  {4652.572627816505, 2453.786642591314, 0});
-	//traffgen_gen typeGen2 <- map_traffgen([gen4], copy(typeTran));
-	//traffgen_period period1 <- create_period(typeGen, 48, 1390);
-	//traffgen_period period2 <- create_period(typeGen2, 37, 3000);
-
-	//traffgen_scheduler schedule <- create_schedule([period1, period2], "cycle"); 
-	
-	//// Continuous generation scenarios 
+	//// With Periodicity
 	//map typeTran <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
 	matrix typeTran <- matrix([[0.3628789, 0.6323804, 0.004740698], [0.2819887, 0.7140288, 0.003982528], [0.4736842, 0.5263158, 0.0]]); // 2 roues, 4 roues, Bus
 	map locTran <- [{4652.572627816505, 2453.786642591314, 0}::0.2243127, {4652.572627816505, 2553.786642591314, 0}::0.4574742, {4652.572627816505, 2653.786642591314, 0}::0.3182131];
