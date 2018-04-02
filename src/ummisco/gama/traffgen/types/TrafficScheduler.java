@@ -27,12 +27,24 @@ public class TrafficScheduler {
 
 	int currentPeriod;
 	double currentTick;
+	double time;
+	int duration;
 
 	public TrafficScheduler(TrafficPeriod[] periods, String type) {
+		init(periods, type);
+	}
+	
+	public TrafficScheduler(TrafficPeriod[] periods, String type, int duration) {
+		init(periods, type);
+		this.duration= duration;
+	}
+	
+	private void init(TrafficPeriod[] periods, String type){
 		this.type = type;
 		this.periods = periods;
 		currentPeriod = periods.length > 0 ? 0:-1;
 		currentTick = 0;
+		time = 0;
 	}
 
 	@operator(value= ITrafficScheduler.CREATE_SCHEDULE)
@@ -52,13 +64,15 @@ public class TrafficScheduler {
 	@getter(value=ITrafficScheduler.NEXT)
 	@doc(value="get the next vehicle from the scheduler")
 	public IAgent getNext(IScope scope){
+		//if(isFinished(scope)) return null;
 		double currentTime = (double) scope.getSimulation().getClock().getStartingDate().until(scope.getSimulation().getClock().getCurrentDate(), ChronoUnit.MILLIS)/1000;
 		System.out.println("current Time is "+ currentTime);
 		if(this.type.equals(ITrafficScheduler.TYPE_SEQUENCE))
 			return scheduleSequence(scope,currentTime);
 		else if(this.type.equals(ITrafficScheduler.TYPE_CYCLIC))
 			return scheduleCycle(scope, currentTime);
-
+		double step = (double) scope.getExperiment().getSimulation().getTimeStep(scope);
+		time += step;
 		return null;
 
 	}
@@ -95,6 +109,12 @@ public class TrafficScheduler {
 
 		currentTick += step; 
 		return periods[currentPeriod].getNext(scope);
+	}
+	
+	boolean isFinished(IScope scope){
+		if(Math.round(time) == duration) return true;
+		
+		return false;
 	}
 
 

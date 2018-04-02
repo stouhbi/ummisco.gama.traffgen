@@ -64,7 +64,6 @@ public class LocationSplitGenerator extends SplitGenerator {
 				}
 			}
 		}
-
 		this.index = 0;
 	}
 

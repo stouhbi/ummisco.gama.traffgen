@@ -1,14 +1,4 @@
-/*****************************************************************************************************************************************************************
- ***  Module d'affectation des comptages routiers sur un réseau routier en milieu urbain
- ***  v.1.3.3
- ***
- ***  Author: Justin Emery 2 3, Nicolas Marilleau 1, , Thomas Thevenin 2, Nadège Martiny 3 
- *** 
- ***  1 UMI 209 UMMISCO IRD/UPMC, Bondy
- ***  2 Université de Bourgogne, UMR ThéMA, Dijon
- ***  3 Université de Bourgogne, UMR Biogéosciences, CRC, Dijon
- ***  
- */
+
 
 model MarrakAir
 
@@ -86,7 +76,7 @@ global
 	file logos <- file("../includes/logos.png");
 		
 	//COMPTAGES ROUTIER
-	matrix countingData <- matrix(csv_file( '../includes/PM_Test.csv', ';'));
+	matrix countingData <- matrix(csv_file( '../includes/PM_test_new.csv', ','));
 	
 	//MATRICE DE CHOIX ROUTIER
 	matrix<float> HierarchyMatrix <- matrix<float>(csv_file( '../includes/HierarchyChoice.csv', ';'));
@@ -205,7 +195,7 @@ global
 		do initialize();
 		create userAgent number:1
 		{
-	 		do connect to:"localhost";
+	 		/*do connect to:"localhost";
 			do expose variables:["gasoline_population","diesel_population"] with_name:"energy";
 			do expose variables:["truck_population","car_population","motorbike_population"] with_name:"typeVehicle";
 			do expose variables:["n2007","n2020","my_date"] with_name:"normVehicle";
@@ -218,7 +208,7 @@ global
 			do listen with_name:"reset" store_to:"reset_simulation";
 			do listen with_name:"copert" store_to:"copert_2020_rate";
 			do listen with_name:"show_keystone" store_to:"selected_keystone";
-			do listen with_name:"show_legend" store_to:"selected_legend";
+			do listen with_name:"show_legend" store_to:"selected_legend";*/
 		}
 		
 	}
@@ -299,7 +289,7 @@ global
 	{
 	
 		
-		time <- 8#h;
+		time <- 2#h;
 		copert <-[];
 		//Choix du parc automobile en fonction du parametres véhicle_year
 		copert <- copert + ("2007"::readCopertData( '../includes/CopertData2007.csv'));
@@ -556,7 +546,7 @@ species bound schedules:[] {
 //	}
 //}
 
-species userAgent skills:[remoteGUI]
+species userAgent //skills:[remoteGUI]
 {
 	int gasoline_population <- 0 ;
 	int diesel_population <- 0 ;
@@ -1767,10 +1757,10 @@ experiment MarrakAir type:gui
 	output {
 
 
-//		display Suivi_Vehicules_3D  type:opengl camera_pos:{5000,4000,8500}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:15 use_shader: true keystone: true//[{0.074,0.281},{0.937,0.267},{0.011,0.859},{0.996,0.856}]  
+		display Suivi_Vehicules_3D  type:opengl camera_pos:{5000,4000,8500}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:15 use_shader: true keystone: true//[{0.074,0.281},{0.937,0.267},{0.011,0.859},{0.996,0.856}]  
 
 // reglage serveur Nico
-		display Suivi_Vehicules_3D  type:opengl camera_pos: {5000,4000,9000}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:REFRESH use_shader: true keystone: [KEYSTONE_HAUT_GAUCHE,KEYSTONE_HAUT_DROITE,KEYSTONE_BAS_GAUCHE,KEYSTONE_BAS_DROITE]  
+//		display Suivi_Vehicules_3D  type:opengl camera_pos: {5000,4000,9000}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:REFRESH use_shader: true keystone: [KEYSTONE_HAUT_GAUCHE,KEYSTONE_HAUT_DROITE,KEYSTONE_BAS_GAUCHE,KEYSTONE_BAS_DROITE]  
 
 // bug gama ? si on met une variable CAMERA_POSITION dans global et qu'on met camera_pos: CAMERA_POSITION le display apparait a l'envers // issue
 
@@ -1794,14 +1784,14 @@ experiment MarrakAir type:gui
 			species infoDisplay aspect: base;
 			species legend aspect: base;
 			
-/* 	 		chart "Traffic jam" size: {0.5, 0.5} position: {0.05, 0.05} type: stack{
-// 		chart "Traffic jam" size: {0.5, 0.5} position: {0.05, 0.05} title_font_size: 0 legend_font_size: 0 background: °black axes: °white style: line color: °white  tick_font_size: 1 y_range: {0,1}{
+ 	 		//chart "Traffic jam" size: {0.5, 0.5} position: {0.05, 0.05} type: stack{
+ 		chart "Traffic jam" size: {0.5, 0.5} position: {0.05, 0.05} title_font_size: 0 legend_font_size: 0 background: °black axes: °white style: line color: °white  tick_font_size: 1 y_range: {0,1}{
 
  				 data "Mean road traffic coefficient" value: mean (road collect each.traffic_density) style: line color: #blue ;
 
 	
 
-			}*/
+			}
 		}
 		
 		/*display Suivi_Vehicules_2D   background:#black use_shader: true keystone: true //refresh_every:15 
@@ -1818,7 +1808,7 @@ experiment MarrakAir type:gui
 			
 		}*/
 
-/*		display Emissions_Totales draw_diffuse_light:true scale:true
+		display Emissions_Totales draw_diffuse_light:true scale:true
 		{
 				species road aspect:base;
 				species pollutant_grid aspect:nox_aspect transparency:0.5;
@@ -1850,10 +1840,10 @@ experiment MarrakAir type:gui
 		}		
 		
 	
-		display Frequentation_Moyenne type:opengl
+	/*	display Frequentation_Moyenne type:opengl
 		{
 			species road aspect:base3D;
-		}*/
+		} */
 	/*
 		display TrafficDensity type:opengl
 		{
