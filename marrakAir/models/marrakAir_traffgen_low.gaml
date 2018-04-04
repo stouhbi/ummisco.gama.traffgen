@@ -558,8 +558,8 @@ global
 	traffgen_gen typeGen_CG_41 <- map_traffgen([gen_CG_41], typeTran4);
 	traffgen_gen typeGen_CG_42 <- map_traffgen([gen_CG_42], copy(typeTran4));
 	
-	traffgen_period period_CG_41 <- create_period(typeGen_CG_41, 30, 1390);
-	traffgen_period period_CG_42 <- create_period(typeGen_CG_42, 30, 3000);
+	traffgen_period period_CG_41 <- create_period(typeGen_CG_41, 40, 1390);
+	traffgen_period period_CG_42 <- create_period(typeGen_CG_42, 26, 3000);
 
 	traffgen_scheduler schedule_CG_4 <- create_schedule([period_CG_41, period_CG_42], "cycle"); 
 	
@@ -596,7 +596,7 @@ global
 				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
-				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/khattabi_gare_low.csv" type:"csv" rewrite:false;
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../results/khattabi_gare_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
@@ -648,7 +648,7 @@ global
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
 				
-				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/khattabi_casa_low.csv" type:"csv" rewrite:false;
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../results/khattabi_casa_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
@@ -698,7 +698,7 @@ global
 				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
-				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/mohamed5_low.csv" type:"csv" rewrite:false;
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../results/mohamed5_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
@@ -749,7 +749,7 @@ global
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
 				
-				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/targa_low.csv" type:"csv" rewrite:false;
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../results/targa_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
@@ -794,6 +794,12 @@ global
 		do reset;
 	} 
 
+	reflex saveData when: (cycle mod 5) = 0 {
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])))] to: "../results/results_pollution_pm.csv" type:"csv" rewrite: false;
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])))] to: "../results/results_pollution_nox.csv" type:"csv" rewrite: false;
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])))] to: "../results/results_pollution_co.csv" type:"csv" rewrite: false;
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])))] to: "../results/results_pollution_co2.csv" type:"csv" rewrite: false;
+	}
 
 
 } //global
@@ -2328,11 +2334,7 @@ experiment MarrakAir type:gui
 			}
 		}	
 		
-		file name: "results_pollution_pm.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])))  refresh:every(5);  	
-		file name: "results_pollution_nox.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])))  refresh: every(5);
-		file name: "results_pollution_co.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])))  refresh: every(5);
-		file name: "results_pollution_co2.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])))  refresh: every(5);
-	
+		
 	/*	display Frequentation_Moyenne type:opengl
 		{
 			species road aspect:base3D;

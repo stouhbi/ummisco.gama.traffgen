@@ -37,7 +37,7 @@ global
 	
 	
 	// Pas-de-temps à modifier en fonction de la taille du réseau
-	float stepDuration <- 1#s; //#mn ; 	
+	float stepDuration <- 5#s; //#mn ; 	
 	
 	// Une periode de 15 minutes entre chaque mesure
 	float capturePeriod <- 15#mn ; 	
@@ -502,6 +502,12 @@ global
 		do reset;
 	} 
 
+	reflex saveData when: (cycle mod 5) = 0 {
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])))] to: "../results/results_pollution_pm.csv" type:"csv" rewrite: false;
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])))] to: "../results/results_pollution_nox.csv" type:"csv" rewrite: false;
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])))] to: "../results/results_pollution_co.csv" type:"csv" rewrite: false;
+		save [time, min(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")]))), mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")]))), max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])))] to: "../results/results_pollution_co2.csv" type:"csv" rewrite: false;
+	}
 
 
 } //global
@@ -1808,12 +1814,15 @@ experiment MarrakAir type:gui
 			
 		}*/
 
-		display Emissions_Totales draw_diffuse_light:true scale:true
+		/*display Emissions_Totales draw_diffuse_light:true scale:true
 		{
 				species road aspect:base;
 				species pollutant_grid aspect:nox_aspect transparency:0.5;
 			
-		}
+		}*/
+		
+			
+		
 		
 		display Suivi_Emissions refresh_every: 5 
 		{
@@ -1839,12 +1848,7 @@ experiment MarrakAir type:gui
 			}
 		}
 		
-		file name: "results_pollution_pm.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])))  refresh:every(5);  	
-		file name: "results_pollution_nox.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])))  refresh: every(5);
-		file name: "results_pollution_co.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])))  refresh: every(5);
-		file name: "results_pollution_co2.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])))  refresh: every(5);
-			
-		
+	
 	
 	/*	display Frequentation_Moyenne type:opengl
 		{
