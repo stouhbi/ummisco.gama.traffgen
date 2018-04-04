@@ -5,8 +5,7 @@ Bundle-SymbolicName: ummisco.gama.traffgen;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: GAML language for generation of traffic
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: msi.gama.processor;bundle-version="1.4.0",
- msi.gama.ext;bundle-version="1.7.0",
+Require-Bundle: msi.gama.ext;bundle-version="1.7.0",
  msi.gama.core;bundle-version="1.7.0"
 Bundle-ClassPath: .,
  lib/colt-1.2.0.jar,

@@ -37,7 +37,7 @@ global
 	
 	
 	// Pas-de-temps à modifier en fonction de la taille du réseau
-	float stepDuration <- 1#s; //1#s; //#mn ; 	
+	float stepDuration <- 5#s; //1#s; //#mn ; 	
 	
 	// Une periode de 15 minutes entre chaque mesure
 	float capturePeriod <- 15#mn ; 	
@@ -242,11 +242,11 @@ global
 		}
 
 		
-		ask vehicle
+		ask car
 		{
 			do die;
 		}
-		ask car
+		ask qroues
 		{
 			do die;
 		}
@@ -425,7 +425,7 @@ global
 		create legend {}
 		
 // Génération des Postes de comptage DIGIT correspond au sens de comptage des PM et du sens de digitalisation du réseau routier
-		create carCounter from:PM with:[mid::int(read("Id")), isdigitOriented::bool(read("DIGIT"))]
+		/*create carCounter from:PM with:[mid::int(read("Id")), isdigitOriented::bool(read("DIGIT"))]
 		{
 			associatedRoad <- road closest_to(self);
 			if(isdigitOriented)
@@ -439,7 +439,7 @@ global
 				nbCar_digit <- 0;
 				associatedRoad.containCarCounter_ndigit <- true;
 			}
-		} //initcarCounter 
+		} //initcarCounter */
 		 
 		write "Traffic rule assigment...";
 		int nbRoad <- length(road);
@@ -493,14 +493,14 @@ global
 	// Create generators
 	
 	// Abdellakrim Khattabi - Gare
-	map typeTran1 <- [species_of(car)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
+	map typeTran1 <- [species_of(qroues)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
 	traffgen_law speed1 <- poisson_law(15);
 	
 	traffgen_law headway_CG_11 <-  pareto_3_law(0.588, 2.883, 0); // 5-9
 	traffgen_law headway_CG_12 <-  pareto_4_law(0.111, 0.093, 1.611, -0.497); // 2-4
 	
-	traffgen_gen gen_CG_11 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_11, speed1, {4573.889909037622,2005.3003935809247,0.0});
-	traffgen_gen gen_CG_12 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_12, speed1, {4674.711892097024,2588.3424541605636,0.0});
+	traffgen_gen gen_CG_11 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_11, speed1, {4573.889909037622,2005.3003935809247,0.0});
+	traffgen_gen gen_CG_12 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_12, speed1, {4674.711892097024,2588.3424541605636,0.0});
 	traffgen_gen typeGen_CG_11 <- map_traffgen([gen_CG_11], typeTran1);
 	traffgen_gen typeGen_CG_12 <- map_traffgen([gen_CG_12], copy(typeTran1));
 	
@@ -511,14 +511,14 @@ global
 	
 	
 	// Abdellakrim Khattabi - Casa
-	map typeTran2 <- [species_of(car)::0.628581291, species_of(bus)::0.004142216, species_of(moto)::0.367276493];
+	map typeTran2 <- [species_of(qroues)::0.628581291, species_of(bus)::0.004142216, species_of(moto)::0.367276493];
 	traffgen_law speed2 <- poisson_law(15);
 	
 	traffgen_law headway_CG_21 <-   pareto_4_law(1.347,0.454,2.061, -0.035); // 15-19
 	traffgen_law headway_CG_22 <-  pareto_4_law(1.326, 0.473, 2.488, 0.064); // 5-9
 	
-	traffgen_gen gen_CG_21 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_21, speed2, {4674.711892097024,2588.3424541605636,0.0});
-	traffgen_gen gen_CG_22 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_22, speed2, {4674.711892097024,2588.3424541605636,0.0});
+	traffgen_gen gen_CG_21 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_21, speed2, {4674.711892097024,2588.3424541605636,0.0});
+	traffgen_gen gen_CG_22 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_22, speed2, {4674.711892097024,2588.3424541605636,0.0});
 	traffgen_gen typeGen_CG_21 <- map_traffgen([gen_CG_21], typeTran2);
 	traffgen_gen typeGen_CG_22 <- map_traffgen([gen_CG_22], copy(typeTran2));
 	
@@ -529,14 +529,14 @@ global
 	
 	
 	// Mohamed 5
-	map typeTran3 <- [species_of(car)::0.64089219, species_of(bus)::0.01152416, species_of(moto)::0.34758364];
+	map typeTran3 <- [species_of(qroues)::0.64089219, species_of(bus)::0.01152416, species_of(moto)::0.34758364];
 	traffgen_law speed3 <- poisson_law(15);
 	
 	traffgen_law headway_CG_31 <-   pareto_3_law(0.332,1.991, -0.231); // 10-14
 	traffgen_law headway_CG_32 <-  pareto_4_law(0.6, 0.289, 1.749, -0.034); // 5-9
 	
-	traffgen_gen gen_CG_31 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_31, speed3, {4499.169682445412,2200.1502830409445,0.0});
-	traffgen_gen gen_CG_32 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_32, speed3, {4499.169682445412,2200.1502830409445,0.0});
+	traffgen_gen gen_CG_31 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_31, speed3, {4499.169682445412,2200.1502830409445,0.0});
+	traffgen_gen gen_CG_32 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_32, speed3, {4499.169682445412,2200.1502830409445,0.0});
 	traffgen_gen typeGen_CG_31 <- map_traffgen([gen_CG_31], typeTran3);
 	traffgen_gen typeGen_CG_32 <- map_traffgen([gen_CG_32], copy(typeTran3));
 	
@@ -547,14 +547,14 @@ global
 	
 	
 	// Targa 5
-	map typeTran4 <- [species_of(car)::0.572074108, species_of(bus)::0.004518753, species_of(moto)::0.423407140];
+	map typeTran4 <- [species_of(qroues)::0.572074108, species_of(bus)::0.004518753, species_of(moto)::0.423407140];
 	traffgen_law speed4 <- poisson_law(15);
 	
 	traffgen_law headway_CG_41 <-   pareto_4_law(2.215, 0.641, 3.616, 0.002); // 10-14
 	traffgen_law headway_CG_42 <-  pareto_3_law(0.439, 2.143, 0); // 5-9
 	
-	traffgen_gen gen_CG_41 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_41, speed4, {4750.926670305547,2380.2389532723464,0.0});
-	traffgen_gen gen_CG_42 <- atomic_traffgen([species_of(car),species_of(bus), species_of(moto)], headway_CG_42, speed4, {4750.926670305547,2380.2389532723464,0.0});
+	traffgen_gen gen_CG_41 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_41, speed4, {4750.926670305547,2380.2389532723464,0.0});
+	traffgen_gen gen_CG_42 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_42, speed4, {4750.926670305547,2380.2389532723464,0.0});
 	traffgen_gen typeGen_CG_41 <- map_traffgen([gen_CG_41], typeTran4);
 	traffgen_gen typeGen_CG_42 <- map_traffgen([gen_CG_42], copy(typeTran4));
 	
@@ -567,14 +567,14 @@ global
 	
 	reflex generate {
 		write "generating  ....";
-		vehicle v <- schedule_CG_1.next;
+		car v <- schedule_CG_1.next;
 		if(v!=nil){
-			if(v.width=2.5 and v.height=4.5){ // moto
+			if(v.width=2.5 and v.height=4.5){ // car
 				v.my_type_of_vehicle <- 1;
-			}else if(v.width=1.57 and v.height=1.05){ // car
-				v.my_type_of_vehicle <- 2;
+			}else if(v.width=1.57 and v.height=1.05){ // moto
+				v.my_type_of_vehicle <- 0;
 			}else{ // Bus
-				v.my_type_of_vehicle <- 1;
+				v.my_type_of_vehicle <- 2;
 			}
 			
 			
@@ -583,7 +583,7 @@ global
 				
 			ask v {
 				currentRoad <- road closest_to(v);
-				myDestination <- currentRoad.fcrossroad;
+				myDestination <- currentRoad.tcrossroad;
 				isGhost <- false;
 				mycolor <- rgb('red');
 				currentRoad <- currentRoad;
@@ -596,15 +596,16 @@ global
 				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/khattabi_gare_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
-			create vehicle number:1 {
+			create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
 					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.tcrossroad;
+					myDestination <- currentRoad.fcrossroad;
 					isGhost <- true;
 					mycolor <- rgb('red');
 					deathDay <- time + gauss({gdeathDay,ecart});
@@ -633,7 +634,7 @@ global
 				
 			ask v {
 				currentRoad <- road closest_to(v);
-				myDestination <- currentRoad.fcrossroad;
+				myDestination <- currentRoad.tcrossroad;
 				isGhost <- false;
 				mycolor <- rgb('red');
 				currentRoad <- currentRoad;
@@ -646,15 +647,17 @@ global
 				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
+				
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/khattabi_casa_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
-			create vehicle number:1 {
+			create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
 					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.tcrossroad;
+					myDestination <- currentRoad.fcrossroad;
 					isGhost <- true;
 					mycolor <- rgb('red');
 					deathDay <- time + gauss({gdeathDay,ecart});
@@ -682,7 +685,7 @@ global
 				
 			ask v {
 				currentRoad <- road closest_to(v);
-				myDestination <- currentRoad.fcrossroad;
+				myDestination <- currentRoad.tcrossroad;
 				isGhost <- false;
 				mycolor <- rgb('red');
 				currentRoad <- currentRoad;
@@ -695,15 +698,16 @@ global
 				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/mohamed5_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
-			create vehicle number:1 {
+			create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
 					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.tcrossroad;
+					myDestination <- currentRoad.fcrossroad;
 					isGhost <- true;
 					mycolor <- rgb('red');
 					deathDay <- time + gauss({gdeathDay,ecart});
@@ -731,7 +735,7 @@ global
 				
 			ask v {
 				currentRoad <- road closest_to(v);
-				myDestination <- currentRoad.fcrossroad;
+				myDestination <- currentRoad.tcrossroad;
 				isGhost <- false;
 				mycolor <- rgb('red');
 				currentRoad <- currentRoad;
@@ -744,15 +748,17 @@ global
 				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
 				write  " arrival time "+ activated_at;
 				write "at location "+ location;
+				
+				save (string(v.width) + ";" + string(v.height) + ";" + string(v.activated_at) + ";"  + string(v.speed) + ";" + string(v.tiv) + ";" + v.location.x + ":" + v.location.y + ":" + v.location.z) to: "../includes/targa_low.csv" type:"csv" rewrite:false;
 			}
 			
 			// create ghost
-			create vehicle number:1 {
+			create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
 					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.tcrossroad;
+					myDestination <- currentRoad.fcrossroad;
 					isGhost <- true;
 					mycolor <- rgb('red');
 					deathDay <- time + gauss({gdeathDay,ecart});
@@ -866,12 +872,12 @@ species userAgent //skills:[remoteGUI]
 	//float polution_particule_intantanee <- 0 ;
 	reflex update_data when: (cycle mod 12) = 0
 	{ 
-		int tt <-length(vehicle); 
+		int tt <-length(car); 
 		
-		gasoline_population <- round(tt=0?50:((vehicle count (each.my_energy = 0))/tt*100));
+		gasoline_population <- round(tt=0?50:((car count (each.my_energy = 0))/tt*100));
 		diesel_population <-  100 -  gasoline_population ; //count (each.my_energy = 1);
-		truck_population <- round(tt=0?20:((vehicle count (each.my_type_of_vehicle = TRUCK_ID))/tt*100));
-		car_population <-  round(tt=0?40:((vehicle count (each.my_type_of_vehicle = CAR_ID))/tt*100)); 
+		truck_population <- round(tt=0?20:((car count (each.my_type_of_vehicle = TRUCK_ID))/tt*100));
+		car_population <-  round(tt=0?40:((car count (each.my_type_of_vehicle = CAR_ID))/tt*100)); 
 		motorbike_population <- 100 - truck_population -  car_population ; //carHierarchyChange count (each.my_type_of_vehicle = MOTORBIKE_ID);
 	//	pollution_nox_max <- max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])));
 		pollution_nox_intanstanee<- mean(list(building collect(mean(each.pollutant_history[world.pollutentIndex("co")]))));
@@ -882,7 +888,7 @@ species userAgent //skills:[remoteGUI]
 		pollution_nox_intanstanee<- mean(list(building collect(each.pollutant[world.pollutentIndex("nox")])));
 		pollution_particule_max <- max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])));
 		pollution_particule_instantanee <- mean(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])));
-	 */	n2007 <- round(tt=0?50:(vehicle count (each.my_vehicle_year = 2007)/tt)*100) ;
+	 */	n2007 <- round(tt=0?50:(car count (each.my_vehicle_year = 2007)/tt)*100) ;
 		n2020 <- 100 - n2007 ;
 		
 		my_date <- cycle;
@@ -1511,7 +1517,7 @@ species carHierarchyChange parent:vehicle
 	}	
 }*/
 
-species vehicle skills: [driving] {
+species car skills: [driving] {
 	int my_type_of_vehicle;
 	float width;
 	float height;
@@ -1578,6 +1584,10 @@ species vehicle skills: [driving] {
 	
 	reflex killcar when: deathDay < time
 	{
+		do die;
+	}
+	
+	action killCar {
 		do die;
 	}
 			
@@ -1732,7 +1742,7 @@ species vehicle skills: [driving] {
 
 }
 
-species car parent:vehicle
+species qroues parent:car
 {
 	init{
 		my_type_of_vehicle <- 1; // 0 moto, 1 VL et 2 PL
@@ -1763,7 +1773,7 @@ species car parent:vehicle
 	
 }//speciescar
 
-species bus parent:vehicle
+species bus parent:car
 {
 	init {
 		my_type_of_vehicle <- 1; // 0 moto, 1 VL et 2 PL
@@ -1798,7 +1808,7 @@ species bus parent:vehicle
 	
 }//speciescar
 
-species moto parent:vehicle
+species moto parent:car
 {
 	init{
 		my_type_of_vehicle <- 2; // 0 moto, 1 VL et 2 PL
@@ -2276,8 +2286,8 @@ experiment MarrakAir type:gui
 			species landscape aspect:base;
 			species carCounter aspect:base;
 			//species crossroad aspect:base;
-			species vehicle  aspect:ghost;
-			species car  aspect:base;
+			species car  aspect:ghost;
+			species qroues  aspect:base;
 			species moto  aspect:base;
 			species bus  aspect:base;
 			//species carHierarchyChange  aspect:base;
@@ -2316,8 +2326,12 @@ experiment MarrakAir type:gui
 			{
 			data 'Emissions Moyenne de PM (g)' value:list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])) marker:false;
 			}
-		}		
+		}	
 		
+		file name: "results_pollution_pm.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])))  refresh:every(5);  	
+		file name: "results_pollution_nox.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])))  refresh: every(5);
+		file name: "results_pollution_co.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])))  refresh: every(5);
+		file name: "results_pollution_co2.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])))  refresh: every(5);
 	
 	/*	display Frequentation_Moyenne type:opengl
 		{

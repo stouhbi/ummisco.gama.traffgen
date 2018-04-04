@@ -412,7 +412,7 @@ global
 		create legend {}
 		
 // Génération des Postes de comptage DIGIT correspond au sens de comptage des PM et du sens de digitalisation du réseau routier
-		create carCounter from:PM with:[mid::int(read("Id")), isdigitOriented::bool(read("DIGIT"))]
+		/*create carCounter from:PM with:[mid::int(read("Id")), isdigitOriented::bool(read("DIGIT"))]
 		{
 			associatedRoad <- road closest_to(self);
 			if(isdigitOriented)
@@ -426,7 +426,7 @@ global
 				nbCar_digit <- 0;
 				associatedRoad.containCarCounter_ndigit <- true;
 			}
-		} //initcarCounter 
+		} //initcarCounter */
 		 
 		write "Traffic rule assigment...";
 		int nbRoad <- length(road);
@@ -493,7 +493,147 @@ global
 //		do halt;
 //	} 
 
+	// Create generators
+	
+	// Abdellakrim Khattabi - Gare
+	map typeTran1 <- [species_of(qroues)::0.720608575, species_of(bus)::0.002963841, species_of(moto)::0.276427583];
+	traffgen_law speed1 <- poisson_law(15);
+	
+	traffgen_law headway_CG_11 <-  pareto_3_law(0.588, 2.883, 0); // 5-9
+	traffgen_law headway_CG_12 <-  pareto_4_law(0.111, 0.093, 1.611, -0.497); // 2-4
+	
+	traffgen_gen gen_CG_11 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_11, speed1, {4573.889909037622,2005.3003935809247,0.0});
+	traffgen_gen gen_CG_12 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_12, speed1, {4674.711892097024,2588.3424541605636,0.0});
+	traffgen_gen typeGen_CG_11 <- map_traffgen([gen_CG_11], typeTran1);
+	traffgen_gen typeGen_CG_12 <- map_traffgen([gen_CG_12], copy(typeTran1));
+	
+	traffgen_period period_CG_11 <- create_period(typeGen_CG_11, 48, 1390);
+	traffgen_period period_CG_12 <- create_period(typeGen_CG_12, 37, 3000);
 
+	traffgen_scheduler schedule_CG_1 <- create_schedule([period_CG_11, period_CG_12], "cycle"); 
+	
+	
+	// Abdellakrim Khattabi - Casa
+	map typeTran2 <- [species_of(qroues)::0.628581291, species_of(bus)::0.004142216, species_of(moto)::0.367276493];
+	traffgen_law speed2 <- poisson_law(15);
+	
+	traffgen_law headway_CG_21 <-   pareto_4_law(1.347,0.454,2.061, -0.035); // 15-19
+	traffgen_law headway_CG_22 <-  pareto_4_law(1.326, 0.473, 2.488, 0.064); // 5-9
+	
+	traffgen_gen gen_CG_21 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_21, speed2, {4674.711892097024,2588.3424541605636,0.0});
+	traffgen_gen gen_CG_22 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_22, speed2, {4674.711892097024,2588.3424541605636,0.0});
+	traffgen_gen typeGen_CG_21 <- map_traffgen([gen_CG_21], typeTran2);
+	traffgen_gen typeGen_CG_22 <- map_traffgen([gen_CG_22], copy(typeTran2));
+	
+	traffgen_period period_CG_21 <- create_period(typeGen_CG_21, 43, 1390);
+	traffgen_period period_CG_22 <- create_period(typeGen_CG_22, 29, 3000);
+
+	traffgen_scheduler schedule_CG_2 <- create_schedule([period_CG_21, period_CG_22], "cycle"); 
+	
+	
+	// Mohamed 5
+	map typeTran3 <- [species_of(qroues)::0.64089219, species_of(bus)::0.01152416, species_of(moto)::0.34758364];
+	traffgen_law speed3 <- poisson_law(15);
+	
+	traffgen_law headway_CG_31 <-   pareto_3_law(0.332,1.991, -0.231); // 10-14
+	traffgen_law headway_CG_32 <-  pareto_4_law(0.6, 0.289, 1.749, -0.034); // 5-9
+	
+	traffgen_gen gen_CG_31 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_31, speed3, {4499.169682445412,2200.1502830409445,0.0});
+	traffgen_gen gen_CG_32 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_32, speed3, {4499.169682445412,2200.1502830409445,0.0});
+	traffgen_gen typeGen_CG_31 <- map_traffgen([gen_CG_31], typeTran3);
+	traffgen_gen typeGen_CG_32 <- map_traffgen([gen_CG_32], copy(typeTran3));
+	
+	traffgen_period period_CG_31 <- create_period(typeGen_CG_31, 30, 1390);
+	traffgen_period period_CG_32 <- create_period(typeGen_CG_32, 30, 3000);
+
+	traffgen_scheduler schedule_CG_3 <- create_schedule([period_CG_31, period_CG_32], "cycle"); 
+	
+	
+	// Targa 5
+	map typeTran4 <- [species_of(qroues)::0.572074108, species_of(bus)::0.004518753, species_of(moto)::0.423407140];
+	traffgen_law speed4 <- poisson_law(15);
+	
+	traffgen_law headway_CG_41 <-   pareto_4_law(2.215, 0.641, 3.616, 0.002); // 10-14
+	traffgen_law headway_CG_42 <-  pareto_3_law(0.439, 2.143, 0); // 5-9
+	
+	traffgen_gen gen_CG_41 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_41, speed4, {4750.926670305547,2380.2389532723464,0.0});
+	traffgen_gen gen_CG_42 <- atomic_traffgen([species_of(qroues),species_of(bus), species_of(moto)], headway_CG_42, speed4, {4750.926670305547,2380.2389532723464,0.0});
+	traffgen_gen typeGen_CG_41 <- map_traffgen([gen_CG_41], typeTran4);
+	traffgen_gen typeGen_CG_42 <- map_traffgen([gen_CG_42], copy(typeTran4));
+	
+	traffgen_period period_CG_41 <- create_period(typeGen_CG_41, 30, 1390);
+	traffgen_period period_CG_42 <- create_period(typeGen_CG_42, 30, 3000);
+
+	traffgen_scheduler schedule_CG_4 <- create_schedule([period_CG_41, period_CG_42], "cycle"); 
+	
+	
+	
+	reflex generate {
+		write "generating  ....";
+		car v <- schedule_CG_1.next;
+		if(v!=nil){
+				
+			ask v {
+				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
+				write  " arrival time "+ activated_at;
+				write "at location "+ location;
+				do create;
+			}
+			
+			
+			}
+			
+			
+		v <- schedule_CG_2.next;
+		if(v!=nil){
+			
+			ask v {
+				
+				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
+				write  " arrival time "+ activated_at;
+				write "at location "+ location;
+				do create;
+			}
+			
+		}
+		
+		
+		v <- schedule_CG_3.next;
+		if(v!=nil){
+			
+				
+			ask v {
+				
+				
+				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
+				write  " arrival time "+ activated_at;
+				write "at location "+ location;
+				do create;
+			}
+			
+			
+			
+		}
+			
+		v <- schedule_CG_4.next;
+		if(v!=nil){
+			
+				
+			ask v {
+				
+				
+				write "this vehicle width is" + width + " height is "+ height + " initial speed "+ speed ;
+				write  " arrival time "+ activated_at;
+				write "at location "+ location;
+				
+				do create;
+			}
+			
+			
+			
+			}
+			
+			}
 
 //	reflex reset_sim when:  (cycle mod 600 = 0) and (cycle > 0)
 	reflex reset_sim when:  (time - last_reset_time = 24#h+1#sec) and (cycle > 0)
@@ -1241,7 +1381,14 @@ species car skills: [driving]
 	float endStreetArrival;
 	int my_energy <- 1;
 	float my_vehicle_year;
+	float activated_at;
+	float width;
+	float height;
 	
+	
+	action create{
+		
+	}
 
 	rgb colorCar
 	{
@@ -1364,6 +1511,263 @@ species car skills: [driving]
 		}	
 	}
 }//speciescar
+
+species qroues  parent: car{
+
+	float width <- 2.0;
+	float height <- 5.0;
+	bool launched <- false;
+	float activationDate;
+	float Speed;
+	point previousLoc <- nil;
+
+	action create{
+		
+		
+		my_type_of_vehicle <- 1;
+		int is_gasoline <- flip(energy)?0:1;
+		int tmp_norm <- flip(vehicle_2020_norm_rate)?2020:2007;
+		if(carBehaviorChoice = "hierarchy")
+		 	{
+		 		create carHierarchyChange number:1
+				{
+					location <- self.location;
+					currentRoad <- road closest_to(self);
+					myDestination <- currentRoad.tcrossroad;
+					isGhost <- false;
+					mycolor <- rgb('blue');
+					deathDay <- time + gauss({gdeathDay,ecart}); // fonction Gaussienne de disparition
+					mspeed <- self.speed;
+					my_energy <- is_gasoline;
+					my_type_of_vehicle <- self.my_type_of_vehicle;
+					my_vehicle_year <- tmp_norm;
+				}
+				create carHierarchyChange number:1
+				{
+					location <- myself.location;
+					currentRoad <- road closest_to(self);
+					myDestination <- currentRoad.fcrossroad;
+					isGhost <- true;
+					mycolor <- rgb('red');
+					deathDay <- time + gauss({gdeathDay,ecart});
+					mspeed <- myself.mspeed;		
+					my_energy <- is_gasoline;
+					my_type_of_vehicle <- self.my_type_of_vehicle;
+					my_vehicle_year <- tmp_norm;
+				}
+		 	}//CarHierarchy
+		 	else 
+		 	{
+			 		create carRandomChange number:1
+					{
+						location <- myself.location;
+						currentRoad <- road closest_to(self);
+						myDestination <- currentRoad.tcrossroad;
+						isGhost <- false;
+						mycolor <- rgb('blue');
+						deathDay <- time + gauss({gdeathDay,ecart});				
+						mspeed <- myself.mspeed;
+						my_energy <- is_gasoline;
+						my_type_of_vehicle <- self.my_type_of_vehicle;
+						my_vehicle_year <- tmp_norm;
+					}
+					create carRandomChange number:1
+					{
+						location <- myself.location;
+						currentRoad <- road closest_to(self);
+						myDestination <- currentRoad.tcrossroad;
+						isGhost <- true;
+						mycolor <- rgb('red');
+						deathDay <- time + gauss({gdeathDay,ecart});
+						mspeed <- myself.mspeed;					
+						my_energy <- is_gasoline;
+						my_type_of_vehicle <- self.my_type_of_vehicle;
+						my_vehicle_year <- tmp_norm;
+					}
+		 	}
+		 	
+		 	do die;
+	}
+
+	aspect base
+	{
+		if( ! isGhost )
+		{
+			draw circle(5) color:colorCar();
+		}
+	}
+}
+
+species bus  parent: car {
+
+	float width <- 3.0;
+	float height <- 8.0;
+	bool launched <- false;
+	float activationDate;
+	float Speed;
+	point previousLoc <- nil;
+
+	action create {
+		
+		
+		my_type_of_vehicle <- 2;
+		int is_gasoline <- flip(energy)?0:1;
+			int tmp_norm <- flip(vehicle_2020_norm_rate)?2020:2007;
+		if(carBehaviorChoice = "hierarchy")
+		 	{
+		 		create carHierarchyChange number:1
+				{
+					location <- self.location;
+					currentRoad <- road closest_to(self);
+					myDestination <- currentRoad.tcrossroad;
+					isGhost <- false;
+					mycolor <- rgb('blue');
+					deathDay <- time + gauss({gdeathDay,ecart}); // fonction Gaussienne de disparition
+					mspeed <- self.speed;
+					my_energy <- is_gasoline;
+					my_type_of_vehicle <- self.my_type_of_vehicle;
+					my_vehicle_year <- tmp_norm;
+				}
+				create carHierarchyChange number:1
+				{
+					location <- myself.location;
+					currentRoad <- road closest_to(self);
+					myDestination <- currentRoad.fcrossroad;
+					isGhost <- true;
+					mycolor <- rgb('red');
+					deathDay <- time + gauss({gdeathDay,ecart});
+					mspeed <- myself.mspeed;		
+					my_energy <- is_gasoline;
+					my_type_of_vehicle <- self.my_type_of_vehicle;
+					my_vehicle_year <- tmp_norm;
+				}
+		 	}//CarHierarchy
+		 	else 
+		 	{
+			 		create carRandomChange number:1
+					{
+						location <- myself.location;
+						currentRoad <- road closest_to(self);
+						myDestination <- currentRoad.tcrossroad;
+						isGhost <- false;
+						mycolor <- rgb('blue');
+						deathDay <- time + gauss({gdeathDay,ecart});				
+						mspeed <- myself.mspeed;
+						my_energy <- is_gasoline;
+						my_type_of_vehicle <- self.my_type_of_vehicle;
+						my_vehicle_year <- tmp_norm;
+					}
+					create carRandomChange number:1
+					{
+						location <- myself.location;
+						currentRoad <- road closest_to(self);
+						myDestination <- currentRoad.tcrossroad;
+						isGhost <- true;
+						mycolor <- rgb('red');
+						deathDay <- time + gauss({gdeathDay,ecart});
+						mspeed <- myself.mspeed;					
+						my_energy <- is_gasoline;
+						my_type_of_vehicle <- self.my_type_of_vehicle;
+						my_vehicle_year <- tmp_norm;
+					}
+		 	}
+		 	
+		 	
+		 	do die;
+	}
+	
+	aspect base
+	{
+		if( ! isGhost )
+		{
+			draw circle(5) color:colorCar();
+		}
+	}
+}
+
+species moto  parent: car  {
+	float width <- 3.0;
+	float height <- 7.0;
+	bool launched <- false;
+	float activationDate;
+	float Speed;
+	point previousLoc <- nil;
+	
+	action create {
+		my_type_of_vehicle <- 0;
+		int is_gasoline <- flip(energy)?0:1;
+			int tmp_norm <- flip(vehicle_2020_norm_rate)?2020:2007;
+		if(carBehaviorChoice = "hierarchy")
+		 	{
+		 		create carHierarchyChange number:1
+				{
+					location <- self.location;
+					currentRoad <- road closest_to(self);
+					myDestination <- currentRoad.tcrossroad;
+					isGhost <- false;
+					mycolor <- rgb('blue');
+					deathDay <- time + gauss({gdeathDay,ecart}); // fonction Gaussienne de disparition
+					mspeed <- self.speed;
+					my_energy <- is_gasoline;
+					my_type_of_vehicle <- self.my_type_of_vehicle;
+					my_vehicle_year <- tmp_norm;
+				}
+				create carHierarchyChange number:1
+				{
+					location <- myself.location;
+					currentRoad <- road closest_to(self);
+					myDestination <- currentRoad.fcrossroad;
+					isGhost <- true;
+					mycolor <- rgb('red');
+					deathDay <- time + gauss({gdeathDay,ecart});
+					mspeed <- myself.mspeed;		
+					my_energy <- is_gasoline;
+					my_type_of_vehicle <- self.my_type_of_vehicle;
+					my_vehicle_year <- tmp_norm;
+				}
+		 	}//CarHierarchy
+		 	else 
+		 	{
+			 		create carRandomChange number:1
+					{
+						location <- myself.location;
+						currentRoad <- road closest_to(self);
+						myDestination <- currentRoad.tcrossroad;
+						isGhost <- false;
+						mycolor <- rgb('blue');
+						deathDay <- time + gauss({gdeathDay,ecart});				
+						mspeed <- myself.mspeed;
+						my_energy <- is_gasoline;
+						my_type_of_vehicle <- self.my_type_of_vehicle;
+						my_vehicle_year <- tmp_norm;
+					}
+					create carRandomChange number:1
+					{
+						location <- myself.location;
+						currentRoad <- road closest_to(self);
+						myDestination <- currentRoad.tcrossroad;
+						isGhost <- true;
+						mycolor <- rgb('red');
+						deathDay <- time + gauss({gdeathDay,ecart});
+						mspeed <- myself.mspeed;					
+						my_energy <- is_gasoline;
+						my_type_of_vehicle <- self.my_type_of_vehicle;
+						my_vehicle_year <- tmp_norm;
+					}
+		 	}
+		 	
+		 	
+		 	do die;
+	}
+
+	aspect base
+	{
+		if( ! isGhost )
+		{
+			draw circle(5) color:colorCar();
+		}
+	}
+}
 
 
 
@@ -1757,18 +2161,17 @@ experiment MarrakAir type:gui
 	output {
 
 
-		display Suivi_Vehicules_3D  type:opengl camera_pos:{5000,4000,8500}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:15 use_shader: true keystone: true//[{0.074,0.281},{0.937,0.267},{0.011,0.859},{0.996,0.856}]  
+		//display Suivi_Vehicules_3D  type:opengl camera_pos:{5000,4000,8500}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:15 use_shader: true keystone: true//[{0.074,0.281},{0.937,0.267},{0.011,0.859},{0.996,0.856}]  
 
 // reglage serveur Nico
 //		display Suivi_Vehicules_3D  type:opengl camera_pos: {5000,4000,9000}  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh_every:REFRESH use_shader: true keystone: [KEYSTONE_HAUT_GAUCHE,KEYSTONE_HAUT_DROITE,KEYSTONE_BAS_GAUCHE,KEYSTONE_BAS_DROITE]  
 
 // bug gama ? si on met une variable CAMERA_POSITION dans global et qu'on met camera_pos: CAMERA_POSITION le display apparait a l'envers // issue
 
+//display Suivi_Vehicules_3D  type:opengl  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh: every(1#cycle) use_shader: true keystone: true//[{0.074,0.281},{0.937,0.267},{0.011,0.859},{0.996,0.856}]  
 
-//		display Suivi_Vehicules_3D  type:opengl  rotate: ANGLE  background:(show_keystone = true?#white:first(colorSet).BACKGROUND) refresh: every(1#cycle) use_shader: true keystone: true//[{0.074,0.281},{0.937,0.267},{0.011,0.859},{0.996,0.856}]  
 
-
-		{
+		/*{
 			//grid parcArea;
 			species bound aspect: base;
 		//	species pollutant_grid aspect:nox_aspect ;
@@ -1778,7 +2181,10 @@ experiment MarrakAir type:gui
 			species landscape aspect:base;
 			species carCounter aspect:base;
 			//species crossroad aspect:base;
+			species vehicle  aspect:ghost;
 			species car  aspect:ghost;
+			species moto  aspect:ghost;
+			species bus  aspect:ghost;
 			species carHierarchyChange  aspect:base;
 			species carRandomChange aspect:base;
 			species infoDisplay aspect: base;
@@ -1792,21 +2198,32 @@ experiment MarrakAir type:gui
 	
 
 			}
-		}
+		}*/
 		
-		/*display Suivi_Vehicules_2D   background:#black use_shader: true keystone: true //refresh_every:15 
+		display Suivi_Vehicules_2D   background:#black use_shader: true keystone: true //refresh_every:15 
 		{
-			//grid parcArea;
-			species building aspect:base; // transparency:0.5;
+			
+			species bound aspect: base;
 		//	species pollutant_grid aspect:nox_aspect ;
-			species road aspect:base;
+			species road aspect: car_lights;
+			species dummy_road aspect:car_lights;
+			species building aspect:base; // transparency:0.5;
+			species landscape aspect:base;
 			species carCounter aspect:base;
 			//species crossroad aspect:base;
 			species car  aspect:ghost;
-			species carHierarchyChange  aspect:base;
-			species carRandomChange aspect:base;
+			species qroues  aspect:base;
+			species moto  aspect:base;
+			species bus  aspect:base;
+			//species carHierarchyChange  aspect:base;
+			//species carRandomChange aspect:base;
+			species infoDisplay aspect: base;
+			species legend aspect: base;
 			
-		}*/
+		}
+
+			
+ 	 	
 
 		display Emissions_Totales draw_diffuse_light:true scale:true
 		{
@@ -1837,13 +2254,7 @@ experiment MarrakAir type:gui
 			{
 			data 'Emissions Moyenne de PM (g)' value:list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])) marker:false;
 			}
-		}
-		
-		file name: "results_pollution_pm.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("pm")])))  refresh:every(5);  	
-		file name: "results_pollution_nox.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("nox")])))  refresh: every(5);
-		file name: "results_pollution_co.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co")])))  refresh: every(5);
-		file name: "results_pollution_co2.csv" type: csv data: string(time) + "; " + list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])) + ";" + max(list(pollutant_grid collect(each.pollutant[world.pollutentIndex("co2")])))  refresh: every(5);
-			
+		}		
 		
 	
 	/*	display Frequentation_Moyenne type:opengl
