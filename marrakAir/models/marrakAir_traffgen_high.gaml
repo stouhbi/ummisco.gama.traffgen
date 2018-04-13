@@ -600,7 +600,7 @@ global
 			}
 			
 			// create ghost
-			create car number:1 {
+			/*create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
@@ -613,7 +613,7 @@ global
 					my_energy <- is_gasoline;
 					my_type_of_vehicle <- v.my_type_of_vehicle;
 					my_vehicle_year <- tmp_norm;
-			}
+			}*/
 			
 			}
 			
@@ -652,7 +652,7 @@ global
 			}
 			
 			// create ghost
-			create car number:1 {
+			/*create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
@@ -665,7 +665,7 @@ global
 					my_energy <- is_gasoline;
 					my_type_of_vehicle <- v.my_type_of_vehicle;
 					my_vehicle_year <- tmp_norm;
-			}
+			}*/
 		}
 		
 		
@@ -702,7 +702,7 @@ global
 			}
 			
 			// create ghost
-			create car number:1 {
+			/*create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
@@ -715,7 +715,7 @@ global
 					my_energy <- is_gasoline;
 					my_type_of_vehicle <- v.my_type_of_vehicle;
 					my_vehicle_year <- tmp_norm;
-			}
+			}*/
 			
 			}
 			
@@ -753,7 +753,7 @@ global
 			}
 			
 			// create ghost
-			create car number:1 {
+			/*create car number:1 {
 					height <- v.height;
 					width <- v.width;
 					location <- v.location;
@@ -766,7 +766,7 @@ global
 					my_energy <- is_gasoline;
 					my_type_of_vehicle <- v.my_type_of_vehicle;
 					my_vehicle_year <- tmp_norm;
-			}
+			}*/
 			
 			}
 	}

@@ -248,4 +248,26 @@ public class TrafficGenerator {
 	}
 	
 	
+	/*@operator(value=ITrafficPeriod.CREATE_PERIOD)
+	@doc(value = "create a periode")
+	public static TrafficGenerator createTrafficPeriod(final IScope scope, final TrafficGenerator gen, final Integer duration){
+		TrafficPeriod res= new TrafficPeriod(gen, 0 , duration.intValue());
+		return  new TrafficGenerator(null);
+	}
+	
+	
+	@operator(value= ITrafficScheduler.CREATE_SCHEDULE)
+	@doc(value= "to create a scheduler")
+	public static TrafficGenerator createSchedule(final IList<TrafficPeriod> pds, final String type){
+		TrafficPeriod[] periods = new TrafficPeriod[pds.size()];
+		int i = 0;
+		for(TrafficPeriod period: pds){
+			periods[i] = period;
+			i++;
+		}
+
+		//return new TrafficScheduler(periods, type);
+		return new TrafficGenerator(null);
+	}*/
+	
 }
