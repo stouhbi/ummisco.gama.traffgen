@@ -563,7 +563,54 @@ global
 
 	traffgen_scheduler schedule_CG_4 <- create_schedule([period_CG_41, period_CG_42], "cycle"); 
 	
-	
+	action create_ghost(car v ){
+		if(v.width=2.5 and v.height=4.5){ // car
+				create qroues number:1 {
+					height <- v.height;
+					width <- v.width;
+					location <- v.location;
+					currentRoad <- v.currentRoad;
+					myDestination <- currentRoad.fcrossroad;
+					isGhost <- true;
+					mycolor <- rgb('red');
+					deathDay <- v.deathDay;
+					mspeed <- v.speed;	
+					my_energy <- v.my_energy;
+					my_type_of_vehicle <- v.my_type_of_vehicle;
+					my_vehicle_year <- v.my_vehicle_year;
+				}
+			}else if(v.width=1.57 and v.height=1.05){ // moto
+				create moto number:1 {
+					height <- v.height;
+					width <- v.width;
+					location <- v.location;
+					currentRoad <- v.currentRoad;
+					myDestination <- currentRoad.fcrossroad;
+					isGhost <- true;
+					mycolor <- rgb('red');
+					deathDay <- v.deathDay;
+					mspeed <- v.speed;	
+					my_energy <- v.my_energy;
+					my_type_of_vehicle <- v.my_type_of_vehicle;
+					my_vehicle_year <- v.my_vehicle_year;
+				}
+			}else{ // Bus
+				create bus number:1 {
+					height <- v.height;
+					width <- v.width;
+					location <- v.location;
+					currentRoad <- v.currentRoad;
+					myDestination <- currentRoad.fcrossroad;
+					isGhost <- true;
+					mycolor <- rgb('red');
+					deathDay <- v.deathDay;
+					mspeed <- v.speed;	
+					my_energy <- v.my_energy;
+					my_type_of_vehicle <- v.my_type_of_vehicle;
+					my_vehicle_year <- v.my_vehicle_year;
+				}
+			}
+	}
 	
 	reflex generate {
 		write "generating  ....";
@@ -600,33 +647,20 @@ global
 			}
 			
 			// create ghost
-			/*create car number:1 {
-					height <- v.height;
-					width <- v.width;
-					location <- v.location;
-					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.fcrossroad;
-					isGhost <- true;
-					mycolor <- rgb('red');
-					deathDay <- time + gauss({gdeathDay,ecart});
-					mspeed <- v.speed;	
-					my_energy <- is_gasoline;
-					my_type_of_vehicle <- v.my_type_of_vehicle;
-					my_vehicle_year <- tmp_norm;
-			}*/
-			
+			//do create_ghost(v);
 			}
 			
 			
 		v <- schedule_CG_2.next;
 		if(v!=nil){
-			if(v.width=2.5 and v.height=4.5){ // moto
+			if(v.width=2.5 and v.height=4.5){ // car
 				v.my_type_of_vehicle <- 1;
-			}else if(v.width=1.57 and v.height=1.05){ // car
-				v.my_type_of_vehicle <- 2;
+			}else if(v.width=1.57 and v.height=1.05){ // moto
+				v.my_type_of_vehicle <- 0;
 			}else{ // Bus
-				v.my_type_of_vehicle <- 1;
+				v.my_type_of_vehicle <- 2;
 			}
+			
 			
 			
 			int is_gasoline <- flip(energy)?0:1;
@@ -652,32 +686,20 @@ global
 			}
 			
 			// create ghost
-			/*create car number:1 {
-					height <- v.height;
-					width <- v.width;
-					location <- v.location;
-					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.fcrossroad;
-					isGhost <- true;
-					mycolor <- rgb('red');
-					deathDay <- time + gauss({gdeathDay,ecart});
-					mspeed <- v.speed;	
-					my_energy <- is_gasoline;
-					my_type_of_vehicle <- v.my_type_of_vehicle;
-					my_vehicle_year <- tmp_norm;
-			}*/
+			//do create_ghost(v);
 		}
 		
 		
 		v <- schedule_CG_3.next;
 		if(v!=nil){
-			if(v.width=2.5 and v.height=4.5){ // moto
+			if(v.width=2.5 and v.height=4.5){ // car
 				v.my_type_of_vehicle <- 1;
-			}else if(v.width=1.57 and v.height=1.05){ // car
-				v.my_type_of_vehicle <- 2;
+			}else if(v.width=1.57 and v.height=1.05){ // moto
+				v.my_type_of_vehicle <- 0;
 			}else{ // Bus
-				v.my_type_of_vehicle <- 1;
+				v.my_type_of_vehicle <- 2;
 			}
+			
 			
 			
 			int is_gasoline <- flip(energy)?0:1;
@@ -702,32 +724,20 @@ global
 			}
 			
 			// create ghost
-			/*create car number:1 {
-					height <- v.height;
-					width <- v.width;
-					location <- v.location;
-					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.fcrossroad;
-					isGhost <- true;
-					mycolor <- rgb('red');
-					deathDay <- time + gauss({gdeathDay,ecart});
-					mspeed <- v.speed;	
-					my_energy <- is_gasoline;
-					my_type_of_vehicle <- v.my_type_of_vehicle;
-					my_vehicle_year <- tmp_norm;
-			}*/
+			//do create_ghost(v);
 			
 			}
 			
 		v <- schedule_CG_4.next;
 		if(v!=nil){
-			if(v.width=2.5 and v.height=4.5){ // moto
+			if(v.width=2.5 and v.height=4.5){ // car
 				v.my_type_of_vehicle <- 1;
-			}else if(v.width=1.57 and v.height=1.05){ // car
-				v.my_type_of_vehicle <- 2;
+			}else if(v.width=1.57 and v.height=1.05){ // moto
+				v.my_type_of_vehicle <- 0;
 			}else{ // Bus
-				v.my_type_of_vehicle <- 1;
+				v.my_type_of_vehicle <- 2;
 			}
+			
 			
 			
 			int is_gasoline <- flip(energy)?0:1;
@@ -753,20 +763,7 @@ global
 			}
 			
 			// create ghost
-			/*create car number:1 {
-					height <- v.height;
-					width <- v.width;
-					location <- v.location;
-					currentRoad <- v.currentRoad;
-					myDestination <- currentRoad.fcrossroad;
-					isGhost <- true;
-					mycolor <- rgb('red');
-					deathDay <- time + gauss({gdeathDay,ecart});
-					mspeed <- v.speed;	
-					my_energy <- is_gasoline;
-					my_type_of_vehicle <- v.my_type_of_vehicle;
-					my_vehicle_year <- tmp_norm;
-			}*/
+			//do create_ghost(v);
 			
 			}
 	}
@@ -1544,6 +1541,19 @@ species car skills: [driving] {
 	int my_energy <- 1;
 	float my_vehicle_year;
 	
+	
+	
+	float select_coeff
+	{
+		switch(my_type_of_vehicle)
+		{
+			match MOTORBIKE_ID{return MOTORBYKE_COEF; }
+			match CAR_ID {return CAR_COEF; }
+			match TRUCK_ID {return TRUCK_COEF; }
+		}
+	}
+	
+	
 	reflex cloud
 	{
 		float spp <- int(mspeed*#h / #km /10) *10;
@@ -1554,7 +1564,7 @@ species car skills: [driving] {
 		
 		
 		
-		list<float> cloud <- mcopert collect(each * distance_done *my_type_of_vehicle );
+		list<float> cloud <- mcopert collect(each * distance_done *select_coeff() );
 		ask currentRoad
 		{
 			list<float> mres <- [];

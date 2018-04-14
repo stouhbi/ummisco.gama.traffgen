@@ -109,8 +109,9 @@ global
 	float diffusion_rate <- 0.002;
 	
 	float max_speed <-  70#km/#h;
-	float percent_of_car <- 0.7; //1 equal 100% cars...
-	float percent_of_truck <- 0.3;
+	float percent_of_car <- 0.572074108; //1 equal 100% cars...
+	float percent_of_truck <- 0.004518753;
+	float percent_of_moto <- 0.423407140;
 	
 	bool show_trafic <- true;
 	bool show_pollution <- true;
@@ -1044,7 +1045,7 @@ species carCounter schedules: ( (time - last_reset_time) mod 1#mn ) = 0 ? carCou
 			int tmp_norm <- flip(vehicle_2020_norm_rate)?2020:2007;
 			
 //			int type_of_vehicule <- flip(percent_of_truck)?2:(flip(percent_of_car)?1:0);
-			int type_of_vehicule <- (flip(percent_of_car)?(flip(percent_of_truck)?2:1):0);
+			int type_of_vehicule <- (flip(percent_of_car)?(flip(percent_of_moto)?0:1):2);
 			
 //			write "type of vehi" + type_of_vehicule;
 				
@@ -1275,7 +1276,7 @@ species car skills: [driving]
 		
 		
 		
-		list<float> cloud <- mcopert collect(each * distance_done *select_coeff() );
+		list<float> cloud <- mcopert collect(each * distance_done *my_type_of_vehicle );
 		ask currentRoad
 		{
 			list<float> mres <- [];
