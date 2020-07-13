@@ -4,16 +4,16 @@ import msi.gama.metamodel.agent.IAgent;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.operator;
-import msi.gama.precompiler.GamlAnnotations.var;
+import msi.gama.precompiler.GamlAnnotations.variable;
 import msi.gama.precompiler.GamlAnnotations.vars;
 import msi.gama.runtime.IScope;
 import msi.gaml.types.IType;
 
 @vars({
-	@var(name = ITrafficPeriod.GENERATOR, type = TrafficGeneratorType.ID, doc = @doc("the generator")),
-	@var(name = ITrafficPeriod.INDIVIDUAL, type = IType.NONE, doc = @doc("number of allowed individuals")),
-	@var(name = ITrafficPeriod.DURATION, type = IType.FLOAT, doc=@doc("duration of this period")),
-	@var(name = ITrafficPeriod.NEXT, type = IType.AGENT, doc = @doc("next agent to create in traffic period")),
+	@variable(name = ITrafficPeriod.GENERATOR, type = TrafficGeneratorType.ID, doc = @doc("the generator")),
+	@variable(name = ITrafficPeriod.INDIVIDUAL, type = IType.NONE, doc = @doc("number of allowed individuals")),
+	@variable(name = ITrafficPeriod.DURATION, type = IType.FLOAT, doc=@doc("duration of this period")),
+	@variable(name = ITrafficPeriod.NEXT, type = IType.AGENT, doc = @doc("next agent to create in traffic period")),
 })
 
 public class TrafficPeriod {

@@ -5,7 +5,7 @@ import java.text.ParseException;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.setter;
-import msi.gama.precompiler.GamlAnnotations.var;
+import msi.gama.precompiler.GamlAnnotations.variable;
 import msi.gama.precompiler.GamlAnnotations.vars;
 import msi.gama.runtime.IScope;
 import msi.gama.util.GamaDate;
@@ -14,11 +14,11 @@ import msi.gama.util.IList;
 import msi.gaml.types.IType;
 import msi.gaml.types.Types;
 @vars({
-	@var(name = IVehicleGenerator.VEHICLE_LIST, type = IType.LIST, doc = @doc("list of vehicle type to generate")),
-	@var(name = IVehicleGenerator.SPEED_LIST, type = IType.LIST, doc = @doc("list of speed of each vehicle in vehicle List")),
-	@var(name = IVehicleGenerator.TH_LIST, type = IType.LIST, doc = @doc("List of time Headway of each vehicle in list")),
-	@var(name = IVehicleGenerator.PERIOD_LIST, type = IType.LIST, doc = @doc("list of preriod number based on the sequence of generation")),
-	@var(name = IVehicleGenerator.VEHICLE_NUMBER, type = IType.LIST, doc = @doc("list of number of vehicles for each period in the generation"))
+	@variable(name = IVehicleGenerator.VEHICLE_LIST, type = IType.LIST, doc = @doc("list of vehicle type to generate")),
+	@variable(name = IVehicleGenerator.SPEED_LIST, type = IType.LIST, doc = @doc("list of speed of each vehicle in vehicle List")),
+	@variable(name = IVehicleGenerator.TH_LIST, type = IType.LIST, doc = @doc("List of time Headway of each vehicle in list")),
+	@variable(name = IVehicleGenerator.PERIOD_LIST, type = IType.LIST, doc = @doc("list of preriod number based on the sequence of generation")),
+	@variable(name = IVehicleGenerator.VEHICLE_NUMBER, type = IType.LIST, doc = @doc("list of number of vehicles for each period in the generation"))
 })
 public abstract class VehicleGeneratorX {
 

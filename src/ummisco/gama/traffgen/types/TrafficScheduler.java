@@ -6,16 +6,16 @@ import msi.gama.metamodel.agent.IAgent;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.operator;
-import msi.gama.precompiler.GamlAnnotations.var;
+import msi.gama.precompiler.GamlAnnotations.variable;
 import msi.gama.precompiler.GamlAnnotations.vars;
 import msi.gama.runtime.IScope;
 import msi.gama.util.IList;
 import msi.gaml.types.IType;
 
 @vars({
-	//@var(name = ITrafficScheduler.TRAFFIC_PERIODS, type = TrafficPeriodType.ID, doc = @doc("List of periods")),
-	@var(name = ITrafficScheduler.NEXT, type = IType.AGENT, doc = @doc("next agent to create in scheduler")),
-	@var(name = ITrafficScheduler.TYPE, type = IType.STRING, doc = @doc("Type of the scheduler"))
+	//@variable(name = ITrafficScheduler.TRAFFIC_PERIODS, type = TrafficPeriodType.ID, doc = @doc("List of periods")),
+	@variable(name = ITrafficScheduler.NEXT, type = IType.AGENT, doc = @doc("next agent to create in scheduler")),
+	@variable(name = ITrafficScheduler.TYPE, type = IType.STRING, doc = @doc("Type of the scheduler"))
 })
 
 public class TrafficScheduler {

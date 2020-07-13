@@ -8,7 +8,7 @@ import msi.gama.metamodel.shape.IShape;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.operator;
-import msi.gama.precompiler.GamlAnnotations.var;
+import msi.gama.precompiler.GamlAnnotations.variable;
 import msi.gama.precompiler.GamlAnnotations.vars;
 import msi.gama.runtime.IScope;
 import msi.gama.util.GamaListFactory;
@@ -31,9 +31,9 @@ import ummisco.gama.traffgen.generators.TrafficTimeTable;
 import ummisco.gama.traffgen.generators.TransitionGenerator;
 
 @vars({
-	@var(name = ITrafficGenerator.NEXT, type = IType.AGENT, doc = @doc("next agent to create")),
-	@var(name = ITrafficGenerator.PREVIOUS, type = IType.AGENT, doc = @doc("previous created agent")),
-	@var(name = ITrafficGenerator.BUFFERED_PREVIOUS, type = IType.LIST, doc=@doc("previous created agent inside the buffer"))
+	@variable(name = ITrafficGenerator.NEXT, type = IType.AGENT, doc = @doc("next agent to create")),
+	@variable(name = ITrafficGenerator.PREVIOUS, type = IType.AGENT, doc = @doc("previous created agent")),
+	@variable(name = ITrafficGenerator.BUFFERED_PREVIOUS, type = IType.LIST, doc=@doc("previous created agent inside the buffer"))
 })
 public class TrafficGenerator {
 	public static final int Id = IType.AVAILABLE_TYPES+4568;

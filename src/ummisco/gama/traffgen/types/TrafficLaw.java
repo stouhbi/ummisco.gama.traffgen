@@ -5,7 +5,7 @@ import java.util.Map;
 import msi.gama.precompiler.GamlAnnotations.doc;
 import msi.gama.precompiler.GamlAnnotations.getter;
 import msi.gama.precompiler.GamlAnnotations.operator;
-import msi.gama.precompiler.GamlAnnotations.var;
+import msi.gama.precompiler.GamlAnnotations.variable;
 import msi.gama.precompiler.GamlAnnotations.vars;
 import msi.gama.runtime.IScope;
 import msi.gama.util.GamaMap;
@@ -33,9 +33,9 @@ import umontreal.ssj.rng.RandomStream;
 
 
 @vars({
-	@var(name = ITrafficLaw.PARAMETERS, type = IType.MAP, doc = @doc("list of parameters for the law")),
-	@var(name = ITrafficLaw.MODEL, type = IType.STRING, doc = @doc("Name of the model")),
-	@var(name = ITrafficLaw.NEXT, type = IType.FLOAT, doc=@doc("Next value of the random generator"))
+	@variable(name = ITrafficLaw.PARAMETERS, type = IType.MAP, doc = @doc("list of parameters for the law")),
+	@variable(name = ITrafficLaw.MODEL, type = IType.STRING, doc = @doc("Name of the model")),
+	@variable(name = ITrafficLaw.NEXT, type = IType.FLOAT, doc=@doc("Next value of the random generator"))
 })
 public class TrafficLaw extends GamaMap<String, Object> {
 	
